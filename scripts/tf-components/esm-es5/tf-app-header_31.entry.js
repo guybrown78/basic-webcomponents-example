@@ -155,16 +155,58 @@ var ChevronUp = /** @class */ (function () {
 var List = /** @class */ (function () {
     function List(hostRef) {
         registerInstance(this, hostRef);
+        this.showHint = false;
+        this.showError = false;
+        //
+        this.name = null;
+        this.label = null;
+        this.placeholder = '';
+        this.inputHint = null;
+        this.inputError = null;
+        this.error = false;
     }
+    List.prototype.componentWillLoad = function () {
+        console.log(this.inputHint);
+        if (this.inputHint) {
+            this.showHint = true;
+        }
+        if (this.inputError) {
+            if (!this.error) {
+                this.error = true;
+            }
+            this.showError = true;
+        }
+    };
     List.prototype.render = function () {
-        return (h("div", { class: "list-container" }, h("ul", null, h("slot", null))));
+        var bottomText = null;
+        if (this.showHint) {
+            bottomText = h("p", { class: "hint" }, this.inputHint);
+        }
+        if (this.showError) {
+            bottomText = h("p", { class: "error" }, this.inputError);
+        }
+        return (h("div", { class: "label-input-container" }, h("label", { htmlFor: this.name }, this.label), h("div", { class: "input-container" }, h("input", { id: this.name, class: "\n\t\t\t\t\t\t\tform-input \n\t\t\t\t\t\t\tform-input-styled \n\t\t\t\t\t\t\t" + (this.showError ? 'form-input-error' : '') + " \n\t\t\t\t\t\t\tanother-style\n\t\t\t\t\t\t", placeholder: this.placeholder })), bottomText));
     };
     Object.defineProperty(List, "style", {
-        get: function () { return ".list-container{overflow:hidden}ul{list-style-type:none;margin:0;padding:0}\@media (min-width:640px){.list-container{border-radius:.375rem}}"; },
+        get: function () { return "label{display:block;font-size:.875rem;font-weight:500;line-height:1.25rem;color:#374151}*,:after,:before,input,input[type=password],input[type=text]{-webkit-box-sizing:border-box;box-sizing:border-box}*,:after,:before{border:0 solid #d2d6dc}.label-input-container{margin-bottom:1rem}.input-container{margin-top:.25rem;position:relative;border-radius:.375rem;-webkit-box-shadow:0 1px 2px 0 rgba(0,0,0,.05);box-shadow:0 1px 2px 0 rgba(0,0,0,.05)}.form-input{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:#fff;border-color:#d0dfe3;border-width:1px;border-radius:.375rem;padding-top:.5rem;padding-bottom:.5rem;padding-left:.75rem;padding-right:.75rem;font-size:1rem;line-height:1.5}.form-input::-webkit-input-placeholder{color:#b1bdc1;opacity:1}.form-input::-moz-placeholder{color:#b1bdc1;opacity:1}.form-input:-ms-input-placeholder{color:#b1bdc1;opacity:1}.form-input::-ms-input-placeholder{color:#b1bdc1;opacity:1}.form-input::placeholder{color:#b1bdc1;opacity:1}.form-input:focus{outline:0;border-color:#8598c4;-webkit-box-shadow:0 0 0 3px rgba(164,202,254,.45);box-shadow:0 0 0 3px rgba(164,202,254,.45)}.form-input-styled{display:block;width:100%}.form-input-error{color:#771d1d}.form-input-error:focus{border-color:#f8b4b4}.hint{color:#d0dfe3}.error,.hint{margin-top:.5rem;font-size:.875rem}.error{color:#e02424}\@media (min-width:640px){.form-input-styled{font-size:.875rem;line-height:1.25rem}}"; },
         enumerable: true,
         configurable: true
     });
     return List;
+}());
+var List$1 = /** @class */ (function () {
+    function List$1(hostRef) {
+        registerInstance(this, hostRef);
+    }
+    List$1.prototype.render = function () {
+        return (h("div", { class: "list-container" }, h("ul", null, h("slot", null))));
+    };
+    Object.defineProperty(List$1, "style", {
+        get: function () { return ".list-container{overflow:hidden}ul{list-style-type:none;margin:0;padding:0}\@media (min-width:640px){.list-container{border-radius:.375rem}}"; },
+        enumerable: true,
+        configurable: true
+    });
+    return List$1;
 }());
 var ListWrappingCell = /** @class */ (function () {
     function ListWrappingCell(hostRef) {
@@ -199,6 +241,10 @@ var ListWrappingItem = /** @class */ (function () {
         });
     };
     ListWrappingItem.prototype.getCellStyle = function (contentAlign) {
+        // let style = {
+        // 	display: 'flex',
+        // }
+        //
         return {
             display: 'flex',
             flex: '1',
@@ -644,4 +690,4 @@ var ValuePair = /** @class */ (function () {
     });
     return ValuePair;
 }());
-export { AppHeader as tf_app_header, Button as tf_button, Card as tf_card, HexagonButton as tf_hexagon_button, ChevronDown as tf_icon_chevron_down, ChevronUp as tf_icon_chevron_up, List as tf_list, ListWrappingCell as tf_list_wrapping_cell, ListWrappingItem as tf_list_wrapping_item, LMSDelegateNode as tf_lms_delegate_node, MainContent as tf_main_content, Node as tf_node, NodeList as tf_node_list, NodeSelectMenu as tf_node_select_menu, NodeStatusBookend as tf_node_status_bookend, SideDrawer as tf_side_drawer, SideDrawerNav as tf_side_drawer_nav, SideDrawerNavLink as tf_side_drawer_nav_link, SideDrawerSubNav as tf_side_drawer_sub_nav, SideDrawerSubNavLink as tf_side_drawer_sub_nav_link, StatDataCard as tf_stat_data_card, StatsPanel as tf_stats_panel, Status as tf_status, Table as tf_table, TableCell as tf_table_cell, TableHead as tf_table_head, TableHeadCell as tf_table_head_cell, TableHead$1 as tf_table_row, User as tf_user, ValuePair as tf_value_pair };
+export { AppHeader as tf_app_header, Button as tf_button, Card as tf_card, HexagonButton as tf_hexagon_button, ChevronDown as tf_icon_chevron_down, ChevronUp as tf_icon_chevron_up, List as tf_input, List$1 as tf_list, ListWrappingCell as tf_list_wrapping_cell, ListWrappingItem as tf_list_wrapping_item, LMSDelegateNode as tf_lms_delegate_node, MainContent as tf_main_content, Node as tf_node, NodeList as tf_node_list, NodeSelectMenu as tf_node_select_menu, NodeStatusBookend as tf_node_status_bookend, SideDrawer as tf_side_drawer, SideDrawerNav as tf_side_drawer_nav, SideDrawerNavLink as tf_side_drawer_nav_link, SideDrawerSubNav as tf_side_drawer_sub_nav, SideDrawerSubNavLink as tf_side_drawer_sub_nav_link, StatDataCard as tf_stat_data_card, StatsPanel as tf_stats_panel, Status as tf_status, Table as tf_table, TableCell as tf_table_cell, TableHead as tf_table_head, TableHeadCell as tf_table_head_cell, TableHead$1 as tf_table_row, User as tf_user, ValuePair as tf_value_pair };

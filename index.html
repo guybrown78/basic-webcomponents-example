@@ -363,7 +363,33 @@
 			</tf-node>
 		</tf-card> 
 
-		
+		<tf-card>
+			<tf-node>
+				<div style="display:flex; flex-direction: column; flex:1; padding: 10px 30px; margin-bottom: 30px;">
+
+					<tf-input name="email" label="Email" placeholder="name@example.com"></tf-input>
+
+					<tf-input 
+						name="email" 
+						label="Email" 
+						placeholder="name@example.com"
+						input-hint="Enter the email address you registered with"
+					></tf-input>
+
+
+					<tf-input 
+						name="email" 
+						label="Email" 
+						placeholder="name@example.com"
+						input-hint="Enter the email address you registered with"
+						input-error="That's not an email address"
+					></tf-input>
+
+				</div>
+				
+			</tf-node>
+			
+		</tf-card> 	
 
 	</tf-main-content>
 

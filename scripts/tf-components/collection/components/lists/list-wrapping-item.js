@@ -15,6 +15,10 @@ export class ListWrappingItem {
         });
     }
     getCellStyle(contentAlign) {
+        // let style = {
+        // 	display: 'flex',
+        // }
+        //
         return {
             display: 'flex',
             flex: '1',

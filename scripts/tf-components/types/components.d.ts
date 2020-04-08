@@ -42,6 +42,14 @@ export namespace Components {
   }
   interface TfIconChevronDown {}
   interface TfIconChevronUp {}
+  interface TfInput {
+    'error': boolean;
+    'inputError': string;
+    'inputHint': string;
+    'label': string;
+    'name': string;
+    'placeholder': string;
+  }
   interface TfList {}
   interface TfListWrappingCell {
     'contentAlign': string;
@@ -158,6 +166,12 @@ declare global {
   var HTMLTfIconChevronUpElement: {
     prototype: HTMLTfIconChevronUpElement;
     new (): HTMLTfIconChevronUpElement;
+  };
+
+  interface HTMLTfInputElement extends Components.TfInput, HTMLStencilElement {}
+  var HTMLTfInputElement: {
+    prototype: HTMLTfInputElement;
+    new (): HTMLTfInputElement;
   };
 
   interface HTMLTfListElement extends Components.TfList, HTMLStencilElement {}
@@ -331,6 +345,7 @@ declare global {
     'tf-hexagon-svg': HTMLTfHexagonSvgElement;
     'tf-icon-chevron-down': HTMLTfIconChevronDownElement;
     'tf-icon-chevron-up': HTMLTfIconChevronUpElement;
+    'tf-input': HTMLTfInputElement;
     'tf-list': HTMLTfListElement;
     'tf-list-wrapping-cell': HTMLTfListWrappingCellElement;
     'tf-list-wrapping-item': HTMLTfListWrappingItemElement;
@@ -395,6 +410,14 @@ declare namespace LocalJSX {
   }
   interface TfIconChevronDown {}
   interface TfIconChevronUp {}
+  interface TfInput {
+    'error'?: boolean;
+    'inputError'?: string;
+    'inputHint'?: string;
+    'label'?: string;
+    'name'?: string;
+    'placeholder'?: string;
+  }
   interface TfList {}
   interface TfListWrappingCell {
     'contentAlign'?: string;
@@ -464,6 +487,7 @@ declare namespace LocalJSX {
     'tf-hexagon-svg': TfHexagonSvg;
     'tf-icon-chevron-down': TfIconChevronDown;
     'tf-icon-chevron-up': TfIconChevronUp;
+    'tf-input': TfInput;
     'tf-list': TfList;
     'tf-list-wrapping-cell': TfListWrappingCell;
     'tf-list-wrapping-item': TfListWrappingItem;
@@ -509,6 +533,7 @@ declare module "@stencil/core" {
       'tf-hexagon-svg': LocalJSX.TfHexagonSvg & JSXBase.HTMLAttributes<HTMLTfHexagonSvgElement>;
       'tf-icon-chevron-down': LocalJSX.TfIconChevronDown & JSXBase.HTMLAttributes<HTMLTfIconChevronDownElement>;
       'tf-icon-chevron-up': LocalJSX.TfIconChevronUp & JSXBase.HTMLAttributes<HTMLTfIconChevronUpElement>;
+      'tf-input': LocalJSX.TfInput & JSXBase.HTMLAttributes<HTMLTfInputElement>;
       'tf-list': LocalJSX.TfList & JSXBase.HTMLAttributes<HTMLTfListElement>;
       'tf-list-wrapping-cell': LocalJSX.TfListWrappingCell & JSXBase.HTMLAttributes<HTMLTfListWrappingCellElement>;
       'tf-list-wrapping-item': LocalJSX.TfListWrappingItem & JSXBase.HTMLAttributes<HTMLTfListWrappingItemElement>;
