@@ -1,0 +1,90 @@
+aside {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 400px;
+  max-width: 80%;
+  height: 100vh;
+  background-color: #363154;
+  box-shadow: 0 0.1875rem 0.375rem 0 rgba(0, 0, 0, 0.16);
+  transition: left 0.3s ease-out;
+  z-index: 100;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(54, 49, 84, 0.75);
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+}
+
+:host([opened]) aside {
+  left: 0;
+}
+
+:host([opened]) .backdrop {
+  opacity: 1;
+  pointer-events: all;
+}
+
+::slotted(*) {
+  display: flex;
+  color: #ffffff;
+}
+
+::slotted(*) ul {
+  list-style: none;
+}
+
+header {
+  padding: 0 1.375rem;
+  margin-bottom: 1.375rem;
+  height: 4.625rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#app-logo-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+#app-logo {
+  display: flex;
+  align-items: center;
+}
+
+#app-logo-icon {
+  width: 2.813rem;
+  height: 3.125rem;
+}
+
+#app-logo-initials {
+  color: #224595;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  text-align: center;
+  /* For Mozilla Firefox */
+}
+
+#app-logo-initials::-moz-selection {
+  color: none;
+  background: none;
+}
+
+#app-logo-initials::selection {
+  color: none;
+  background: none;
+}
+
+#app-logo-initials::-moz-selection {
+  color: none;
+  background: none;
+}

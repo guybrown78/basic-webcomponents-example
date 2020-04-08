@@ -1,0 +1,13 @@
+div{
+  flex-shrink: 0;
+}
+
+.wrap{
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  div{
+    margin-top: 0;
+  }
+}

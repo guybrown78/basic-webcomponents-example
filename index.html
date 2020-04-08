@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Transform Web Components Basic Example</title>
 
-	<!-- <script type="module" src="script/tf-components/transformwebcomponents/transformwebcomponents.esm.js"></script>
-	<script nomodule="" src="script/tf-components/transformwebcomponents/transformwebcomponents.js"></script> -->
+	<script type="module" src="script/tf-components/transform-web-components/transform-web-components.esm.js"></script>
+	<script nomodule="" src="script/tf-components/transform-web-components/transform-web-components.js"></script> 
 	
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 	<style>
@@ -29,7 +29,343 @@
 </head>
 <body>
 
-	<h1>Transorm Web Components</h1>
+	
+	<tf-app-header 	
+		app-title="Learning Management" 
+		app-initials="TM"
+		client-logo-source="https://dwglogo.com/wp-content/uploads/2016/01/Petrofac-Logo.png"
+	></tf-app-header>
+	<!-- client-logo-source="https://www.altrad.com/assets/images/d/Logo_Altrad-70a68d1e.jpg" -->
+	<!--  client-logo-source="https://dwglogo.com/wp-content/uploads/2016/01/Petrofac-Logo.png" -->
+	<!-- client-logo-source="../assetts/petrofac-logo.png" -->
+
+	<tf-side-drawer display-title="Main Menu">
+		<tf-side-drawer-nav>
+
+			<tf-side-drawer-nav-link 
+				icon="chevron-down" 
+				href-link="#"
+				href-title="Visit NeutronVR's website"
+			>
+				Overview
+			</tf-side-drawer-nav-link>
+					
+			<tf-side-drawer-nav-link 
+				icon="chevron-down" 
+			>
+				Content
+				<tf-side-drawer-sub-nav slot="sub">
+					<tf-side-drawer-sub-nav-link
+						href-link="#"
+						href-title="Sub item title"
+					>
+						Sub section A
+					</tf-side-drawer-sub-nav-link>
+
+					<tf-side-drawer-sub-nav-link
+						href-link="#"
+						href-title="Sub item title"
+					>
+						Sub section B
+					</tf-side-drawer-sub-nav-link>
+
+					<tf-side-drawer-sub-nav-link
+						href-link="#"
+						href-title="Sub item title"
+					>
+						Sub section A
+					</tf-side-drawer-sub-nav-link>
+
+				</tf-side-drawer-sub-nav>
+
+			</tf-side-drawer-nav-link>
+
+			<tf-side-drawer-nav-link 
+					icon="chevron-down" 
+					href-link="#"
+				>
+					Section C
+					<tf-side-drawer-sub-nav slot="sub">
+						<p class="text-navy-900">I'm not a component</p>
+					</tf-side-drawer-sub-nav>
+				</tf-side-drawer-nav-link>
+
+				<tf-side-drawer-nav-link 
+					icon="chevron-down" 
+					href-link="#"
+					href-title="Link title for accessibility"
+				>
+					Section D
+				</tf-side-drawer-nav-link>
+		</tf-side-drawer-nav>
+	</tf-side-drawer>
+	<!-- <tf-menu-bar></tf-menu-bar>
+ -->
+
+	<tf-main-content>
+
+		
+		<tf-stats-panel>
+			<tf-stat-data-card colour="blue">
+				<span slot="title">Data Title</span>
+				<span slot="data">75,562</span>
+			</tf-stat-data-card>
+
+			<tf-stat-data-card colour="green">
+				<span slot="title">Avg. Open Rate</span>
+				<span slot="data">58.16%</span>
+			</tf-stat-data-card>
+
+			<tf-stat-data-card colour="amber">
+				<span slot="title">Avg. Click Rate</span>
+				<span slot="data">54.57%</span>
+			</tf-stat-data-card>
+
+			<tf-stat-data-card colour="red">
+				<span slot="title">Todays sales</span>
+				<span slot="data">£1.20</span>
+			</tf-stat-data-card>
+
+		</tf-stats-panel>
+
+		<tf-card>
+
+			<tf-list>
+
+				<tf-list-wrapping-item>
+
+					<tf-list-wrapping-cell>
+						<tf-user></tf-user>
+					</tf-list-wrapping-cell>
+
+					<tf-list-wrapping-cell content-align="center" >
+						<tf-status traffic-light-colour="red">Inactive</tf-status>
+					</tf-list-wrapping-cell>
+
+					<tf-list-wrapping-cell>
+						<tf-value-pair>
+							<span slot="dark">Cold Water Survival</span>
+							<span slot="light">CA321</span>
+						</tf-value-pair>
+					</tf-list-wrapping-cell>
+
+					<tf-list-wrapping-cell>
+						<tf-value-pair>
+							<span slot="dark">42</span>
+							<span slot="light">Courses</span>
+						</tf-value-pair>
+					</tf-list-wrapping-cell>
+
+				</tf-list-wrapping-item>
+
+				<tf-list-wrapping-item>
+
+					<tf-list-wrapping-cell>
+						<tf-user></tf-user>
+					</tf-list-wrapping-cell>
+
+					<tf-list-wrapping-cell content-align="center" >
+						<tf-status traffic-light-colour="green">Active</tf-status>
+					</tf-list-wrapping-cell>
+
+					<tf-list-wrapping-cell>
+						<tf-value-pair>
+							<span slot="dark">Optito Bosiet with CA-EBS</span>
+							<span slot="light">CA321</span>
+						</tf-value-pair>
+					</tf-list-wrapping-cell>
+
+					<tf-list-wrapping-cell>
+						<tf-value-pair>
+							<span slot="dark">16</span>
+							<span slot="light">Courses</span>
+						</tf-value-pair>
+					</tf-list-wrapping-cell>
+
+				</tf-list-wrapping-item>
+
+			</tf-list>
+
+		</tf-card>
+
+		<tf-card>
+
+			<tf-table>
+				<tf-table-head slot="table-head">
+					<tf-table-head-cell>Name</tf-table-head-cell>
+					<tf-table-head-cell>Title</tf-table-head-cell>
+					<tf-table-head-cell>Status</tf-table-head-cell>
+					<tf-table-head-cell>Role</tf-table-head-cell>
+					<tf-table-head-cell></tf-table-head-cell>	
+				</tf-table-head-cell>
+
+				<tf-table-row>
+					<tf-table-cell>
+						<tf-user></tf-user>
+					</tf-table-cell>
+					<tf-table-cell>
+						<tf-value-pair>
+							<span slot="dark">Director</span>
+							<span slot="light">Human Resources</span>
+						</tf-value-pair>
+					</tf-table-cell>
+					<tf-table-cell>
+						<tf-status traffic-light-colour="red">Inactive</tf-status>
+					</tf-table-cell>
+					<tf-table-cell>
+						Owner
+					</tf-table-cell>
+					<tf-table-cell text-align="right">
+						<a href="#" >Edit</a>
+					</tf-table-cell>
+				</tf-table-row>
+				
+				<tf-table-row>
+					<tf-table-cell>
+						<tf-user></tf-user>
+					</tf-table-cell>
+					<tf-table-cell>
+						<tf-value-pair>
+							<span slot="dark">Welder</span>
+							<span slot="light">Offshore Rig</span>
+						</tf-value-pair>
+					</tf-table-cell>
+					<tf-table-cell>
+						<tf-status traffic-light-colour="green">Active</tf-status>
+					</tf-table-cell>
+					<tf-table-cell>
+						Worker
+					</tf-table-cell>
+					<tf-table-cell text-align="right">
+						<a href="#" >Edit</a>
+					</tf-table-cell>
+				</tf-table-row>
+
+			</tf-table>
+			
+		</tf-card>
+
+		<tf-card>
+			<!-- <tf-delegate-node-header>Hello</tf-delegate-header> -->
+			<tf-node-list>
+				<tf-lms-delegate-node
+					delegate-id="1234"
+					delegate-status="complete"
+					delegate-name="John Smith"
+					delegate-dob="23/06/1971"
+					course-title="Course Title"
+					course-code="CA123"
+					delegate-courses-count="42"
+				></tf-lms-delegate-node>
+				<tf-lms-delegate-node
+					delegate-status="incomplete"
+					delegate-id="1112"
+					delegate-name="Ben Smith"
+					delegate-dob="09/01/1978"
+					course-title="Cold Water Survival"
+					course-code="CA321"
+					delegate-courses-count="16"
+				></tf-lms-delegate-node>
+				<tf-lms-delegate-node
+					delegate-status="inprogress"
+					delegate-id="1113"
+					delegate-name="Roger Coleman"
+					delegate-dob="15/05/1985"
+					course-title="Optito Bosiet with CA-EBS"
+					course-code="CA321"
+					delegate-courses-count="16"
+				></tf-lms-delegate-node>
+				<tf-lms-delegate-node
+					delegate-status=""
+				></tf-lms-delegate-node>
+			</tf-node-list>
+			<!-- <tf-delegate-node-footer>Hello</tf-delegate-footer> -->
+		</tf-card>
+
+		
+	<tf-card>
+			<tf-node>
+				<div class="max-w-3xl mx-auto space-y-4 flex flex-col items-center justify-start sm:space-y-0 sm:flex-row sm:items-end sm:justify-around">
+
+					<tf-button colour="default" size="xs">Extra Small Button</tf-button>
+
+					<tf-button size="s" colour="aqua">My Small Button</tf-button>
+
+					<tf-button>Standard</tf-button>
+
+					<tf-button size="large" colour="grey">Tailwind Button</tf-button>
+
+					<tf-button size="xl" colour="navy">XL Tailwind Button</tf-button>
+					
+				</div>
+				
+
+			</tf-node>
+		</tf-card> 
+
+		<tf-card>
+			<tf-node>
+				
+				<div class="max-w-3xl mx-auto space-y-4 flex flex-col items-center justify-start sm:space-y-0 sm:flex-row sm:items-end sm:justify-around">
+					
+					<tf-button size="xs" icon="chevron-down" icon-position="left">
+						tiny
+					</tf-button>
+
+					<tf-button size="s" colour="navy" icon="chevron-down" icon-position="left">
+						small
+					</tf-button>
+
+					<tf-button size="m" icon="chevron-down" colour="grey" icon-position="left">
+						medium
+					</tf-button>
+
+					<tf-button colour="aqua" size="l" icon="chevron-down" icon-position="left">
+						large
+					</tf-button>
+
+					<tf-button size="xl" icon="chevron-up" icon-position="left">
+						extra large
+					</tf-button>
+
+				</div>
+
+			</tf-node>
+		</tf-card> 
+
+		<tf-card>
+			<tf-node>
+				
+				<div class="max-w-3xl mx-auto space-y-4 flex flex-col items-center justify-start sm:space-y-0 sm:flex-row sm:items-end sm:justify-around">
+					
+					<tf-button size="xs" colour="navy" icon="chevron-down" icon-position="right">
+						tiny
+					</tf-button>
+
+					<tf-button size="s" colour="aqua" icon="chevron-down" icon-position="right">
+						small
+					</tf-button>
+
+					<tf-button size="m" icon="chevron-down" icon-position="right">
+						medium
+					</tf-button>
+
+					<tf-button size="l" icon="chevron-down" icon-position="right">
+						large
+					</tf-button>
+
+					<tf-button size="xl" colour="grey" icon="chevron-down" icon-position="right">
+						extra large
+					</tf-button>
+
+				</div>
+
+			</tf-node>
+		</tf-card> 
+
+		
+
+	</tf-main-content>
 
 </body>
 </html>

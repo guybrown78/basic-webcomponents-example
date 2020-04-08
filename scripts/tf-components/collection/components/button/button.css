@@ -1,0 +1,219 @@
+span {
+  display: inline-flex;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.tw-btn {
+  display: inline-flex;
+  align-items: center;
+  border-width: 1px;
+  border-color: transparent;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+::slotted([slot=icon]) {
+  color: red;
+}
+
+.size-xs, .size-extra-small {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  border-radius: 0.25rem;
+}
+
+.size-s, .size-small {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  border-radius: 0.375rem;
+}
+
+.size-m, .size-medium, .size-default {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.375rem;
+}
+
+.size-l, .size-large {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-radius: 0.375rem;
+}
+
+.size-xl, .size-extra-large {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-radius: 0.375rem;
+}
+
+.colour-blue, .colour-default {
+  color: #ffffff;
+  background-color: #224595;
+}
+
+.colour-blue:hover, .colour-default:hover {
+  background-color: #4260A4;
+}
+
+.colour-blue:active, .colour-default:active {
+  background-color: #1E3D85;
+}
+
+.colour-blue:focus, .colour-default:focus {
+  outline: 0;
+  border-color: #1E3D85;
+  box-shadow: 0 0 0 3px rgba(164, 202, 254, 0.45);
+}
+
+.colour-aqua {
+  color: #122551;
+  background-color: #32F7DC;
+}
+
+.colour-aqua:hover {
+  background-color: #84FAEA;
+}
+
+.colour-aqua:active {
+  background-color: #2AD2BB;
+}
+
+.colour-aqua:focus {
+  outline: 0;
+  border-color: #2AD2BB;
+  box-shadow: 0 0 0 3px rgba(164, 202, 254, 0.45);
+}
+
+.colour-navy {
+  color: #ffffff;
+  background-color: #363154;
+}
+
+.colour-navy:hover {
+  background-color: #534F6D;
+}
+
+.colour-navy:active {
+  background-color: #25223A;
+}
+
+.colour-navy:focus {
+  outline: 0;
+  border-color: #25223A;
+  box-shadow: 0 0 0 3px rgba(164, 202, 254, 0.45);
+}
+
+.colour-grey {
+  color: #122551;
+  background-color: #D0DFE3;
+}
+
+.colour-grey:hover {
+  background-color: #D7E3E7;
+}
+
+.colour-grey:active {
+  background-color: #B1BDC1;
+}
+
+.colour-grey:focus {
+  outline: 0;
+  border-color: #B1BDC1;
+  box-shadow: 0 0 0 3px rgba(164, 202, 254, 0.45);
+}
+
+.icon-xs-l, .icon-extra-small-l {
+  margin-left: -0.125rem;
+  margin-right: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+.icon-xs-r, .icon-extra-small-r {
+  margin-left: 0.5rem;
+  margin-right: -0.125rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+.icon-s-l, .icon-small-l {
+  margin-left: -0.125rem;
+  margin-right: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+.icon-s-r, .icon-small-r {
+  margin-left: 0.5rem;
+  margin-right: -0.125rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+.icon-m-l, .icon-medium-l, .icon-default-l {
+  margin-left: -0.25rem;
+  margin-right: 0.5rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.icon-m-r, .icon-medium-r, .icon-default-r {
+  margin-left: 0.5rem;
+  margin-right: -0.25rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.icon-l-l, .icon-large-l {
+  margin-left: -0.25rem;
+  margin-right: 0.75rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.icon-l-r, .icon-large-r {
+  margin-left: 0.75rem;
+  margin-right: -0.25rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.icon-xl-l, .icon-extra-large-l {
+  margin-left: -0.25rem;
+  margin-right: 0.75rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.icon-xl-r, .icon-extra-large-r {
+  margin-left: 0.75rem;
+  margin-right: -0.25rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}
