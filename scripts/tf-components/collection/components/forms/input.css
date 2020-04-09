@@ -1,9 +1,21 @@
-label {
+.form-label {
   display: block;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
   color: #374151;
+}
+
+.form-label-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 input[type=text],
@@ -45,27 +57,30 @@ input {
 }
 
 .form-input::-webkit-input-placeholder {
-  color: #B1BDC1;
+  color: #D7E3E7;
   opacity: 1;
 }
 
-.form-input::-moz-placeholder {
-  color: #B1BDC1;
-  opacity: 1;
-}
-
-.form-input:-ms-input-placeholder {
-  color: #B1BDC1;
-  opacity: 1;
-}
-
-.form-input::-ms-input-placeholder {
-  color: #B1BDC1;
-  opacity: 1;
-}
-
+.form-input::-webkit-input-placeholder,
+.form-input::-moz-placeholder,
+.form-input:-ms-input-placeholder,
+.form-input::-ms-input-placeholder,
 .form-input::placeholder {
-  color: #B1BDC1;
+  color: #D7E3E7;
+  opacity: 1;
+}
+
+.form-input.form-input-error::-webkit-input-placeholder {
+  color: #f8b4b4;
+  opacity: 1;
+}
+
+.form-input.form-input-error::-webkit-input-placeholder,
+.form-input.form-input-error::-moz-placeholder,
+.form-input.form-input-error:-ms-input-placeholder,
+.form-input.form-input-error::-ms-input-placeholder,
+.form-input.form-input-error::placeholder {
+  color: #f8b4b4;
   opacity: 1;
 }
 
@@ -82,10 +97,20 @@ input {
 
 .form-input-error {
   color: #771d1d;
+  border-color: #f8b4b4;
 }
 
 .form-input-error:focus {
   border-color: #f8b4b4;
+  box-shadow: 0 0 0 3px rgba(248, 180, 180, 0.45);
+}
+
+.form-input-leading-icon {
+  padding-left: 2.5rem;
+}
+
+.form-input-trailing-icon {
+  padding-right: 2.5rem;
 }
 
 .hint {
@@ -98,6 +123,39 @@ input {
   margin-top: 0.5rem;
   font-size: 0.875rem;
   color: #e02424;
+}
+
+.svg-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.svg-leading {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding-left: 0.75rem;
+}
+
+.svg-trailing {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding-right: 0.75rem;
+}
+
+.svg-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: #9fa6b2;
+}
+
+.svg-error-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: #f98080;
 }
 
 @media (min-width: 640px) {

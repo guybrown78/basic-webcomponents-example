@@ -303,6 +303,7 @@
 			</tf-node>
 		</tf-card> 
 
+
 		<tf-card>
 			<tf-node>
 				
@@ -316,11 +317,11 @@
 						small
 					</tf-button>
 
-					<tf-button size="m" icon="chevron-down" colour="grey" icon-position="left">
+					<tf-button size="m" icon="chevron-left" colour="grey" icon-position="left">
 						medium
 					</tf-button>
 
-					<tf-button colour="aqua" size="l" icon="chevron-down" icon-position="left">
+					<tf-button colour="aqua" size="l" icon="envelope" icon-position="left">
 						large
 					</tf-button>
 
@@ -346,7 +347,7 @@
 						small
 					</tf-button>
 
-					<tf-button size="m" icon="chevron-down" icon-position="right">
+					<tf-button size="m" icon="chevron-right" icon-position="right">
 						medium
 					</tf-button>
 
@@ -362,6 +363,7 @@
 
 			</tf-node>
 		</tf-card> 
+
 
 		<tf-card>
 			<tf-node>
@@ -383,6 +385,24 @@
 						placeholder="name@example.com"
 						input-hint="Enter the email address you registered with"
 						input-error="That's not an email address"
+						error
+					></tf-input>
+
+					<tf-input 
+						name="email" 
+						label="Email" 
+						placeholder="name@example.com"
+						hide-label
+						icon="envelope"
+						icon-position="left"
+					></tf-input>
+
+					<tf-input 
+						name="search" 
+						label="Search Delegate" 
+						placeholder="Joe Bloggs"
+						icon="search"
+						icon-position="right"
 					></tf-input>
 
 				</div>
@@ -390,6 +410,70 @@
 			</tf-node>
 			
 		</tf-card> 	
+		
+		<tf-card>
+			<tf-node>
+			<div style="padding:20px 0; margin:0 auto; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 1fr); grid-column-gap: 50px; grid-row-gap: 50px;">
+
+					<tf-leading-icon-label>
+						<tf-icon-check slot="icon"></tf-icon-check>
+						Check
+					</tf-leading-icon-label>
+
+					<tf-leading-icon-label>
+						<tf-icon-chevron-down slot="icon"></tf-icon-chevron-down>
+						Chevron Down
+					</tf-leading-icon-label>
+
+					<tf-leading-icon-label>
+						<tf-icon-chevron-left slot="icon"></tf-icon-chevron-left>
+						Chevron Left
+					</tf-leading-icon-label>
+
+					<tf-leading-icon-label>
+						<tf-icon-chevron-right slot="icon"></tf-icon-chevron-right>
+						Chevron Right
+					</tf-leading-icon-label>
+
+					<tf-leading-icon-label>
+						<tf-icon-chevron-up slot="icon"></tf-icon-chevron-up>
+						Chevron Up
+					</tf-leading-icon-label>
+					
+					<tf-leading-icon-label>
+						<tf-icon-close slot="icon"></tf-icon-close>
+						Close
+					</tf-leading-icon-label>
+
+					<tf-leading-icon-label>
+						<tf-icon-envelope slot="icon"></tf-icon-envelope>
+						Envelope
+					</tf-leading-icon-label>
+
+					<tf-leading-icon-label>
+						<tf-icon-exclamation slot="icon"></tf-icon-exclamation>
+						Exclamation
+					</tf-leading-icon-label>
+
+					<tf-leading-icon-label>
+						<tf-icon-notification slot="icon"></tf-icon-notification>
+						Notification
+					</tf-leading-icon-label>
+
+					<tf-leading-icon-label>
+						<tf-icon-search slot="icon"></tf-icon-search>
+						Search
+					</tf-leading-icon-label>
+
+					<tf-leading-icon-label>
+						<tf-icon-user slot="icon"></tf-icon-user>
+						User
+					</tf-leading-icon-label>
+
+
+				</div>
+			</tf-node>
+		</tf-card>
 
 	</tf-main-content>
 

@@ -1,0 +1,14 @@
+@import '../../global/variables.scss';
+@import '../../global/mixins.scss';
+
+#side-nav{
+	flex:1;
+	padding:0.75rem;//1.2rem;
+}
+::slotted(tf-side-drawer-nav-link){
+	display: block;
+	border-bottom: solid 1px $grey;
+}
+::slotted(tf-side-drawer-nav-link:last-of-type){
+	border-bottom: none;
+}

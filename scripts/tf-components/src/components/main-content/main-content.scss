@@ -1,0 +1,7 @@
+@import '../../global/variables.scss';
+@import '../../global/mixins.scss';
+
+main{
+	@include apply-page-padding();
+	display: block;
+}

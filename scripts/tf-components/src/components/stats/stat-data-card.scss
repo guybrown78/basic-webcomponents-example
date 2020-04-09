@@ -1,0 +1,49 @@
+
+.stat-card-container{
+	@apply bg-white overflow-hidden shadow rounded-lg;
+}
+dl{
+	margin-block-start: 0px;
+	margin-block-end: 0px;
+	text-align: center;
+}
+dt{
+	@apply px-1 py-2 text-sm text-navy-800 leading-5 font-medium bg-grey-600 truncate;
+}
+
+dt.colour-default, dt.colour-blue{
+	@apply text-white bg-blue-600;
+}
+dt.colour-green{
+	@apply text-white bg-status-green;
+}
+dt.colour-amber{
+	@apply text-white bg-status-amber;
+}
+dt.colour-red{
+	@apply text-white bg-status-red;
+}
+
+dd{
+	margin-inline-start: 0px;
+	@apply px-1 py-5 mt-1 text-3xl text-navy-800 leading-9 font-semibold;
+}
+
+dd.colour-default, dd.colour-blue{
+	@apply text-blue-600;
+}
+dd.colour-green{
+	@apply text-status-green;
+}
+dd.colour-amber{
+	@apply text-status-amber;
+}
+dd.colour-red{
+	@apply text-status-red;
+}
+
+@screen sm {
+  .stats-grid {
+    @apply grid-cols-3;
+	}
+}

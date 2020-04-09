@@ -1,0 +1,65 @@
+::slotted([slot=table-head]) {
+	display: none;
+}
+.hide-slot{
+	display: none;
+}
+.div-1{
+	@apply flex flex-col;
+}
+.div-2{
+	@apply -my-2 py-2 overflow-x-auto;
+}
+.div-3{
+	@apply align-middle inline-block min-w-full overflow-hidden;
+}
+table{
+	@apply min-w-full border-collapse;
+}
+th{
+	@apply px-6 py-1 border-b border-grey-600 bg-grey-600 text-left text-xs leading-4 font-medium text-navy-600 uppercase tracking-wider;	
+}
+
+tbody{
+	@apply bg-white;
+}
+// tr{
+// 	@apply bg-white shadow rounded-sm;
+// }
+td{
+	@apply px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500;
+}
+td.bottom-border{
+	@apply border-b border-r-0 border-l-0 border-grey-600 border-solid;
+}
+td.text-right{
+	@apply text-right font-medium;
+}
+.flex-row{
+	@apply flex items-center;
+}
+.avatar{
+	@apply h-10 w-10 rounded-full;
+}
+@screen sm {
+  .div-2 {
+    @apply -mx-6 px-6;
+	}
+	.div-3{
+		@apply rounded-lg;
+	}
+}
+a{
+	@apply text-blue-600;
+}
+a:hover{
+	@apply text-indigo-900;
+}
+a:focus{
+	@apply outline-none underline;
+}
+@screen lg {
+  .div-2 {
+    @apply -mx-8 px-8;
+  }
+}

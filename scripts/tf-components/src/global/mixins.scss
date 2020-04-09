@@ -1,0 +1,100 @@
+@import './variables.scss';
+
+@function is-background-dark($color) {
+	@debug lightness($color);
+  @if (lightness($color) > 50) {
+    @return false; // #000000; // Lighter backgorund, return dark color
+  } @else {
+    @return true;// #ffffff; // Darker background, return light color
+  }
+}
+
+@function get-hover($color) {
+
+  @if ($color == #224595) {
+		@return darken( $color, 10% );
+	}@else if ($color == #32f7dc) {
+		@return darken( $color, 20% );
+	}@else if ($color == #363154) {
+		@return lighten( $color, 10% );
+	}@else{
+		@return darken( $color, 10% );
+	}
+}
+@function get-active($color) {
+	@if ($color == #224595) {
+		@return lighten( $color, 17% );
+	}@else if ($color == #32f7dc) {
+		@return lighten( $color, 30% );
+	}@else if ($color == #363154) {
+		@return lighten( $color, 30% );
+	}@else{
+		@return lighten( $color, 17% );
+	}
+}
+
+@mixin button-effect($color, $property: background, $textColour:$textLight) {
+	cursor: pointer;
+	outline: none;
+	//transition: $property 0.8s;
+	transition: all 0.4s;
+	/*@if $property == "background" {
+		background-position: center;
+	}*/
+	$hover: get-hover($color);
+	$active: get-active($color);
+	&:hover {
+	/*	#{$property}: $hover radial-gradient(circle, transparent 1%, $hover 1%) center/15000%;
+		//background-color:$hover;
+		color: $textColour;*/
+		#{$property}:$hover;
+		background-color: $hover;
+		color: $textColour;
+	}
+	&:active {
+	//	background-color:$active;
+	//	background-size: 100%;
+	//	transition: #{$property} 0s;
+	//	color: $textColour;
+		#{$property}:$active;
+		background-color: $active;
+		color: $textColour;
+	}
+	&:focus {
+		#{$property}:$color;
+		background-color: $color;
+		color: $textColour;
+	}
+}
+
+
+@mixin button-gradient-effect() {
+	cursor: pointer;
+	outline: none;
+	transition: background-image 0.8s;
+	background-position: center;
+//	$grad: linear-gradient(to right, $blueGradient);
+	&:hover {
+//		background-image: linear-gradient(to right, $blueGradient) radial-gradient(circle, transparent 1%, darken( $grad, 10% ) 1%) center/15000%;
+	}
+	&:active {
+//		background-image:linear-gradient(to right, $blueGradient);
+//		background-size: 100%;
+//		transition: background-image 0s;
+	}
+}
+@mixin disable-text-highlight{
+	&::selection {
+		color: none;
+		background: none;
+	}
+	/* For Mozilla Firefox */
+	&::-moz-selection {
+		color: none;
+		background: none;
+	}
+}
+
+@mixin apply-page-padding{
+	padding: 0 $pageSidePadding;
+}

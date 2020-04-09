@@ -3,6 +3,10 @@ export class List {
     constructor() {
         this.showHint = false;
         this.showError = false;
+        this.showLabel = true;
+        this.showLeadingIcon = false;
+        this.showTrailingIcon = false;
+        this.showErrorIcon = false;
         //
         this.name = null;
         this.label = null;
@@ -10,18 +14,41 @@ export class List {
         this.inputHint = null;
         this.inputError = null;
         this.error = false;
+        this.hideLabel = false;
+        this.icon = null;
+        this.iconPosition = null;
+    }
+    errorChanged(newValue, oldValue) {
+        if (newValue !== oldValue) {
+            this.error = newValue;
+            this.setError();
+        }
     }
     componentWillLoad() {
-        console.log(this.inputHint);
         if (this.inputHint) {
             this.showHint = true;
         }
-        if (this.inputError) {
-            if (!this.error) {
-                this.error = true;
-            }
-            this.showError = true;
+        this.setError();
+        if (this.hideLabel) {
+            this.showLabel = false;
         }
+        if (this.icon && this.iconPosition) {
+            if (this.iconPosition == 'left' || this.iconPosition == 'leading') {
+                this.showLeadingIcon = true;
+            }
+            if (this.iconPosition == 'right' || this.iconPosition == 'trailing') {
+                this.showTrailingIcon = true;
+            }
+        }
+    }
+    // componentDidLoad() {
+    // 	//
+    // }
+    setError() {
+        if (!this.inputError) {
+            this.inputError = 'Error with the input field';
+        }
+        this.showErrorIcon = this.showError = this.error;
     }
     render() {
         let bottomText = null;
@@ -31,15 +58,40 @@ export class List {
         if (this.showError) {
             bottomText = h("p", { class: "error" }, this.inputError);
         }
+        //
+        let leadingSVG = null;
+        let trailingSVG = null;
+        let IconTag = null;
+        //
+        if (this.showLeadingIcon || this.showTrailingIcon) {
+            IconTag = `tf-icon-${this.icon}`;
+        }
+        if (this.showLeadingIcon) {
+            leadingSVG = (h("div", { class: "svg-container svg-leading" },
+                h(IconTag, { class: "svg-icon" })));
+        }
+        //
+        if (this.showTrailingIcon) {
+            trailingSVG = (h("div", { class: "svg-container svg-trailing" },
+                h(IconTag, { class: "svg-icon" })));
+        }
+        else if (this.showErrorIcon) {
+            trailingSVG = (h("div", { class: "svg-container svg-trailing" },
+                h("tf-icon-exclamation", { class: "svg-error-icon" })));
+        }
+        //
         return (h("div", { class: "label-input-container" },
-            h("label", { htmlFor: this.name }, this.label),
+            h("label", { class: `${this.showLabel ? 'form-label' : 'form-label-sr-only'}`, htmlFor: this.name }, this.label),
             h("div", { class: "input-container" },
+                leadingSVG,
                 h("input", { id: this.name, class: `
 							form-input 
 							form-input-styled 
 							${this.showError ? 'form-input-error' : ''} 
-							another-style
-						`, placeholder: this.placeholder })),
+							${this.showLeadingIcon ? 'form-input-leading-icon' : ''} 
+							${this.showTrailingIcon || this.showErrorIcon ? 'form-input-trailing-icon' : ''}
+						`, placeholder: this.placeholder }),
+                trailingSVG),
             bottomText));
     }
     static get is() { return "tf-input"; }
@@ -138,12 +190,12 @@ export class List {
                 "text": ""
             },
             "attribute": "input-error",
-            "reflect": true,
+            "reflect": false,
             "defaultValue": "null"
         },
         "error": {
             "type": "boolean",
-            "mutable": false,
+            "mutable": true,
             "complexType": {
                 "original": "boolean",
                 "resolved": "boolean",
@@ -158,10 +210,72 @@ export class List {
             "attribute": "error",
             "reflect": true,
             "defaultValue": "false"
+        },
+        "hideLabel": {
+            "type": "boolean",
+            "mutable": true,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "hide-label",
+            "reflect": true,
+            "defaultValue": "false"
+        },
+        "icon": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "icon",
+            "reflect": true,
+            "defaultValue": "null"
+        },
+        "iconPosition": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "icon-position",
+            "reflect": true,
+            "defaultValue": "null"
         }
     }; }
     static get states() { return {
         "showHint": {},
-        "showError": {}
+        "showError": {},
+        "showLabel": {},
+        "showLeadingIcon": {},
+        "showTrailingIcon": {},
+        "showErrorIcon": {}
     }; }
+    static get watchers() { return [{
+            "propName": "error",
+            "methodName": "errorChanged"
+        }]; }
 }

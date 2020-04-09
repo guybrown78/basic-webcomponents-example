@@ -6,9 +6,7 @@ const Hexagon = class {
         this.color = "accent";
     }
     /*onHexagonClicked(event){
-        console.log('hjh')
         const el = this.el.shadowRoot.querySelector('#hexagon-container') as HTMLElement;
-        console.log(el)
         event = event.touches ? event.touches[0] : event;
         
         const r = el.getBoundingClientRect(), d = Math.sqrt(Math.pow(r.width,2)+Math.pow(r.height,2)) * 2;

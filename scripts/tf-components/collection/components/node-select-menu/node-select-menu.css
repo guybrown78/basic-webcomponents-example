@@ -139,3 +139,8 @@
   padding: 0.3125rem;
   display: flex;
 }
+
+.svg-icon {
+  height: 1rem;
+  width: 1rem;
+}

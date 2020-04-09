@@ -1,0 +1,36 @@
+
+/* :host{
+	@apply ;
+} */
+.tailwind-side-nav{
+	@apply flex items-center px-3 py-2 text-lg leading-5 font-medium no-underline cursor-pointer text-white bg-navy-600 transition ease-in-out duration-150;
+}
+.tailwind-side-nav:hover{
+	@apply text-navy-900 bg-grey-600;
+}
+.tailwind-side-nav:focus{
+	@apply outline-none text-navy-900 bg-grey-500;
+}
+
+.tailwind-side-nav-title{
+	@apply truncate flex-1;
+}
+.tailwind-toggle-icon{
+	@apply flex items-center;
+}
+.tailwind-side-nav.opened{
+	@apply text-navy-900 bg-grey-200;
+}
+
+.sub-nav-content {
+	display: block;
+	max-height: 0;
+	-webkit-transition: max-height .35s;
+	-o-transition: max-height .35s;
+	transition: max-height .35s;
+	@apply overflow-hidden;
+}
+
+.sub-nav-content.show {
+	max-height: 100vh;
+}

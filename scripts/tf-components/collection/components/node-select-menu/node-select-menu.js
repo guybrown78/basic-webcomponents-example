@@ -33,7 +33,7 @@ export class NodeSelectMenu {
             h("button", { onClick: this.onMenuClicked.bind(this), id: "dropdown-btn", tabindex: "0", class: this.isOpenDelayed ? 'active' : '' },
                 h("span", { id: "title" }, "Actions"),
                 h("span", { id: "icon" },
-                    h("tf-icon-chevron-down", null))),
+                    h("tf-icon-chevron-down", { class: "svg-icon" }))),
             h("div", { id: "dropdown-content", class: this.isOpen ? 'show' : '' },
                 h("button", { class: "dropdown-item-btn", id: "" },
                     h("span", { id: "title" }, "View")),

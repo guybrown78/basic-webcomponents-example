@@ -5,7 +5,6 @@ export class AppHeader {
         this.tfAppLogoClicked.emit();
     }
     render() {
-        console.log(this.clientLogoSource);
         return (h("header", null,
             h("div", { id: "app-logo-container" },
                 h("div", { id: "app-logo" },

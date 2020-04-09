@@ -40,15 +40,31 @@ export namespace Components {
     'size': string;
     'width': number;
   }
+  interface TfIconCheck {}
   interface TfIconChevronDown {}
+  interface TfIconChevronLeft {}
+  interface TfIconChevronRight {}
   interface TfIconChevronUp {}
+  interface TfIconClose {}
+  interface TfIconEnvelope {}
+  interface TfIconExclamation {}
+  interface TfIconNotification {}
+  interface TfIconSearch {}
+  interface TfIconUser {}
   interface TfInput {
     'error': boolean;
+    'hideLabel': boolean;
+    'icon': string;
+    'iconPosition': string;
     'inputError': string;
     'inputHint': string;
     'label': string;
     'name': string;
     'placeholder': string;
+  }
+  interface TfLeadingIconLabel {
+    'contentAlign': string;
+    'order': number;
   }
   interface TfList {}
   interface TfListWrappingCell {
@@ -156,10 +172,28 @@ declare global {
     new (): HTMLTfHexagonSvgElement;
   };
 
+  interface HTMLTfIconCheckElement extends Components.TfIconCheck, HTMLStencilElement {}
+  var HTMLTfIconCheckElement: {
+    prototype: HTMLTfIconCheckElement;
+    new (): HTMLTfIconCheckElement;
+  };
+
   interface HTMLTfIconChevronDownElement extends Components.TfIconChevronDown, HTMLStencilElement {}
   var HTMLTfIconChevronDownElement: {
     prototype: HTMLTfIconChevronDownElement;
     new (): HTMLTfIconChevronDownElement;
+  };
+
+  interface HTMLTfIconChevronLeftElement extends Components.TfIconChevronLeft, HTMLStencilElement {}
+  var HTMLTfIconChevronLeftElement: {
+    prototype: HTMLTfIconChevronLeftElement;
+    new (): HTMLTfIconChevronLeftElement;
+  };
+
+  interface HTMLTfIconChevronRightElement extends Components.TfIconChevronRight, HTMLStencilElement {}
+  var HTMLTfIconChevronRightElement: {
+    prototype: HTMLTfIconChevronRightElement;
+    new (): HTMLTfIconChevronRightElement;
   };
 
   interface HTMLTfIconChevronUpElement extends Components.TfIconChevronUp, HTMLStencilElement {}
@@ -168,10 +202,52 @@ declare global {
     new (): HTMLTfIconChevronUpElement;
   };
 
+  interface HTMLTfIconCloseElement extends Components.TfIconClose, HTMLStencilElement {}
+  var HTMLTfIconCloseElement: {
+    prototype: HTMLTfIconCloseElement;
+    new (): HTMLTfIconCloseElement;
+  };
+
+  interface HTMLTfIconEnvelopeElement extends Components.TfIconEnvelope, HTMLStencilElement {}
+  var HTMLTfIconEnvelopeElement: {
+    prototype: HTMLTfIconEnvelopeElement;
+    new (): HTMLTfIconEnvelopeElement;
+  };
+
+  interface HTMLTfIconExclamationElement extends Components.TfIconExclamation, HTMLStencilElement {}
+  var HTMLTfIconExclamationElement: {
+    prototype: HTMLTfIconExclamationElement;
+    new (): HTMLTfIconExclamationElement;
+  };
+
+  interface HTMLTfIconNotificationElement extends Components.TfIconNotification, HTMLStencilElement {}
+  var HTMLTfIconNotificationElement: {
+    prototype: HTMLTfIconNotificationElement;
+    new (): HTMLTfIconNotificationElement;
+  };
+
+  interface HTMLTfIconSearchElement extends Components.TfIconSearch, HTMLStencilElement {}
+  var HTMLTfIconSearchElement: {
+    prototype: HTMLTfIconSearchElement;
+    new (): HTMLTfIconSearchElement;
+  };
+
+  interface HTMLTfIconUserElement extends Components.TfIconUser, HTMLStencilElement {}
+  var HTMLTfIconUserElement: {
+    prototype: HTMLTfIconUserElement;
+    new (): HTMLTfIconUserElement;
+  };
+
   interface HTMLTfInputElement extends Components.TfInput, HTMLStencilElement {}
   var HTMLTfInputElement: {
     prototype: HTMLTfInputElement;
     new (): HTMLTfInputElement;
+  };
+
+  interface HTMLTfLeadingIconLabelElement extends Components.TfLeadingIconLabel, HTMLStencilElement {}
+  var HTMLTfLeadingIconLabelElement: {
+    prototype: HTMLTfLeadingIconLabelElement;
+    new (): HTMLTfLeadingIconLabelElement;
   };
 
   interface HTMLTfListElement extends Components.TfList, HTMLStencilElement {}
@@ -343,9 +419,19 @@ declare global {
     'tf-hexagon': HTMLTfHexagonElement;
     'tf-hexagon-button': HTMLTfHexagonButtonElement;
     'tf-hexagon-svg': HTMLTfHexagonSvgElement;
+    'tf-icon-check': HTMLTfIconCheckElement;
     'tf-icon-chevron-down': HTMLTfIconChevronDownElement;
+    'tf-icon-chevron-left': HTMLTfIconChevronLeftElement;
+    'tf-icon-chevron-right': HTMLTfIconChevronRightElement;
     'tf-icon-chevron-up': HTMLTfIconChevronUpElement;
+    'tf-icon-close': HTMLTfIconCloseElement;
+    'tf-icon-envelope': HTMLTfIconEnvelopeElement;
+    'tf-icon-exclamation': HTMLTfIconExclamationElement;
+    'tf-icon-notification': HTMLTfIconNotificationElement;
+    'tf-icon-search': HTMLTfIconSearchElement;
+    'tf-icon-user': HTMLTfIconUserElement;
     'tf-input': HTMLTfInputElement;
+    'tf-leading-icon-label': HTMLTfLeadingIconLabelElement;
     'tf-list': HTMLTfListElement;
     'tf-list-wrapping-cell': HTMLTfListWrappingCellElement;
     'tf-list-wrapping-item': HTMLTfListWrappingItemElement;
@@ -408,15 +494,31 @@ declare namespace LocalJSX {
     'size'?: string;
     'width'?: number;
   }
+  interface TfIconCheck {}
   interface TfIconChevronDown {}
+  interface TfIconChevronLeft {}
+  interface TfIconChevronRight {}
   interface TfIconChevronUp {}
+  interface TfIconClose {}
+  interface TfIconEnvelope {}
+  interface TfIconExclamation {}
+  interface TfIconNotification {}
+  interface TfIconSearch {}
+  interface TfIconUser {}
   interface TfInput {
     'error'?: boolean;
+    'hideLabel'?: boolean;
+    'icon'?: string;
+    'iconPosition'?: string;
     'inputError'?: string;
     'inputHint'?: string;
     'label'?: string;
     'name'?: string;
     'placeholder'?: string;
+  }
+  interface TfLeadingIconLabel {
+    'contentAlign'?: string;
+    'order'?: number;
   }
   interface TfList {}
   interface TfListWrappingCell {
@@ -485,9 +587,19 @@ declare namespace LocalJSX {
     'tf-hexagon': TfHexagon;
     'tf-hexagon-button': TfHexagonButton;
     'tf-hexagon-svg': TfHexagonSvg;
+    'tf-icon-check': TfIconCheck;
     'tf-icon-chevron-down': TfIconChevronDown;
+    'tf-icon-chevron-left': TfIconChevronLeft;
+    'tf-icon-chevron-right': TfIconChevronRight;
     'tf-icon-chevron-up': TfIconChevronUp;
+    'tf-icon-close': TfIconClose;
+    'tf-icon-envelope': TfIconEnvelope;
+    'tf-icon-exclamation': TfIconExclamation;
+    'tf-icon-notification': TfIconNotification;
+    'tf-icon-search': TfIconSearch;
+    'tf-icon-user': TfIconUser;
     'tf-input': TfInput;
+    'tf-leading-icon-label': TfLeadingIconLabel;
     'tf-list': TfList;
     'tf-list-wrapping-cell': TfListWrappingCell;
     'tf-list-wrapping-item': TfListWrappingItem;
@@ -531,9 +643,19 @@ declare module "@stencil/core" {
       'tf-hexagon': LocalJSX.TfHexagon & JSXBase.HTMLAttributes<HTMLTfHexagonElement>;
       'tf-hexagon-button': LocalJSX.TfHexagonButton & JSXBase.HTMLAttributes<HTMLTfHexagonButtonElement>;
       'tf-hexagon-svg': LocalJSX.TfHexagonSvg & JSXBase.HTMLAttributes<HTMLTfHexagonSvgElement>;
+      'tf-icon-check': LocalJSX.TfIconCheck & JSXBase.HTMLAttributes<HTMLTfIconCheckElement>;
       'tf-icon-chevron-down': LocalJSX.TfIconChevronDown & JSXBase.HTMLAttributes<HTMLTfIconChevronDownElement>;
+      'tf-icon-chevron-left': LocalJSX.TfIconChevronLeft & JSXBase.HTMLAttributes<HTMLTfIconChevronLeftElement>;
+      'tf-icon-chevron-right': LocalJSX.TfIconChevronRight & JSXBase.HTMLAttributes<HTMLTfIconChevronRightElement>;
       'tf-icon-chevron-up': LocalJSX.TfIconChevronUp & JSXBase.HTMLAttributes<HTMLTfIconChevronUpElement>;
+      'tf-icon-close': LocalJSX.TfIconClose & JSXBase.HTMLAttributes<HTMLTfIconCloseElement>;
+      'tf-icon-envelope': LocalJSX.TfIconEnvelope & JSXBase.HTMLAttributes<HTMLTfIconEnvelopeElement>;
+      'tf-icon-exclamation': LocalJSX.TfIconExclamation & JSXBase.HTMLAttributes<HTMLTfIconExclamationElement>;
+      'tf-icon-notification': LocalJSX.TfIconNotification & JSXBase.HTMLAttributes<HTMLTfIconNotificationElement>;
+      'tf-icon-search': LocalJSX.TfIconSearch & JSXBase.HTMLAttributes<HTMLTfIconSearchElement>;
+      'tf-icon-user': LocalJSX.TfIconUser & JSXBase.HTMLAttributes<HTMLTfIconUserElement>;
       'tf-input': LocalJSX.TfInput & JSXBase.HTMLAttributes<HTMLTfInputElement>;
+      'tf-leading-icon-label': LocalJSX.TfLeadingIconLabel & JSXBase.HTMLAttributes<HTMLTfLeadingIconLabelElement>;
       'tf-list': LocalJSX.TfList & JSXBase.HTMLAttributes<HTMLTfListElement>;
       'tf-list-wrapping-cell': LocalJSX.TfListWrappingCell & JSXBase.HTMLAttributes<HTMLTfListWrappingCellElement>;
       'tf-list-wrapping-item': LocalJSX.TfListWrappingItem & JSXBase.HTMLAttributes<HTMLTfListWrappingItemElement>;

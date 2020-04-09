@@ -1,0 +1,13 @@
+.flex-row{
+	@apply flex items-center;
+}
+.avatar-container{
+	@apply flex-shrink-0 h-10 w-10;
+}
+
+.avatar{
+	@apply h-10 w-10 rounded-full;
+}
+.details{
+	@apply ml-4;
+}

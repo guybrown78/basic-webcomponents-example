@@ -1,0 +1,16 @@
+span{
+	@apply px-3 inline-flex text-xs leading-5 font-semibold rounded-full;
+}
+
+span.colour-none{
+	@apply bg-grey-200 text-grey-800;
+}
+span.colour-red{
+	@apply bg-status-red text-grey-200;
+}
+span.colour-amber, span.colour-orange{
+	@apply bg-status-amber text-grey-200;
+}
+span.colour-green{
+	@apply bg-status-green text-grey-200;
+}
