@@ -1,0 +1,26 @@
+.sub-nav-content {
+  max-height: 0;
+  transition: max-height 0.35s;
+  overflow: hidden;
+  padding: 0.5rem;
+  background-color: #D0DFE3;
+  line-height: 1.5;
+}
+
+.opened {
+  max-height: 100vh;
+}
+
+::slotted(tf-side-drawer-sub-nav-link) {
+  display: block;
+  border-color: #363154;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-top-width: 0;
+  border-bottom-width: 1px;
+  border-style: solid;
+}
+
+::slotted(tf-side-drawer-sub-nav-link:last-of-type) {
+  border-bottom-width: 0;
+}
