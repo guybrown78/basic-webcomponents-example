@@ -1,0 +1,16 @@
+.value-pair {
+  flex-direction: column;
+}
+
+.dark {
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: #161e2e;
+}
+
+.light {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #6b7280;
+}

@@ -1,0 +1,79 @@
+/* :host{
+	@apply ;
+} */
+
+.tailwind-side-nav {
+  display: flex;
+  align-items: center;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #363154;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tailwind-side-nav:hover {
+  color: #1D1A2E;
+  background-color: #D0DFE3;
+}
+
+.tailwind-side-nav:focus {
+  outline: 0;
+  color: #1D1A2E;
+  background-color: #D7E3E7;
+}
+
+.tailwind-side-nav-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 1 0%;
+}
+
+.tailwind-toggle-icon {
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tailwind-toggle-icon.opened {
+  color: #1D1A2E;
+}
+
+tf-icon-chevron-up,
+tf-icon-chevron-down {
+  width: 20px;
+  height: 20px;
+}
+
+.tailwind-side-nav.opened {
+  color: #1D1A2E;
+  background-color: #ECF2F3;
+}
+
+.tailwind-side-nav:hover .tailwind-toggle-icon {
+  color: #1D1A2E;
+}
+
+.sub-nav-content {
+  display: block;
+  max-height: 0;
+  transition: max-height 0.35s;
+  overflow: hidden;
+}
+
+.sub-nav-content.show {
+  max-height: 100vh;
+}

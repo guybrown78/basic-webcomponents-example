@@ -1,0 +1,1 @@
+import{r as o,h as r}from"./p-091b269b.js";const s=class{constructor(r){o(this,r)}render(){return r("slot",null)}};export{s as tf_dropdown_options}

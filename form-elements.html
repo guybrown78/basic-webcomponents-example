@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Transform Web Components Basic Example</title>
+
+	<script type="module" src="scripts/tf-components/transform-web-components/transform-web-components.esm.js"></script>
+	<script nomodule="" src="scripts/tf-components/transform-web-components/transform-web-components.js"></script> 
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	<style>
+		html {
+			box-sizing: border-box;
+		}
+		*, *:before, *:after {
+			box-sizing: inherit;
+		}
+		body {
+			padding: 0;
+			margin: 0;
+			font-family: 'Roboto Condensed', sans-serif;
+			background-color: #224595;
+			width: 100%;
+			height: 100vh;
+		}
+	</style>
+
+</head>
+<body>
+
+	
+	<tf-app-base-header 	
+		app-title="Transform Web Components" 
+		app-initials="TF"
+		show-app-logo="true"
+	></tf-app-base-header>
+
+	<tf-side-drawer display-title="Main Menu">
+		<tf-side-drawer-nav>
+
+			<tf-side-drawer-nav-link 
+				icon="chevron-down" 
+				href-link="#"
+				href-title="Visit NeutronVR's website"
+			>
+				Overview
+			</tf-side-drawer-nav-link>
+					
+			<tf-side-drawer-nav-link 
+				icon="chevron-down" 
+			>
+				Content
+				<tf-side-drawer-sub-nav slot="sub">
+					<tf-side-drawer-sub-nav-link
+						href-link="#"
+						href-title="Sub item title"
+					>
+						Sub section A
+					</tf-side-drawer-sub-nav-link>
+
+					<tf-side-drawer-sub-nav-link
+						href-link="#"
+						href-title="Sub item title"
+					>
+						Sub section B
+					</tf-side-drawer-sub-nav-link>
+
+					<tf-side-drawer-sub-nav-link
+						href-link="#"
+						href-title="Sub item title"
+					>
+						Sub section A
+					</tf-side-drawer-sub-nav-link>
+
+				</tf-side-drawer-sub-nav>
+
+			</tf-side-drawer-nav-link>
+
+			<tf-side-drawer-nav-link 
+					icon="chevron-down" 
+					href-link="#"
+				>
+					Section C
+					<tf-side-drawer-sub-nav slot="sub">
+						<p class="text-navy-900">I'm not a component</p>
+					</tf-side-drawer-sub-nav>
+				</tf-side-drawer-nav-link>
+
+				<tf-side-drawer-nav-link 
+					icon="chevron-down" 
+					href-link="#"
+					href-title="Link title for accessibility"
+				>
+					Section D
+				</tf-side-drawer-nav-link>
+		</tf-side-drawer-nav>
+	</tf-side-drawer>
+	<!-- <tf-menu-bar></tf-menu-bar>
+ -->
+
+	<tf-main-content>
+
+		
+		<tf-card>
+			<tf-card-content>
+				<div style="display:flex; flex-direction: column; flex:1; padding: 10px 30px; margin-bottom: 30px;">
+
+					<tf-input name="name" label="Name" placeholder="Your Name" value="Guy"></tf-input>
+
+					<tf-input name="email-1" label="Email" placeholder="name@example.com"></tf-input>
+
+					<tf-input 
+						name="email-2" 
+						label="Email" 
+						placeholder="name@example.com"
+						hint="Enter the email address you registered with"
+					></tf-input>
+
+
+					<tf-input 
+						name="email-3" 
+						label="Email" 
+						placeholder="name@example.com"
+						hint="Enter the email address you registered with"
+						error-message="That's not an email address"
+						error
+					></tf-input>
+
+					<tf-input 
+						name="email-4" 
+						label="Email" 
+						placeholder="name@example.com"
+						hide-label
+						icon="envelope"
+						icon-position="left"
+					></tf-input>
+
+					<tf-input 
+						name="search" 
+						label="Search Delegate" 
+						placeholder="Joe Bloggs"
+						icon="search"
+						icon-position="right"
+					></tf-input>
+
+				</div>
+				
+			</tf-card-content>
+			
+		</tf-card> 	
+		
+		<tf-card>
+			<tf-card-content>
+
+				<div style="display:flex; flex-direction: column; flex:1; padding: 10px 30px; margin-bottom: 30px;">
+
+					<tf-textarea
+						name="about-you" 
+						label="About You" 
+						placeholder="Type here"
+						hint="Describe yourself"
+					>
+					</tf-textarea>
+
+
+					<tf-textarea
+						name="message" 
+						label="Message" 
+						placeholder="Type your message"
+						row-count=9
+						error-message="You need to add your message!"
+						
+						error
+					>
+					</tf-textarea>
+					
+					<tf-select
+						name="country" 
+						label="Country / Six Nation Team" 
+						hint="Who you think will win the Six Nations?"
+					>
+						<tf-select-option value="1.1" selected>England</tf-select-option>
+						<tf-select-option value="1.2">Scotland</tf-select-option>
+						<tf-select-option value="1.3">Wales</tf-select-option>
+						<tf-select-option value="1.4">Ireland</tf-select-option>
+						<tf-select-option value="1.5">France</tf-select-option>
+						<tf-select-option value="2">Italy</tf-select-option>
+					</tf-select>	
+
+					<tf-select
+						name="jsFramework" 
+						label="Javascript Framework" 
+						error-message="Please select a framework"
+						error
+						value="rct"
+					>
+						<tf-select-option value="ang">Angular</tf-select-option>
+						<tf-select-option value="ebr">Ember</tf-select-option>
+						<tf-select-option value="rct">React</tf-select-option>
+						<tf-select-option value="vue">Vue</tf-select-option>
+					</tf-select>	
+
+					<tf-checkbox 
+						name="rememberMe" 
+						label="Remember Me" 
+					></tf-checkbox>
+
+					<tf-checkbox 
+						name="marketing" 
+						label="Send notifications" 
+						checked
+						hint="We will only contact you with relevant information"
+					></tf-checkbox>
+
+					<tf-checkbox 
+						name="termsConditions" 
+						label="Agree to terms and conditions" 
+						error-message="Please agree to our Terms and Contitions to continue"
+						error
+					></tf-checkbox>
+
+					<tf-divider></tf-divider>
+
+					<!-- <fieldset>
+						<legend class="text-base font-medium text-gray-900">
+							Gender
+						</legend> -->
+						<tf-radio-group 
+							name="gender" 
+							label="Gender" 
+							description="Description about the radio group"
+							hint="You're gender">
+							<tf-radio 
+								name="gender-m" 
+								group-name="gender"
+								label="Male" 
+							></tf-radio>
+							<tf-radio 
+								name="gender-f" 
+								group-name="gender"
+								label="Female" 
+							></tf-radio>
+							<tf-radio 
+								name="gender-na" 
+								group-name="gender"
+								label="Not Applicable" 
+							></tf-radio>
+						</tf-radio-group>
+						
+					<!-- </fieldset> -->
+
+					<tf-divider></tf-divider>
+					
+				</div>
+				
+			</tf-card-content>
+		</tf-card>
+
+	
+
+	</tf-main-content>
+
+<script>
+	const loginFormEl = document.querySelector('tf-login-form');
+	loginFormEl.addEventListener('tfLoginSuccess', event => {
+		console.log(event.detail);
+		alert(`Login successful, responce: ${JSON.stringify(event.detail)}`)
+	})
+</script>
+		
+
+	</tf-main-content>
+
+</body>
+</html>
