@@ -1,10 +1,7 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 export class FormTitle {
-    constructor() {
-        this.colour = 'default';
-    }
     render() {
-        return (h("div", { class: `form-title colour-${this.colour}` },
+        return (h("div", { class: "form-title" },
             h("slot", null)));
     }
     static get is() { return "tf-form-title"; }
@@ -14,25 +11,5 @@ export class FormTitle {
     }; }
     static get styleUrls() { return {
         "$": ["form-styles.css"]
-    }; }
-    static get properties() { return {
-        "colour": {
-            "type": "string",
-            "mutable": false,
-            "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-            },
-            "required": false,
-            "optional": false,
-            "docs": {
-                "tags": [],
-                "text": ""
-            },
-            "attribute": "colour",
-            "reflect": false,
-            "defaultValue": "'default'"
-        }
     }; }
 }

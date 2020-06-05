@@ -154,7 +154,6 @@ export namespace Components {
         "colour": string;
     }
     interface TfFormTitle {
-        "colour": string;
     }
     interface TfFormWrapper {
     }
@@ -1592,7 +1591,6 @@ declare namespace LocalJSX {
         "colour"?: string;
     }
     interface TfFormTitle {
-        "colour"?: string;
     }
     interface TfFormWrapper {
     }

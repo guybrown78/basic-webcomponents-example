@@ -4,7 +4,15 @@ export class FormCard {
         this.colour = 'default';
     }
     render() {
-        return (h("div", { class: `form-card colour-${this.colour}` },
+        return (h("div", { class: `
+					form-card 
+					${this.colour === "white" ? "colour-white"
+                : this.colour === "blue" ? "colour-blue"
+                    : this.colour === "aqua" ? "colour-aqua"
+                        : this.colour === "grey" ? "colour-grey"
+                            : this.colour === "navy" ? "colour-navy"
+                                : "colour-default"} 
+				` },
             h("slot", null)));
     }
     static get is() { return "tf-form-card"; }
