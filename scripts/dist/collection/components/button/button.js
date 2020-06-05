@@ -36,7 +36,22 @@ export class Button {
             icon = h(IconTag, { class: `icon-${this.size}-${this.iconPosition === 'right' ? 'r' : 'l'}` });
         }
         return (h("span", { id: "button-containing-span" },
-            h("button", { class: `tw-btn size-${this.size} colour-${this.colour} ${this.disabled ? 'disabled' : ''}`, type: this.buttonType, id: this.buttonId, disabled: this.disabled },
+            h("button", { class: `
+						tw-btn 
+						${this.size === "xl" || this.size === "extra-large" ? "size-xl"
+                    : this.size === "l" || this.size === "large" ? "size-l"
+                        : this.size === "m" || this.size === "medium" ? "size-m"
+                            : this.size === "s" || this.size === "small" ? "size-s"
+                                : this.size === "xs" || this.size === "extra-small" ? "size-s"
+                                    : "size-default"} 
+						${this.colour === "white" ? "colour-white"
+                    : this.colour === "blue" ? "colour-blue"
+                        : this.colour === "aqua" ? "colour-aqua"
+                            : this.colour === "grey" ? "colour-grey"
+                                : this.colour === "navy" ? "colour-navy"
+                                    : "colour-default"} 
+						${this.disabled ? 'disabled' : ''}
+					`, type: this.buttonType, id: this.buttonId, disabled: this.disabled },
                 (icon && (this.iconPosition == 'left' || this.iconPosition == 'default')) &&
                     icon,
                 h("slot", null),
@@ -44,6 +59,7 @@ export class Button {
                     icon)));
     }
     static get is() { return "tf-button"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
         "$": ["./button.scss"]
     }; }

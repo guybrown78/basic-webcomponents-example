@@ -151,7 +151,6 @@ export namespace Components {
         "layoutAlign": string;
     }
     interface TfFormCard {
-        "colour": string;
     }
     interface TfFormTitle {
     }
@@ -1588,7 +1587,6 @@ declare namespace LocalJSX {
         "layoutAlign"?: string;
     }
     interface TfFormCard {
-        "colour"?: string;
     }
     interface TfFormTitle {
     }
