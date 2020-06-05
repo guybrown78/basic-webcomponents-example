@@ -28,25 +28,36 @@
 			height: 100vh;
 		}
 
-		.login-header{
-			border-bottom: solid 5px #32F7DC;
+		.page-wrapper{
+			display:flex;
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+			justify-content: space-between;
+		}
+		
+		
+		.footer{
+			
 		}
 	</style>
 
 </head>
 <body>
 
-	<tf-app-base-header 	
-		is-logo-clickable="false";
-		app-title="Transform" 
-		app-initials="T"
-		show-app-logo="true"
-	></tf-app-base-header>
+	
 
-	<tf-main-content>
-		
+	<div class="page-wrapper">
+		<tf-app-base-header 	
+			is-logo-clickable="false";
+			app-title="Transform" 
+			app-initials="T"
+			show-app-logo="true"
+		></tf-app-base-header>
+
+
 		<tf-main-content>
-
+	
 			<tf-form-card>
 	
 				<tf-form-title>
@@ -83,12 +94,21 @@
 						</tf-node-flex-fxr> 
 	
 					</form>
-					
 	
 				</tf-form-wrapper>
 			</tf-form-card>
+			
+		</tf-main-content>
+
+
+		<tf-app-base-header 	
+			class="footer"
+			show-app-logo="false"
+		></tf-app-base-header>
 		
-	</tf-main-content>
+
+	</div>
+	
 
 <script>
 	
