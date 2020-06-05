@@ -1,5 +1,7 @@
 {
   "entries": [
+    "./components/app-footer/app-base-footer.js",
+    "./components/app-footer/transform-tagline.js",
     "./components/app-header/app-base-header.js",
     "./components/app-header/app-client-logo.js",
     "./components/app-header/app-header.js",

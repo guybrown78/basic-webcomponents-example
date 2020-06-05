@@ -73,9 +73,20 @@ var AnchorTag = /** @class */ (function () {
     return AnchorTag;
 }());
 AnchorTag.style = "a{\n\t\t\t@apply font-medium text-blue-600 transition ease-in-out duration-150;\n\t\t}\n\t\ta:hover{\n\t\t\t@apply text-blue-500;\n\t\t}\n\t\ta:focus{\n\t\t\t@apply outline-none underline;\n\t\t}";
-var appHeaderCss = "header{padding:0 1.375rem;margin-bottom:1.375rem;height:4.625rem;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}.app-logo-container{display:-ms-flexbox;display:flex;-ms-flex-align:end;align-items:flex-end}.app-logo{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center}.app-logo-icon{color:#224595}.app-logo-icon.clickable{cursor:pointer}.app-logo-initials{color:#fff;text-transform:uppercase;font-weight:400;font-size:1.25rem;text-align:center}.app-logo-initials::-moz-selection{color:none;background:none}.app-logo-initials::selection{color:none;background:none}.app-logo-initials::-moz-selection{color:none;background:none}h1{margin:0 0 0 .75rem;color:#fff;font-size:1.5rem;font-family:Roboto Condensed,sans-serif;line-height:1.5;font-weight:400}@media only screen and (max-width:640px){#app-logo-title{display:none}}#central-contailer{display:-ms-flexbox;display:flex;-ms-flex:1 1 0%;flex:1 1 0%;padding:0 3.125rem;-ms-flex-align:end;align-items:flex-end;-ms-flex-pack:end;justify-content:flex-end}@media only screen and (max-width:640px){#central-contailer{display:none}}#quick-link-icon{color:#363154;font-size:1.25rem;text-align:center}#quick-link-icon::-moz-selection{color:none;background:none}#quick-link-icon::selection{color:none;background:none}#quick-link-icon::-moz-selection{color:none;background:none}#client-logo-container{justify-self:flex-end}#client-logo{display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;width:112px;height:59px}#client-logo img{width:100%;height:100%;-o-object-fit:contain;object-fit:contain;overflow:hidden}#account-navigation-container{display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;width:40px;height:59px}@media only screen and (max-width:640px){#account-navigation-container{display:none}}";
+var appFooterCss = "footer{padding:0 1.375rem;margin-top:1.375rem;min-height:4.625rem;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-align:center;align-items:center}.tagline{display:block;font-family:Roboto Condensed,sans-serif;margin-top:.25rem;margin-bottom:.25rem;font-size:.75rem;line-height:1.375;font-weight:400;color:#fff}";
 var AppHeader = /** @class */ (function () {
     function AppHeader(hostRef) {
+        registerInstance(this, hostRef);
+    }
+    AppHeader.prototype.render = function () {
+        return (h("footer", null, h("slot", { name: "tagline" })));
+    };
+    return AppHeader;
+}());
+AppHeader.style = appFooterCss;
+var appHeaderCss = "header{padding:0 1.375rem;margin-bottom:1.375rem;height:4.625rem;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}.app-logo-container{display:-ms-flexbox;display:flex;-ms-flex-align:end;align-items:flex-end}.app-logo{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center}.app-logo-icon{color:#224595}.app-logo-icon.clickable{cursor:pointer}.app-logo-initials{color:#fff;text-transform:uppercase;font-weight:400;font-size:1.25rem;text-align:center}.app-logo-initials::-moz-selection{color:none;background:none}.app-logo-initials::selection{color:none;background:none}.app-logo-initials::-moz-selection{color:none;background:none}h1{margin:0 0 0 .75rem;color:#fff;font-size:1.5rem;font-family:Roboto Condensed,sans-serif;line-height:1.5;font-weight:400}@media only screen and (max-width:640px){#app-logo-title{display:none}}#central-contailer{display:-ms-flexbox;display:flex;-ms-flex:1 1 0%;flex:1 1 0%;padding:0 3.125rem;-ms-flex-align:end;align-items:flex-end;-ms-flex-pack:end;justify-content:flex-end}@media only screen and (max-width:640px){#central-contailer{display:none}}#quick-link-icon{color:#363154;font-size:1.25rem;text-align:center}#quick-link-icon::-moz-selection{color:none;background:none}#quick-link-icon::selection{color:none;background:none}#quick-link-icon::-moz-selection{color:none;background:none}#client-logo-container{justify-self:flex-end}#client-logo{display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;width:112px;height:59px}#client-logo img{width:100%;height:100%;-o-object-fit:contain;object-fit:contain;overflow:hidden}#account-navigation-container{display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;width:40px;height:59px}@media only screen and (max-width:640px){#account-navigation-container{display:none}}";
+var AppHeader$1 = /** @class */ (function () {
+    function AppHeader$1(hostRef) {
         registerInstance(this, hostRef);
         this.appTitle = null;
         this.appInitials = null;
@@ -86,13 +97,13 @@ var AppHeader = /** @class */ (function () {
         this.clientLogoSource = null;
         this.tfAppLogoClicked = createEvent(this, "tfAppLogoClicked", 7);
     }
-    AppHeader.prototype.onButtonClickHandler = function (event) {
+    AppHeader$1.prototype.onButtonClickHandler = function (event) {
         if (this.isLogoClickable) {
             event.preventDefault();
             this.tfAppLogoClicked.emit();
         }
     };
-    AppHeader.prototype.componentWillLoad = function () {
+    AppHeader$1.prototype.componentWillLoad = function () {
         this.hasQuickLinksSlot = !!this.hostElement.querySelector('[slot="quicklinks"]');
         this.hasClientLogoSlot = !!this.hostElement.querySelector('[slot="clientlogo"]');
         //
@@ -100,7 +111,7 @@ var AppHeader = /** @class */ (function () {
             console.log("Client logo set in the App Header with parameters has depreciated. It is encouraged that the Client Logo and User Account navigation elements (tf-app-client-logo) are set in the slot slot=\"clientlogo\". See https://tf-web-components-angular.netlify.app/header for more information and examples");
         }
     };
-    AppHeader.prototype.render = function () {
+    AppHeader$1.prototype.render = function () {
         var clientLogo = null;
         if (this.hasClientLogoSlot) {
             clientLogo = h("slot", { name: "clientlogo" });
@@ -114,14 +125,14 @@ var AppHeader = /** @class */ (function () {
         }
         return (h("header", null, appLogo, h("div", { id: "central-contailer" }, h("slot", { name: "quicklinks" })), clientLogo));
     };
-    Object.defineProperty(AppHeader.prototype, "hostElement", {
+    Object.defineProperty(AppHeader$1.prototype, "hostElement", {
         get: function () { return getElement(this); },
         enumerable: true,
         configurable: true
     });
-    return AppHeader;
+    return AppHeader$1;
 }());
-AppHeader.style = appHeaderCss;
+AppHeader$1.style = appHeaderCss;
 var buttonCss = "#button-containing-span{display:-ms-inline-flexbox;display:inline-flex;width:100%;border-radius:.375rem;-webkit-box-shadow:0 1px 2px 0 rgba(0,0,0,.05);box-shadow:0 1px 2px 0 rgba(0,0,0,.05)}.tw-btn{display:-ms-inline-flexbox;display:inline-flex;-ms-flex-pack:center;justify-content:center;width:100%;-ms-flex-align:center;align-items:center;border-width:1px;border-color:transparent;text-align:center;font-family:Roboto Condensed,sans-serif;font-weight:500;text-transform:uppercase;cursor:pointer;-webkit-transition-property:background-color,border-color,color,fill,stroke,opacity,-webkit-box-shadow,-webkit-transform;transition-property:background-color,border-color,color,fill,stroke,opacity,-webkit-box-shadow,-webkit-transform;transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,-webkit-box-shadow,-webkit-transform;-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transition-duration:.15s;transition-duration:.15s}.size-s{padding:.5rem .75rem;line-height:1rem}.size-default,.size-m,.size-s{font-size:.875rem;border-radius:.375rem}.size-default,.size-m{padding:.5rem 1rem;line-height:1.25rem}.size-l{padding:.5rem 1rem}.size-l,.size-xl{font-size:1rem;line-height:1.5rem;border-radius:.375rem}.size-xl{padding:.75rem 1.5rem}.colour-blue,.colour-default{color:#fff;background-color:#224595}.colour-blue:hover,.colour-default:hover{background-color:#4260a4}.colour-blue:active,.colour-default:active{outline:0;border-color:#32f7dc;-webkit-box-shadow:0 0 0 3px rgba(164,202,254,.45);box-shadow:0 0 0 3px rgba(164,202,254,.45);background-color:#1e3d85}.colour-blue:focus,.colour-default:focus{outline:0;border-color:#1e3d85;-webkit-box-shadow:0 0 0 3px rgba(164,202,254,.45);box-shadow:0 0 0 3px rgba(164,202,254,.45)}.colour-aqua{outline:0;color:#122551;background-color:#32f7dc}.colour-aqua:hover{outline:0;background-color:#84faea}.colour-aqua:active{outline:0;border-color:transparent;background-color:#2ad2bb}.colour-aqua:focus{outline:0;border-color:#2ad2bb;-webkit-box-shadow:0 0 0 3px rgba(164,202,254,.45);box-shadow:0 0 0 3px rgba(164,202,254,.45)}.colour-navy{color:#fff;background-color:#363154}.colour-navy:hover{background-color:#534f6d}.colour-navy:active{border-color:#363154;background-color:#25223a}.colour-navy:active,.colour-navy:focus{outline:0;-webkit-box-shadow:0 0 0 3px rgba(164,202,254,.45);box-shadow:0 0 0 3px rgba(164,202,254,.45)}.colour-navy:focus{border-color:#25223a}.colour-grey{color:#122551;background-color:#d0dfe3}.colour-grey:hover{background-color:#d7e3e7}.colour-grey:active{border-color:#d0dfe3;background-color:#b1bdc1}.colour-grey:active,.colour-grey:focus{outline:0;-webkit-box-shadow:0 0 0 3px rgba(164,202,254,.45);box-shadow:0 0 0 3px rgba(164,202,254,.45)}.colour-grey:focus{border-color:#b1bdc1}.colour-white{color:#122551;background-color:#fff}.colour-white:hover{background-color:#ecf2f3}.colour-white:active{border-color:#ecf2f3;background-color:#e7eff1}.colour-white:active,.colour-white:focus{outline:0;-webkit-box-shadow:0 0 0 3px rgba(164,202,254,.45);box-shadow:0 0 0 3px rgba(164,202,254,.45)}.colour-white:focus{border-color:#e7eff1}.disabled,.disabled:hover{color:#b1bdc1;background-color:#e7eff1}.hex-container{display:-ms-flexbox;display:flex;position:relative}.central-icon{position:absolute;z-index:50;pointer-events:none}.hex-btn{padding:0;display:-ms-flexbox;display:flex;position:relative;-ms-flex-pack:center;justify-content:center;width:100%;-ms-flex-align:center;align-items:center;border:1px transparent;text-align:center;font-family:Roboto Condensed,sans-serif;font-weight:500;text-transform:uppercase;cursor:pointer;background-color:transparent}.hex-btn,.hex-fill,.hex-outline{-webkit-transition-property:background-color,border-color,color,fill,stroke,opacity,-webkit-box-shadow,-webkit-transform;transition-property:background-color,border-color,color,fill,stroke,opacity,-webkit-box-shadow,-webkit-transform;transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,-webkit-box-shadow,-webkit-transform;-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transition-duration:.15s;transition-duration:.15s}.hex-fill,.hex-outline{fill:currentColor}.hex-btn:hover{border-style:none;background-color:transparent}.hex-btn:active,.hex-btn:focus{border-style:none;-webkit-box-shadow:none;box-shadow:none;background-color:transparent}.hexagon{display:-ms-flexbox;display:flex;position:absolute;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;z-index:40}.hexagon-svg{fill:rgba(255,255,0,0);width:100%;height:100%}";
 var Button = /** @class */ (function () {
     function Button(hostRef) {
@@ -158,8 +169,8 @@ var Button = /** @class */ (function () {
 }());
 Button.style = buttonCss;
 var clientLogoCss = ".outer-container{max-height:4.625rem;position:relative;height:100%;display:-ms-flexbox;display:flex}.client-logo-container{padding-left:.25rem;padding-right:.25rem;border-bottom-right-radius:.5rem;border-bottom-left-radius:.5rem;-webkit-box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);background-color:#fff;height:100%;z-index:50}.client-logo,.client-logo-container{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}.client-logo{width:112px;height:59px}.client-logo-image{width:100%;height:100%;-o-object-fit:contain;object-fit:contain;overflow:hidden}.account-navigation-container{width:40px;height:59px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center}.dd-panel{position:absolute;width:100%;margin-top:.5rem;border-radius:.375rem;-webkit-box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);z-index:40}.dd-panel.show{top:58px;pointer-events:auto;opacity:1;-webkit-transition-property:all;transition-property:all;-webkit-transition-timing-function:cubic-bezier(0,0,.2,1);transition-timing-function:cubic-bezier(0,0,.2,1);-webkit-transition-duration:.2s;transition-duration:.2s}.dd-panel.hide{top:-30px;pointer-events:none;opacity:0;-webkit-transition-property:all;transition-property:all;-webkit-transition-timing-function:cubic-bezier(.4,0,1,1);transition-timing-function:cubic-bezier(.4,0,1,1);-webkit-transition-duration:.1s;transition-duration:.1s}.dd-panel-container{border-bottom-right-radius:.375rem;border-bottom-left-radius:.375rem;background-color:#d0dfe3;-webkit-box-shadow:0 0 0 1px rgba(0,0,0,.05);box-shadow:0 0 0 1px rgba(0,0,0,.05)}.dd-panel-bg{padding:.75rem .25rem .25rem}.show-dividing-border{display:block;border:solid #363154;border-width:0 0 1px}";
-var AppHeader$1 = /** @class */ (function () {
-    function AppHeader$1(hostRef) {
+var AppHeader$2 = /** @class */ (function () {
+    function AppHeader$2(hostRef) {
         registerInstance(this, hostRef);
         this.showClientLogo = false;
         this.clientLogoSource = null;
@@ -172,12 +183,12 @@ var AppHeader$1 = /** @class */ (function () {
         this.dropdownIdentifier = "user-account-dd-nav";
         this.tfUserAccountDropdownSelected = createEvent(this, "tfUserAccountDropdownSelected", 7);
     }
-    AppHeader$1.prototype.userAccountMenuItemsPropChanged = function (newValue, oldValue) {
+    AppHeader$2.prototype.userAccountMenuItemsPropChanged = function (newValue, oldValue) {
         if (newValue !== oldValue) {
             this.setDropdownItems();
         }
     };
-    AppHeader$1.prototype.handleClick = function (event) {
+    AppHeader$2.prototype.handleClick = function (event) {
         if (this.isOpen) {
             var target = event.composedPath()[0];
             if (!target.matches('.dd-panel') &&
@@ -191,7 +202,7 @@ var AppHeader$1 = /** @class */ (function () {
             }
         }
     };
-    AppHeader$1.prototype.onHandleOptionClicked = function (event) {
+    AppHeader$2.prototype.onHandleOptionClicked = function (event) {
         if (this.isOpen && event.detail.parent === this.dropdownIdentifier) {
             event.preventDefault();
             event.stopPropagation();
@@ -199,15 +210,15 @@ var AppHeader$1 = /** @class */ (function () {
             this.isOpen = false;
         }
     };
-    AppHeader$1.prototype.onToggle = function () {
+    AppHeader$2.prototype.onToggle = function () {
         this.isOpen = !this.isOpen;
     };
-    AppHeader$1.prototype.componentWillLoad = function () {
+    AppHeader$2.prototype.componentWillLoad = function () {
         this.setDropdownItems();
     };
-    AppHeader$1.prototype.setDropdownItems = function () {
+    AppHeader$2.prototype.setDropdownItems = function () {
     };
-    AppHeader$1.prototype.render = function () {
+    AppHeader$2.prototype.render = function () {
         var _this = this;
         var userAccount = null;
         var userAccountDropdown = null;
@@ -221,7 +232,7 @@ var AppHeader$1 = /** @class */ (function () {
         //
         return (h("div", { class: "outer-container" }, h("div", { class: "client-logo-container" }, h("div", { class: "client-logo" }, h("img", { class: "client-logo-image", src: this.clientLogoSource })), userAccount), userAccountDropdown));
     };
-    Object.defineProperty(AppHeader$1, "watchers", {
+    Object.defineProperty(AppHeader$2, "watchers", {
         get: function () {
             return {
                 "userAccountMenuItems": ["userAccountMenuItemsPropChanged"]
@@ -230,9 +241,9 @@ var AppHeader$1 = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    return AppHeader$1;
+    return AppHeader$2;
 }());
-AppHeader$1.style = clientLogoCss;
+AppHeader$2.style = clientLogoCss;
 var dropdownLinkCss = ".dd-link{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;padding:.5rem .75rem;text-decoration:none;cursor:pointer;color:#363154;background-color:#d0dfe3;-webkit-transition-property:background-color,border-color,color,fill,stroke,opacity,-webkit-box-shadow,-webkit-transform;transition-property:background-color,border-color,color,fill,stroke,opacity,-webkit-box-shadow,-webkit-transform;transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,-webkit-box-shadow,-webkit-transform;-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transition-duration:.15s;transition-duration:.15s}.dd-link:focus,.dd-link:hover{background-color:#b1bdc1}.dd-link:focus{outline:0}.dd-link-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:Roboto Condensed,sans-serif;line-height:1.25rem}";
 var DropdownRenderedOption = /** @class */ (function () {
     function DropdownRenderedOption(hostRef) {
@@ -732,7 +743,17 @@ var ProductOutline = /** @class */ (function () {
         if (!content) {
             initialsFallback = (h("div", { class: "initials " + initialsColourClass }, !this.initials ? this.code : this.initials));
         }
-        return (h("div", { class: "product-logo colour-" + this.colour + " size-" + this.size }, h("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 200 200" }, h("linearGradient", { id: "grad", x1: "0%", y1: "0%", x2: "100%", y2: "0%" }, h("stop", { offset: "0%", "stop-color": "#005fab" }), h("stop", { offset: "30%", "stop-color": "#004997" }), h("stop", { offset: "67%", "stop-color": "#00297a" }), h("stop", { offset: "89%", "stop-color": "#00297a" }), h("stop", { offset: "89%", "stop-color": "#00287a" }), h("stop", { offset: "100%", "stop-color": "#161b4b" })), h("path", { fill: this.colour === "gradient" ? "url(#grad)" : "currentColor", stroke: "currentColor", transform: this.asOutline ? '' : "translate(12 5)", d: this.asOutline ? outlineData : fillData }), h("g", { class: initialsColourClass }, content)), initialsFallback));
+        return (h("div", { class: "\n\t\t\t\tproduct-logo \n\t\t\t\t" + (this.size === "xl" || this.size === "extra-large" ? "size-xl"
+                : this.size === "l" || this.size === "large" ? "size-l"
+                    : this.size === "m" || this.size === "medium" ? "size-m"
+                        : this.size === "s" || this.size === "small" ? "size-s"
+                            : this.size === "xs" || this.size === "extra-small" ? "size-s"
+                                : "size-default") + " \n\t\t\t\t" + (this.colour === "white" ? "colour-white"
+                : this.colour === "blue" ? "colour-blue"
+                    : this.colour === "aqua" ? "colour-aqua"
+                        : this.colour === "grey" ? "colour-grey"
+                            : this.colour === "navy" ? "colour-navy"
+                                : "colour-default") + " \n\t\t\t" }, h("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 200 200" }, h("linearGradient", { id: "grad", x1: "0%", y1: "0%", x2: "100%", y2: "0%" }, h("stop", { offset: "0%", "stop-color": "#005fab" }), h("stop", { offset: "30%", "stop-color": "#004997" }), h("stop", { offset: "67%", "stop-color": "#00297a" }), h("stop", { offset: "89%", "stop-color": "#00297a" }), h("stop", { offset: "89%", "stop-color": "#00287a" }), h("stop", { offset: "100%", "stop-color": "#161b4b" })), h("path", { fill: this.colour === "gradient" ? "url(#grad)" : "currentColor", stroke: "currentColor", transform: this.asOutline ? '' : "translate(12 5)", d: this.asOutline ? outlineData : fillData }), h("g", { class: initialsColourClass }, content)), initialsFallback));
     };
     return ProductOutline;
 }());
@@ -789,4 +810,15 @@ var SpanNormal = /** @class */ (function () {
     return SpanNormal;
 }());
 SpanNormal.style = elementsCss$7;
-export { ATag as tf_a, AnchorTag as tf_a_tag, AppHeader as tf_app_base_header, Button as tf_button, AppHeader$1 as tf_client_logo, DropdownRenderedOption as tf_dropdown_rendered_option, FormCard as tf_form_card, FormTitle as tf_form_title, FormTitle$1 as tf_form_wrapper, HOneTag as tf_h1, HTwoTag as tf_h2, Button$1 as tf_icon_button, SVGIcon as tf_icon_exclamation, List as tf_input, LoginForm as tf_login_form, MainContent as tf_main_content, Node as tf_node_flex_fxr, PTag as tf_p, ProductOutline as tf_product_logo, SpanBold as tf_span_bold, SpanItalic as tf_span_italic, SpanItalicBold as tf_span_italic_bold, SpanNormal as tf_span_normal };
+var appFooterCss$1 = "footer{padding:0 1.375rem;margin-top:1.375rem;min-height:4.625rem;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-align:center;align-items:center}.tagline{display:block;font-family:Roboto Condensed,sans-serif;margin-top:.25rem;margin-bottom:.25rem;font-size:.75rem;line-height:1.375;font-weight:400;color:#fff}";
+var AppHeader$3 = /** @class */ (function () {
+    function AppHeader$3(hostRef) {
+        registerInstance(this, hostRef);
+    }
+    AppHeader$3.prototype.render = function () {
+        return (h("span", { class: "tagline" }, "Transform, part of the 3T Energy Group. Together\u00A0we\u00A0are\u00A0Transforming\u00A0Training\u00A0with\u00A0Technology."));
+    };
+    return AppHeader$3;
+}());
+AppHeader$3.style = appFooterCss$1;
+export { ATag as tf_a, AnchorTag as tf_a_tag, AppHeader as tf_app_base_footer, AppHeader$1 as tf_app_base_header, Button as tf_button, AppHeader$2 as tf_client_logo, DropdownRenderedOption as tf_dropdown_rendered_option, FormCard as tf_form_card, FormTitle as tf_form_title, FormTitle$1 as tf_form_wrapper, HOneTag as tf_h1, HTwoTag as tf_h2, Button$1 as tf_icon_button, SVGIcon as tf_icon_exclamation, List as tf_input, LoginForm as tf_login_form, MainContent as tf_main_content, Node as tf_node_flex_fxr, PTag as tf_p, ProductOutline as tf_product_logo, SpanBold as tf_span_bold, SpanItalic as tf_span_italic, SpanItalicBold as tf_span_italic_bold, SpanNormal as tf_span_normal, AppHeader$3 as tf_transform_tagline };

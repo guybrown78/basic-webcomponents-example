@@ -35,6 +35,8 @@ export namespace Components {
     }
     interface TfAlerts {
     }
+    interface TfAppBaseFooter {
+    }
     interface TfAppBaseHeader {
         "appInitials": string;
         "appTitle": string;
@@ -536,6 +538,8 @@ export namespace Components {
         "rowCount": number;
         "value": string;
     }
+    interface TfTransformTagline {
+    }
     interface TfUser {
     }
     interface TfValuePair {
@@ -565,6 +569,12 @@ declare global {
     var HTMLTfAlertsElement: {
         prototype: HTMLTfAlertsElement;
         new (): HTMLTfAlertsElement;
+    };
+    interface HTMLTfAppBaseFooterElement extends Components.TfAppBaseFooter, HTMLStencilElement {
+    }
+    var HTMLTfAppBaseFooterElement: {
+        prototype: HTMLTfAppBaseFooterElement;
+        new (): HTMLTfAppBaseFooterElement;
     };
     interface HTMLTfAppBaseHeaderElement extends Components.TfAppBaseHeader, HTMLStencilElement {
     }
@@ -1292,6 +1302,12 @@ declare global {
         prototype: HTMLTfTextareaElement;
         new (): HTMLTfTextareaElement;
     };
+    interface HTMLTfTransformTaglineElement extends Components.TfTransformTagline, HTMLStencilElement {
+    }
+    var HTMLTfTransformTaglineElement: {
+        prototype: HTMLTfTransformTaglineElement;
+        new (): HTMLTfTransformTaglineElement;
+    };
     interface HTMLTfUserElement extends Components.TfUser, HTMLStencilElement {
     }
     var HTMLTfUserElement: {
@@ -1309,6 +1325,7 @@ declare global {
         "tf-a-tag": HTMLTfATagElement;
         "tf-alert": HTMLTfAlertElement;
         "tf-alerts": HTMLTfAlertsElement;
+        "tf-app-base-footer": HTMLTfAppBaseFooterElement;
         "tf-app-base-header": HTMLTfAppBaseHeaderElement;
         "tf-app-client-logo": HTMLTfAppClientLogoElement;
         "tf-app-header": HTMLTfAppHeaderElement;
@@ -1430,6 +1447,7 @@ declare global {
         "tf-table-scrolling-container": HTMLTfTableScrollingContainerElement;
         "tf-test": HTMLTfTestElement;
         "tf-textarea": HTMLTfTextareaElement;
+        "tf-transform-tagline": HTMLTfTransformTaglineElement;
         "tf-user": HTMLTfUserElement;
         "tf-value-pair": HTMLTfValuePairElement;
     }
@@ -1463,6 +1481,8 @@ declare namespace LocalJSX {
         "showDuration"?: number;
     }
     interface TfAlerts {
+    }
+    interface TfAppBaseFooter {
     }
     interface TfAppBaseHeader {
         "appInitials"?: string;
@@ -1976,6 +1996,8 @@ declare namespace LocalJSX {
         "rowCount"?: number;
         "value"?: string;
     }
+    interface TfTransformTagline {
+    }
     interface TfUser {
     }
     interface TfValuePair {
@@ -1985,6 +2007,7 @@ declare namespace LocalJSX {
         "tf-a-tag": TfATag;
         "tf-alert": TfAlert;
         "tf-alerts": TfAlerts;
+        "tf-app-base-footer": TfAppBaseFooter;
         "tf-app-base-header": TfAppBaseHeader;
         "tf-app-client-logo": TfAppClientLogo;
         "tf-app-header": TfAppHeader;
@@ -2106,6 +2129,7 @@ declare namespace LocalJSX {
         "tf-table-scrolling-container": TfTableScrollingContainer;
         "tf-test": TfTest;
         "tf-textarea": TfTextarea;
+        "tf-transform-tagline": TfTransformTagline;
         "tf-user": TfUser;
         "tf-value-pair": TfValuePair;
     }
@@ -2118,6 +2142,7 @@ declare module "@stencil/core" {
             "tf-a-tag": LocalJSX.TfATag & JSXBase.HTMLAttributes<HTMLTfATagElement>;
             "tf-alert": LocalJSX.TfAlert & JSXBase.HTMLAttributes<HTMLTfAlertElement>;
             "tf-alerts": LocalJSX.TfAlerts & JSXBase.HTMLAttributes<HTMLTfAlertsElement>;
+            "tf-app-base-footer": LocalJSX.TfAppBaseFooter & JSXBase.HTMLAttributes<HTMLTfAppBaseFooterElement>;
             "tf-app-base-header": LocalJSX.TfAppBaseHeader & JSXBase.HTMLAttributes<HTMLTfAppBaseHeaderElement>;
             "tf-app-client-logo": LocalJSX.TfAppClientLogo & JSXBase.HTMLAttributes<HTMLTfAppClientLogoElement>;
             "tf-app-header": LocalJSX.TfAppHeader & JSXBase.HTMLAttributes<HTMLTfAppHeaderElement>;
@@ -2239,6 +2264,7 @@ declare module "@stencil/core" {
             "tf-table-scrolling-container": LocalJSX.TfTableScrollingContainer & JSXBase.HTMLAttributes<HTMLTfTableScrollingContainerElement>;
             "tf-test": LocalJSX.TfTest & JSXBase.HTMLAttributes<HTMLTfTestElement>;
             "tf-textarea": LocalJSX.TfTextarea & JSXBase.HTMLAttributes<HTMLTfTextareaElement>;
+            "tf-transform-tagline": LocalJSX.TfTransformTagline & JSXBase.HTMLAttributes<HTMLTfTransformTaglineElement>;
             "tf-user": LocalJSX.TfUser & JSXBase.HTMLAttributes<HTMLTfUserElement>;
             "tf-value-pair": LocalJSX.TfValuePair & JSXBase.HTMLAttributes<HTMLTfValuePairElement>;
         }

@@ -36,7 +36,21 @@ export class ProductOutline {
         if (!content) {
             initialsFallback = (h("div", { class: `initials ${initialsColourClass}` }, !this.initials ? this.code : this.initials));
         }
-        return (h("div", { class: `product-logo colour-${this.colour} size-${this.size}` },
+        return (h("div", { class: `
+				product-logo 
+				${this.size === "xl" || this.size === "extra-large" ? "size-xl"
+                : this.size === "l" || this.size === "large" ? "size-l"
+                    : this.size === "m" || this.size === "medium" ? "size-m"
+                        : this.size === "s" || this.size === "small" ? "size-s"
+                            : this.size === "xs" || this.size === "extra-small" ? "size-s"
+                                : "size-default"} 
+				${this.colour === "white" ? "colour-white"
+                : this.colour === "blue" ? "colour-blue"
+                    : this.colour === "aqua" ? "colour-aqua"
+                        : this.colour === "grey" ? "colour-grey"
+                            : this.colour === "navy" ? "colour-navy"
+                                : "colour-default"} 
+			` },
             h("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 200 200" },
                 h("linearGradient", { id: "grad", x1: "0%", y1: "0%", x2: "100%", y2: "0%" },
                     h("stop", { offset: "0%", "stop-color": "#005fab" }),
