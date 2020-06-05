@@ -37,59 +37,56 @@
 <body>
 
 	<tf-app-base-header 	
-		
+		is-logo-clickable="false";
 		app-title="Transform" 
 		app-initials="T"
 		show-app-logo="true"
 	></tf-app-base-header>
 
 	<tf-main-content>
-		<div class="mb-6 mt-6">
+		
+		<tf-main-content>
 
-			<div class="bg-white rounded-lg flex flex-col justify-center py-12 px-5">
-				<div class="login-header sm:mx-auto sm:w-full sm:max-w-md">
-				
-					<h2 class="mt-6 text-3xl leading-9 font-extrabold text-gray-900">
-						Login
-					</h2>
-				</div>
-
-				<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-					<div class="bg-white pb-8 sm:rounded-lg">
-
-						<form onsubmit="alert('form submit')">
-
-							<tf-input 
-								name="email" 
-								input-type="email" 
-								input-required 
-								label="Email Address" 
-							></tf-input>
-
-							<tf-input 
-								name="password" 
-								input-type="password" 
-								input-required 
-								label="Password" 
-							></tf-input>
-
-							<div class="mt-6 flex items-center justify-between">
-
-								<div class="text-sm leading-5">
-									<tf-a-tag url="#" title="Forgot your password?">
-										Forgot your password?
-									</tf-a-tag>
-								</div>
-
-								<tf-button colour="aqua" button-type="submit">Login</tf-button>
-
-							</div>
-						</form>
-
-					</div>
-				</div>
-			</div>
-		</div>
+			<tf-form-card>
+	
+				<tf-form-title>
+					<tf-h2>
+						Welcome to Transform, <tf-span-normal>please&nbsp;sign&nbsp;in&nbsp;below.</tf-span-normal>
+					</tf-h2>
+				</tf-form-title>
+	
+				<tf-form-wrapper>
+					<form onsubmit="alert('form submit')">
+	
+						<tf-input 
+							name="email" 
+							input-type="email" 
+							item-required 
+							label="Email Address" 
+						></tf-input>
+	
+						<tf-input 
+							name="password" 
+							input-type="password" 
+							item-required 
+							label="Password" 
+						></tf-input>
+	
+	
+						<tf-node-flex-fxr>
+							<tf-a slot="flex" colour="blue" url="https://www.neutronvr.net/reset" target="_blank" title="Forgot your password?" >
+								Forgot your password?
+							</tf-a>
+							<tf-button slot="fxr" colour="aqua" button-type="submit">
+								Login
+							</tf-button>
+						</tf-node-flex-fxr> 
+	
+					</form>
+					
+	
+				</tf-form-wrapper>
+			</tf-form-card>
 		
 	</tf-main-content>
 
