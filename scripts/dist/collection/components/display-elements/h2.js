@@ -9,6 +9,7 @@ export class HTwoTag {
             h("slot", null)));
     }
     static get is() { return "tf-h2"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
         "$": ["elements.scss"]
     }; }

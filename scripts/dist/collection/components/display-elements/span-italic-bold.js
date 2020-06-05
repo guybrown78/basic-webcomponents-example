@@ -9,6 +9,7 @@ export class SpanItalicBold {
             h("slot", null)));
     }
     static get is() { return "tf-span-italic-bold"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
         "$": ["elements.scss"]
     }; }

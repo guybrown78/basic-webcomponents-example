@@ -9,6 +9,7 @@ export class SpanNormal {
             h("slot", null)));
     }
     static get is() { return "tf-span-normal"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
         "$": ["elements.scss"]
     }; }

@@ -9,6 +9,7 @@ export class ParaTag {
             h("slot", null)));
     }
     static get is() { return "tf-span-description"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
         "$": ["elements.scss"]
     }; }

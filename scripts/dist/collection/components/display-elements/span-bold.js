@@ -9,6 +9,7 @@ export class SpanBold {
             h("slot", null)));
     }
     static get is() { return "tf-span-bold"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
         "$": ["elements.scss"]
     }; }

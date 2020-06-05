@@ -9,6 +9,7 @@ export class HOneTag {
             h("slot", null)));
     }
     static get is() { return "tf-h1"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
         "$": ["elements.scss"]
     }; }
