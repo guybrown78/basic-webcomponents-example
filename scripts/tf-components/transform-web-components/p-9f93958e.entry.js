@@ -1,0 +1,1 @@
+import{r as t,h as s}from"./p-a431e206.js";const n=class{constructor(s){t(this,s)}render(){return s("ul",{id:"node-list"},s("slot",null))}};n.style="ul{margin:0;padding:0;list-style-type:none}";export{n as tf_node_list}
