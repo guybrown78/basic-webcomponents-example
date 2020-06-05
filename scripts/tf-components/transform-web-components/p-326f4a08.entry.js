@@ -1,0 +1,1 @@
+import{r as t,h as r}from"./p-a431e206.js";const s=class{constructor(r){t(this,r),this.textAlign="centre"}render(){return r("slot",null)}};export{s as tf_table_cell}

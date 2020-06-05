@@ -1,0 +1,17 @@
+.div-1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.div-2 {
+  overflow: auto;
+}
+
+.div-3 {
+  vertical-align: middle;
+  display: inline-block;
+  min-width: 100%;
+  overflow: hidden;
+}

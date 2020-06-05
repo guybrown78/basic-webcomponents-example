@@ -1,0 +1,1 @@
+System.register(["./p-ef598e09.system.js"],(function(t){"use strict";var e,n;return{setters:[function(t){e=t.r;n=t.h}],execute:function(){var r=t("tf_table_row",function(){function t(t){e(this,t)}t.prototype.render=function(){return n("slot",null)};return t}())}}}));
