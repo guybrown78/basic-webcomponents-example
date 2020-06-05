@@ -46,7 +46,7 @@ export class AppHeader {
     }
     setDropdownItems() {
         if (this.userAccountMenuItems) {
-            this.dropdownItems = [...eval('(' + this.userAccountMenuItems + ')')];
+            // this.dropdownItems = [ ...eval('(' + this.userAccountMenuItems + ')') ];
         }
     }
     render() {

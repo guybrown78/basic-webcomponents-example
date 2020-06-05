@@ -20,7 +20,7 @@ export class AppHeader {
         this.hasClientLogoSlot = !!this.hostElement.querySelector('[slot="clientlogo"]');
         //
         if (!this.hasClientLogoSlot && (this.showClientLogo || this.userAccountMenuItems || this.clientLogoSource)) {
-            console.log(`Client logo set in the App Header with parameters is depreciating. It is encouraged that the Client Logo and User Account navigation elements (tf-app-client-logo) are set in the slot slot="clientlogo". See https://tf-web-components-angular.netlify.app/header for more information and examples`);
+            console.log(`Client logo set in the App Header with parameters has depreciated. It is encouraged that the Client Logo and User Account navigation elements (tf-app-client-logo) are set in the slot slot="clientlogo". See https://tf-web-components-angular.netlify.app/header for more information and examples`);
         }
     }
     render() {
