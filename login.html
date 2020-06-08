@@ -8,7 +8,7 @@
 	<script type="module" src="scripts/dist/transform-web-components/transform-web-components.esm.js"></script>
 	<script nomodule="" src="scripts/dist/transform-web-components/transform-web-components.js"></script> 
 
-	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script> -->
 
 	
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
@@ -93,20 +93,19 @@
 						asp-controller="Account" 
 						asp-action="Login" 
 						method="post" id="form"
-						onsubmit="submitForm()"
 					>
 						<input type="hidden" asp-for="ReturnUrl" />
 						<tf-input 
+							id="username"
 							name="username" 
 							input-type="email" 
-							required 
 							label="Email" 
 						></tf-input>
 	
 						<tf-input 
+							id="password"
 							name="password" 
 							input-type="password" 
-							required 
 							label="Password" 
 						></tf-input>
 	
@@ -115,7 +114,7 @@
 							<tf-a asp-action="RequestPasswordReset" slot="flex" colour="blue" title="Having trouble signing in?" >
 								Having trouble signing in?
 							</tf-a>
-							<tf-button slot="fxr" colour="aqua" button-type="submit">
+							<tf-button slot="fxr" colour="aqua" button-type="submit" onclick="submitForm()">
 								Login
 							</tf-button>
 						</tf-node-flex-fxr> 
@@ -137,25 +136,29 @@
 	
 
 <script>
+	console.log("TEST")
 	function submitForm() {
-		alert("form submited")
-		// var errors = 0;
+		console.log("here ....")
+	//	alert("form submited")
+		var errors = 0;
+		var errMsgEl = document.getElementById("errorMessage")
+		errMsgEl.remove();
 		// $(".error-message").remove();
 
-		// $(".required").each(function() {
-		// 	if ($(this).val() == '') {
-		// 		$(this).parent().addClass("error");
-		// 		$(this).parent().append("<p class='error-message'>Please complete this field</p>");
-		// 		errors++;
-		// 	}
-		// 	else {
-		// 		$(this).parent().removeClass("error");
-		// 	}
-		// })
+		$(".required").each(function() {
+			if ($(this).val() == '') {
+				$(this).parent().addClass("error");
+				$(this).parent().append("<p class='error-message'>Please complete this field</p>");
+				errors++;
+			}
+			else {
+				$(this).parent().removeClass("error");
+			}
+		})
 
-		// if (errors == 0) {
-		// 	$('#form').submit();
-		// }
+		if (errors == 0) {
+			$('#form').submit();
+		}
 	}
 </script>
 		
