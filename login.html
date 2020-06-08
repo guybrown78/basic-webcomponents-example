@@ -8,7 +8,7 @@
 	<script type="module" src="scripts/dist/transform-web-components/transform-web-components.esm.js"></script>
 	<script nomodule="" src="scripts/dist/transform-web-components/transform-web-components.js"></script> 
 
-	<!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
 
 	
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
 	
 				<tf-form-title>
 					<tf-h2>
-					 15! Welcome to Transform, <tf-span-normal>please&nbsp;sign&nbsp;in&nbsp;below.</tf-span-normal>
+					 16! Welcome to Transform, <tf-span-normal>please&nbsp;sign&nbsp;in&nbsp;below.</tf-span-normal>
 					</tf-h2>
 				</tf-form-title>
 	
@@ -136,15 +136,15 @@
 	
 
 <script>
-	console.log("TEST")
+	var usernameInputEl = document.getElementById("username");
 	function submitForm() {
-		console.log("here ....")
-	//	alert("form submited")
 		var errors = 0;
 		var errMsgEl = document.getElementById("errorMessage")
-		errMsgEl.remove();
-		// $(".error-message").remove();
-
+		if(errMsgEl){
+			errMsgEl.remove();
+		}
+		//
+		console.log(usernameInputEl.value);
 		$(".required").each(function() {
 			if ($(this).val() == '') {
 				$(this).parent().addClass("error");
