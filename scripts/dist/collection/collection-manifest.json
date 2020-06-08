@@ -136,5 +136,6 @@
     "typescriptVersion": "3.8.3"
   },
   "collections": [],
-  "bundles": []
+  "bundles": [],
+  "global": "./global/global.js"
 }

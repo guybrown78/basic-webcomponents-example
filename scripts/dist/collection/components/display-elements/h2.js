@@ -1,11 +1,16 @@
 import { Component, h, Prop } from '@stencil/core';
+import { getColourClassname, getTextAlignClassname } from '../../utils/utils';
 export class HTwoTag {
     constructor() {
         this.textAlign = "left";
         this.colour = "default";
     }
     render() {
-        return (h("h2", { class: `tag-h2 color-${this.colour} text-align-${this.textAlign}` },
+        return (h("h2", { class: `
+				tag-h2 
+				${getColourClassname(this.colour)}
+				${getTextAlignClassname(this.textAlign)}
+			` },
             h("slot", null)));
     }
     static get is() { return "tf-h2"; }

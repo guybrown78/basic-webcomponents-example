@@ -1,11 +1,16 @@
 import { Component, h, Prop } from '@stencil/core';
+import { getColourClassname, getTextAlignClassname } from '../../utils/utils';
 export class SpanItalicBold {
     constructor() {
         this.textAlign = "left";
         this.colour = "default";
     }
     render() {
-        return (h("span", { class: `span-italic-bold color-${this.colour} text-align-${this.textAlign}` },
+        return (h("span", { class: `
+				span-italic-bold 
+				${getColourClassname(this.colour)}
+				${getTextAlignClassname(this.textAlign)}
+			` },
             h("slot", null)));
     }
     static get is() { return "tf-span-italic-bold"; }

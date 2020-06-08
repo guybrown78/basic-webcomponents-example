@@ -64,7 +64,7 @@ export class QuickLinks {
 					dd-ql-panel
 					${this.isOpen ? 'show' : 'hide'}
 				` },
-                h("div", { class: `dd-panel-container dd-panel-grey` },
+                h("div", { class: "dd-panel-container dd-panel-grey" },
                     h("div", { class: "dd-panel-bg" }, options)))));
     }
     static get is() { return "tf-quick-links"; }

@@ -1,4 +1,5 @@
 import { Component, h, Prop, Event } from '@stencil/core';
+import { getColourClassname } from '../../utils/utils';
 export class DropdownRenderedOption {
     constructor() {
         this.colour = 'grey';
@@ -13,7 +14,10 @@ export class DropdownRenderedOption {
         });
     }
     render() {
-        return (h("div", { onClick: this.onDropdownOptionClicked.bind(this), "element-title": !this.elementTitle ? `${this.value}` : this.elementTitle, class: `dd-link dd-link-${this.colour}` },
+        return (h("div", { onClick: this.onDropdownOptionClicked.bind(this), "element-title": !this.elementTitle ? `${this.value}` : this.elementTitle, class: `
+					dd-link 
+					${getColourClassname(this.colour)}
+				` },
             h("span", { class: "dd-link-title" },
                 h("slot", null))));
     }

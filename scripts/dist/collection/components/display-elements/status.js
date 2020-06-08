@@ -1,10 +1,13 @@
 import { Component, h, Prop } from '@stencil/core';
+import { getTrafficLightColourClassname } from '../../utils/utils';
 export class Status {
     constructor() {
         this.trafficLightColour = 'none';
     }
     render() {
-        return (h("span", { class: `colour-${this.trafficLightColour}` },
+        return (h("span", { class: `
+				${getTrafficLightColourClassname(this.trafficLightColour)}
+			` },
             h("slot", null)));
     }
     static get is() { return "tf-status"; }

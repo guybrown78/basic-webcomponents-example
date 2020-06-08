@@ -1,4 +1,5 @@
 import { Component, h, Prop, State, Listen, Element, Event } from '@stencil/core';
+import { getColourClassname } from '../../utils/utils';
 // import uniqid from 'uniqid';
 export class Dropdown {
     constructor() {
@@ -68,7 +69,10 @@ export class Dropdown {
 					${pos} 
 					${this.isOpen ? 'show' : 'hide'}
 				` },
-                h("div", { class: `dd-panel-container dd-panel-${this.colour}` },
+                h("div", { class: `
+						dd-panel-container 
+						${getColourClassname(this.colour)}
+					` },
                     h("div", { class: "dd-panel-bg" }, options)))));
     }
     static get is() { return "tf-dropdown"; }

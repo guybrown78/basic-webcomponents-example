@@ -6,5 +6,6 @@ export declare class Button {
     buttonId: string;
     buttonType: string;
     disabled: boolean;
+    getIconClassname(s: any, p: any): string;
     render(): any;
 }

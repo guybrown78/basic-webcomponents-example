@@ -1,4 +1,5 @@
 import { Component, h, State, Element, Prop } from '@stencil/core';
+import { getGridCountClassname } from '../../utils/utils';
 export class InfoPanel {
     constructor() {
         this.cardCount = 3;
@@ -13,7 +14,10 @@ export class InfoPanel {
     }
     render() {
         return (h("tf-card", { colour: this.colour, padding: this.padding },
-            h("div", { class: `card-grid grid-${this.cardCount}` },
+            h("div", { class: `
+					 card-grid 
+					 ${getGridCountClassname(this.cardCount)}
+					` },
                 h("slot", null))));
     }
     static get is() { return "tf-card-panel"; }

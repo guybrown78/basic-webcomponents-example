@@ -1,4 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
+import { getColourClassname, getTextAlignClassname } from '../../utils/utils';
 export class ATag {
     constructor() {
         this.textAlign = "left";
@@ -12,18 +13,8 @@ export class ATag {
         return (h("a", { class: `
 					${this.underlined ? 'underlined' : 'not-underlined'} 
 					tag-a 
-					colour-${this.colour} 
-					${this.colour === "white" ? "colour-white"
-                : this.colour === "blue" ? "colour-blue"
-                    : this.colour === "aqua" ? "colour-aqua"
-                        : this.colour === "grey" ? "colour-grey"
-                            : this.colour === "navy" ? "colour-navy"
-                                : "colour-default"} 
-					${this.textAlign === "right" ? "text-align-right"
-                : this.colour === "center" ? "text-align-center"
-                    : this.colour === "justify" ? "text-align-justify"
-                        : this.colour === "left" ? "text-align-left"
-                            : "text-align-left"} 
+					${getColourClassname(this.colour)}
+					${getTextAlignClassname(this.textAlign)}
 				`, href: this.url, target: this.target, title: this.tagTitle, tabindex: "0" },
             h("slot", null)));
     }

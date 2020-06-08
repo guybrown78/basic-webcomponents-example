@@ -1,4 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
+import { getPaddingClassname } from '../../utils/utils';
 export class Card {
     constructor() {
         this.colour = 'default';
@@ -7,7 +8,7 @@ export class Card {
     render() {
         return (h("section", { class: `
 				${this.colour} 
-				padding-${this.padding}
+				${getPaddingClassname(this.padding)}
 			` },
             h("slot", null)));
     }

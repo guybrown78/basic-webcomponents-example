@@ -1,11 +1,16 @@
 import { Component, h, Prop } from '@stencil/core';
+import { getColourClassname, getTextAlignClassname } from '../../utils/utils';
 export class SpanNormal {
     constructor() {
         this.textAlign = "left";
         this.colour = "default";
     }
     render() {
-        return (h("span", { class: `span-normal color-${this.colour} text-align-${this.textAlign}` },
+        return (h("span", { class: `
+				span-normal 
+				${getColourClassname(this.colour)}
+				${getTextAlignClassname(this.textAlign)}
+			` },
             h("slot", null)));
     }
     static get is() { return "tf-span-normal"; }

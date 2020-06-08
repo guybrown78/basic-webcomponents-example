@@ -1,4 +1,5 @@
 import { Component, h, Prop, Event } from '@stencil/core';
+import { getColourClassname } from '../../utils/utils';
 export class DropdownLink {
     constructor() {
         this.hrefTarget = "_self";
@@ -11,11 +12,19 @@ export class DropdownLink {
         this.tfCloseDropdown.emit();
     }
     render() {
-        let linkButton = (h("a", { href: this.hrefLink, title: !this.hrefTitle ? `Link to ${this.hrefLink}` : this.hrefTitle, target: this.hrefTarget, class: `dd-link dd-link-${this.colour}` },
+        let t = !this.hrefTitle ? "Link to " + this.hrefLink : this.hrefTitle;
+        let linkButton = (h("a", { href: this.hrefLink, title: t, target: this.hrefTarget, class: `
+					dd-link 
+					${getColourClassname(this.colour)}
+				` },
             h("span", { class: "dd-link-title" },
                 h("slot", null))));
         if (this.routerLink) {
-            linkButton = (h("a", { onClick: this.onDropdownLinkClicked.bind(this), title: !this.hrefTitle ? `Go to ${this.hrefLink}` : this.hrefTitle, class: `dd-link dd-link-${this.colour}` },
+            t = !this.hrefTitle ? "Go to " + this.hrefLink : this.hrefTitle;
+            linkButton = (h("a", { onClick: this.onDropdownLinkClicked.bind(this), title: t, class: `
+						dd-link 
+						${getColourClassname(this.colour)}
+					` },
                 h("span", { class: "dd-link-title" },
                     h("slot", null))));
         }
