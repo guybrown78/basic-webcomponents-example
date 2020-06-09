@@ -61,34 +61,12 @@
 	
 				<tf-form-title>
 					<tf-h2>
-					 16! Welcome to Transform, <tf-span-normal>please&nbsp;sign&nbsp;in&nbsp;below.</tf-span-normal>
+					 Welcome to Transform, <tf-span-normal>please&nbsp;sign&nbsp;in&nbsp;below.</tf-span-normal>
 					</tf-h2>
 				</tf-form-title>
 	
 				<tf-form-wrapper>
-					<!-- similar to class="white-box"
-					@{
-
-						var display = "";
-						if (ViewContext.ViewData.ModelState.ErrorCount == 0)
-						{
-							display = "display:none;";
-						}
-		
-					}
-					-->
-					<!--
-					<div style="padding: 10px;background-color: rgba(185,41,80,0.7);border-bottom: 4px solid #b92950;margin-bottom: 30px; @display">
-						@foreach (var error in ViewContext.ViewData.ModelState)
-						{
-							foreach (var nested in error.Value.Errors)
-							{
-								<tf-p colour="white">* @nested.ErrorMessage</tf-p>
-							}
-						}
-						
-					</div>
-					-->	
+			
 					<form 
 						asp-controller="Account" 
 						asp-action="Login" 
@@ -118,12 +96,29 @@
 								Login
 							</tf-button>
 						</tf-node-flex-fxr> 
-	
+						
 					</form>
 	
 				</tf-form-wrapper>
+
+				<tf-form-errors 
+					id="errorMessage"
+					hide
+					slot="formerrors" 
+					message="Sorry, there was an error when we tried to sign you in"
+				>
+				<!--
+					@foreach (var error in ViewContext.ViewData.ModelState)
+					{
+						foreach (var nested in error.Value.Errors)
+						{
+							<tf-form-error-item>* @nested.ErrorMessage</tf-form-error-item>
+						}
+					}
+				-->
+				</tf-form-errors>
 			</tf-form-card>
-			
+
 		</tf-main-content>
 
 
@@ -137,27 +132,46 @@
 
 <script>
 	var usernameInputEl = document.getElementById("username");
+	var passwordInputEl = document.getElementById("password");
+	var errorMessageEl = document.getElementById("errorMessage");
+
+	function validateEmail(email) {
+		const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+	}
+
 	function submitForm() {
 		var errors = 0;
-		var errMsgEl = document.getElementById("errorMessage")
-		if(errMsgEl){
-			errMsgEl.remove();
+		if(errorMessageEl){
+			var displayErrorMsg = false;//ViewContext.ViewData.ModelState.ErrorCount == 0 ? false : true;
+			errorMessageEl.setAttribute('hide', errorMessageEl);
+		}
+		// email/username
+		if(!usernameInputEl.value || usernameInputEl.value == ''){
+			usernameInputEl.setAttribute('error', true);
+			usernameInputEl.setAttribute('error-message', "Please enter your email address")
+			errors++;
+		}else if(!validateEmail(usernameInputEl.value)){
+			// user has inputed a value but it isn't a valid email address
+			usernameInputEl.setAttribute('error', true);
+			usernameInputEl.setAttribute('error-message', "You have entered a non-valid email address")
+			errors++;	
+		}else{
+			usernameInputEl.removeAttribute('error');
+			usernameInputEl.removeAttribute('error-message');
+		}
+		// password
+		if(!passwordInputEl.value || passwordInputEl.value == ''){
+			passwordInputEl.setAttribute('error', true);
+			passwordInputEl.setAttribute('error-message', "Please enter your password")
+			errors++;
+		}else{
+			passwordInputEl.removeAttribute('error');
+			passwordInputEl.removeAttribute('error-message');
 		}
 		//
-		console.log(usernameInputEl.value);
-		$(".required").each(function() {
-			if ($(this).val() == '') {
-				$(this).parent().addClass("error");
-				$(this).parent().append("<p class='error-message'>Please complete this field</p>");
-				errors++;
-			}
-			else {
-				$(this).parent().removeClass("error");
-			}
-		})
-
 		if (errors == 0) {
-			$('#form').submit();
+			// $('#form').submit();
 		}
 	}
 </script>

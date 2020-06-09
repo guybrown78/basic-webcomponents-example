@@ -1,5 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
-import { getColourClassname, getSVGColourClassname, getSizeClassname } from '../../utils/utils';
+import { getColourClassname, getSVGColourClassname, getSizeClassname, getIconSizeClassname, getIconBtnSizeClassname } from '../../utils/utils';
 export class Button {
     constructor() {
         this.buttonId = null;
@@ -13,8 +13,11 @@ export class Button {
     }
     render() {
         const IconTag = `tf-icon-${this.icon}`;
-        const icon = h(IconTag, { class: `central-icon icon-size-${this.size}` });
-        return (h("div", { class: `hex-container icon-btn-size-${this.size}` },
+        const icon = h(IconTag, { class: `central-icon ${getIconSizeClassname(this.size)}` });
+        return (h("div", { class: `
+				hex-container 
+				${getIconBtnSizeClassname(this.size)}
+			` },
             h("button", { class: `
 						hex-btn 
 						${getSizeClassname(this.size)}

@@ -75,20 +75,6 @@
 				</tf-form-title>
 	
 				<tf-form-wrapper>
-					<!-- similar to class="white-box"
-					@{
-
-						var display = "";
-						if (ViewContext.ViewData.ModelState.ErrorCount == 0)
-						{
-							display = "display:none;";
-						}
-		
-					}
-					-->
-					<div id="errorMessage" style="padding: 10px;background-color: rgba(185,41,80,0.7);border-bottom: 4px solid #b92950;margin-bottom: 30px; @display">
-						<tf-p colour="white">Login error message</tf-p>
-					</div>
 
 					<form 
 						asp-controller="Account" 
@@ -124,8 +110,15 @@
 					</form>
 	
 				</tf-form-wrapper>
+
+				<tf-form-errors slot="formerrors" message="Sorry, there was an error when we tried to sign you in">
+					<!-- output from looped errors from server -->
+					<tf-form-error-item>Server error code:1316</tf-form-error-item>
+					<tf-form-error-item>Your credentials could not be found</tf-form-error-item>
+					<tf-form-error-item>The authentification service is down!</tf-form-error-item>
+				</tf-form-errors>
+				
 			</tf-form-card>
-			
 		</tf-main-content>
 
 
@@ -139,24 +132,7 @@
 
 <script>
 	function submitForm() {
-		alert("form submited")
-		// var errors = 0;
-		// $(".error-message").remove();
-
-		// $(".required").each(function() {
-		// 	if ($(this).val() == '') {
-		// 		$(this).parent().addClass("error");
-		// 		$(this).parent().append("<p class='error-message'>Please complete this field</p>");
-		// 		errors++;
-		// 	}
-		// 	else {
-		// 		$(this).parent().removeClass("error");
-		// 	}
-		// })
-
-		// if (errors == 0) {
-		// 	$('#form').submit();
-		// }
+		//
 	}
 </script>
 		

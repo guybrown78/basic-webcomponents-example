@@ -154,6 +154,12 @@ export namespace Components {
     }
     interface TfFormCard {
     }
+    interface TfFormErrorItem {
+    }
+    interface TfFormErrors {
+        "hide": boolean;
+        "message": string;
+    }
     interface TfFormTitle {
     }
     interface TfFormWrapper {
@@ -220,6 +226,12 @@ export namespace Components {
     interface TfIconExclamation {
     }
     interface TfIconFolder {
+    }
+    interface TfIconHexagon {
+        "colour": string;
+        "icon": any;
+        "outlineColour": any;
+        "size": string;
     }
     interface TfIconHexagonOutline {
     }
@@ -714,6 +726,18 @@ declare global {
         prototype: HTMLTfFormCardElement;
         new (): HTMLTfFormCardElement;
     };
+    interface HTMLTfFormErrorItemElement extends Components.TfFormErrorItem, HTMLStencilElement {
+    }
+    var HTMLTfFormErrorItemElement: {
+        prototype: HTMLTfFormErrorItemElement;
+        new (): HTMLTfFormErrorItemElement;
+    };
+    interface HTMLTfFormErrorsElement extends Components.TfFormErrors, HTMLStencilElement {
+    }
+    var HTMLTfFormErrorsElement: {
+        prototype: HTMLTfFormErrorsElement;
+        new (): HTMLTfFormErrorsElement;
+    };
     interface HTMLTfFormTitleElement extends Components.TfFormTitle, HTMLStencilElement {
     }
     var HTMLTfFormTitleElement: {
@@ -851,6 +875,12 @@ declare global {
     var HTMLTfIconFolderElement: {
         prototype: HTMLTfIconFolderElement;
         new (): HTMLTfIconFolderElement;
+    };
+    interface HTMLTfIconHexagonElement extends Components.TfIconHexagon, HTMLStencilElement {
+    }
+    var HTMLTfIconHexagonElement: {
+        prototype: HTMLTfIconHexagonElement;
+        new (): HTMLTfIconHexagonElement;
     };
     interface HTMLTfIconHexagonOutlineElement extends Components.TfIconHexagonOutline, HTMLStencilElement {
     }
@@ -1349,6 +1379,8 @@ declare global {
         "tf-dropdown-rendered-option": HTMLTfDropdownRenderedOptionElement;
         "tf-flex": HTMLTfFlexElement;
         "tf-form-card": HTMLTfFormCardElement;
+        "tf-form-error-item": HTMLTfFormErrorItemElement;
+        "tf-form-errors": HTMLTfFormErrorsElement;
         "tf-form-title": HTMLTfFormTitleElement;
         "tf-form-wrapper": HTMLTfFormWrapperElement;
         "tf-h1": HTMLTfH1Element;
@@ -1372,6 +1404,7 @@ declare global {
         "tf-icon-envelope": HTMLTfIconEnvelopeElement;
         "tf-icon-exclamation": HTMLTfIconExclamationElement;
         "tf-icon-folder": HTMLTfIconFolderElement;
+        "tf-icon-hexagon": HTMLTfIconHexagonElement;
         "tf-icon-hexagon-outline": HTMLTfIconHexagonOutlineElement;
         "tf-icon-locked": HTMLTfIconLockedElement;
         "tf-icon-minus": HTMLTfIconMinusElement;
@@ -1608,6 +1641,12 @@ declare namespace LocalJSX {
     }
     interface TfFormCard {
     }
+    interface TfFormErrorItem {
+    }
+    interface TfFormErrors {
+        "hide"?: boolean;
+        "message"?: string;
+    }
     interface TfFormTitle {
     }
     interface TfFormWrapper {
@@ -1674,6 +1713,12 @@ declare namespace LocalJSX {
     interface TfIconExclamation {
     }
     interface TfIconFolder {
+    }
+    interface TfIconHexagon {
+        "colour"?: string;
+        "icon"?: any;
+        "outlineColour"?: any;
+        "size"?: string;
     }
     interface TfIconHexagonOutline {
     }
@@ -2031,6 +2076,8 @@ declare namespace LocalJSX {
         "tf-dropdown-rendered-option": TfDropdownRenderedOption;
         "tf-flex": TfFlex;
         "tf-form-card": TfFormCard;
+        "tf-form-error-item": TfFormErrorItem;
+        "tf-form-errors": TfFormErrors;
         "tf-form-title": TfFormTitle;
         "tf-form-wrapper": TfFormWrapper;
         "tf-h1": TfH1;
@@ -2054,6 +2101,7 @@ declare namespace LocalJSX {
         "tf-icon-envelope": TfIconEnvelope;
         "tf-icon-exclamation": TfIconExclamation;
         "tf-icon-folder": TfIconFolder;
+        "tf-icon-hexagon": TfIconHexagon;
         "tf-icon-hexagon-outline": TfIconHexagonOutline;
         "tf-icon-locked": TfIconLocked;
         "tf-icon-minus": TfIconMinus;
@@ -2166,6 +2214,8 @@ declare module "@stencil/core" {
             "tf-dropdown-rendered-option": LocalJSX.TfDropdownRenderedOption & JSXBase.HTMLAttributes<HTMLTfDropdownRenderedOptionElement>;
             "tf-flex": LocalJSX.TfFlex & JSXBase.HTMLAttributes<HTMLTfFlexElement>;
             "tf-form-card": LocalJSX.TfFormCard & JSXBase.HTMLAttributes<HTMLTfFormCardElement>;
+            "tf-form-error-item": LocalJSX.TfFormErrorItem & JSXBase.HTMLAttributes<HTMLTfFormErrorItemElement>;
+            "tf-form-errors": LocalJSX.TfFormErrors & JSXBase.HTMLAttributes<HTMLTfFormErrorsElement>;
             "tf-form-title": LocalJSX.TfFormTitle & JSXBase.HTMLAttributes<HTMLTfFormTitleElement>;
             "tf-form-wrapper": LocalJSX.TfFormWrapper & JSXBase.HTMLAttributes<HTMLTfFormWrapperElement>;
             "tf-h1": LocalJSX.TfH1 & JSXBase.HTMLAttributes<HTMLTfH1Element>;
@@ -2189,6 +2239,7 @@ declare module "@stencil/core" {
             "tf-icon-envelope": LocalJSX.TfIconEnvelope & JSXBase.HTMLAttributes<HTMLTfIconEnvelopeElement>;
             "tf-icon-exclamation": LocalJSX.TfIconExclamation & JSXBase.HTMLAttributes<HTMLTfIconExclamationElement>;
             "tf-icon-folder": LocalJSX.TfIconFolder & JSXBase.HTMLAttributes<HTMLTfIconFolderElement>;
+            "tf-icon-hexagon": LocalJSX.TfIconHexagon & JSXBase.HTMLAttributes<HTMLTfIconHexagonElement>;
             "tf-icon-hexagon-outline": LocalJSX.TfIconHexagonOutline & JSXBase.HTMLAttributes<HTMLTfIconHexagonOutlineElement>;
             "tf-icon-locked": LocalJSX.TfIconLocked & JSXBase.HTMLAttributes<HTMLTfIconLockedElement>;
             "tf-icon-minus": LocalJSX.TfIconMinus & JSXBase.HTMLAttributes<HTMLTfIconMinusElement>;

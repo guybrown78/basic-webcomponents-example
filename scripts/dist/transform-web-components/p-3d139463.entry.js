@@ -1,0 +1,1 @@
+import{r as t,h as n}from"./p-a431e206.js";const s=class{constructor(n){t(this,n),this.contentAlign="left"}render(){return n("div",{class:this.order?"wrap":""},n("slot",null))}};s.style="div{\n\t\t\t@apply flex-shrink-0;\n\t\t}\n\t\t.wrap{\n\t\t\t@apply mt-4;\n\t\t}\n\t\t@screen sm {\n\t\t\tdiv{\n\t\t\t\t@apply mt-0;\n\t\t\t}\n\t\t}";export{s as tf_list_wrapping_cell}

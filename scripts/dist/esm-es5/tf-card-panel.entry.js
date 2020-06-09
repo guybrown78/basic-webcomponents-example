@@ -1,5 +1,5 @@
 import { r as registerInstance, h, g as getElement } from './index-67a2bf30.js';
-import { f as getGridCountClassname } from './utils-1247f068.js';
+import { f as getGridCountClassname } from './utils-3b3848ae.js';
 var cardPanelCss = ".card-grid{margin-top:.25rem;margin-bottom:.25rem;display:grid;grid-template-columns:repeat(1,minmax(0,1fr));grid-gap:1.25rem;gap:1.25rem}";
 var InfoPanel = /** @class */ (function () {
     function InfoPanel(hostRef) {

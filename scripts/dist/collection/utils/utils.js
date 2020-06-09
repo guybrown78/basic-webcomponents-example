@@ -43,8 +43,26 @@ export function getSizeClassname(size) {
         : size === "l" || size === "large" ? "size-l"
             : size === "m" || size === "medium" ? "size-m"
                 : size === "s" || size === "small" ? "size-s"
-                    : size === "xs" || size === "extra-small" ? "size-s"
+                    : size === "xs" || size === "extra-small" ? "size-xs"
                         : "size-default";
+    return className;
+}
+export function getIconSizeClassname(size) {
+    let className = size === "xl" || size === "extra-large" ? "icon-size-xl"
+        : size === "l" || size === "large" ? "icon-size-l"
+            : size === "m" || size === "medium" ? "icon-size-m"
+                : size === "s" || size === "small" ? "icon-size-s"
+                    : size === "xs" || size === "extra-small" ? "icon-size-xs"
+                        : "icon-size-default";
+    return className;
+}
+export function getIconBtnSizeClassname(size) {
+    let className = size === "xl" || size === "extra-large" ? "icon-btn-size-xl"
+        : size === "l" || size === "large" ? "icon-btn-size-l"
+            : size === "m" || size === "medium" ? "icon-btn-size-m"
+                : size === "s" || size === "small" ? "icon-btn-size-s"
+                    : size === "xs" || size === "extra-small" ? "icon-btn-size-xs"
+                        : "icon-btn-size-default";
     return className;
 }
 export function getGridCountClassname(count) {
