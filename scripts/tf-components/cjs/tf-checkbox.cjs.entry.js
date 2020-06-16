@@ -89,7 +89,7 @@ const List = class {
         if (this.showError) {
             bottomText = index.h("p", { class: "bottom-text error" }, this.errorMessage);
         }
-        return (index.h("div", { class: "checkbox-wrapper" }, index.h("div", { class: "input-label-container" }, index.h("div", { class: "checkbox-container" }, index.h("input", { id: this.name, ref: el => this.itemRef = el, type: "checkbox", class: `
+        return (index.h("div", { class: "checkbox-wrapper" }, index.h("div", { class: "input-label-container" }, index.h("div", { class: "checkbox-container" }, index.h("input", { id: this.name, name: this.name, ref: el => this.itemRef = el, type: "checkbox", class: `
 								form-checkbox 
 								form-checkbox-styled 
 								${this.showError ? 'form-checkbox-error' : ''} 

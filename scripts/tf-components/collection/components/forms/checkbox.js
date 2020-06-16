@@ -83,7 +83,7 @@ export class List {
         return (h("div", { class: "checkbox-wrapper" },
             h("div", { class: "input-label-container" },
                 h("div", { class: "checkbox-container" },
-                    h("input", { id: this.name, ref: el => this.itemRef = el, type: "checkbox", class: `
+                    h("input", { id: this.name, name: this.name, ref: el => this.itemRef = el, type: "checkbox", class: `
 								form-checkbox 
 								form-checkbox-styled 
 								${this.showError ? 'form-checkbox-error' : ''} 

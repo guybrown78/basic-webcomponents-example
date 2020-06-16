@@ -445,6 +445,15 @@ export namespace Components {
         "required": boolean;
         "value": string;
     }
+    interface TfSearch {
+        "autoComplete": string;
+        "getItemRef": () => Promise<HTMLInputElement>;
+        "getValue": () => Promise<string>;
+        "inputType": string;
+        "name": string;
+        "placeholder": string;
+        "value": string;
+    }
     interface TfSelect {
         "error": boolean;
         "errorMessage": string;
@@ -1176,6 +1185,12 @@ declare global {
         prototype: HTMLTfRadioGroupElement;
         new (): HTMLTfRadioGroupElement;
     };
+    interface HTMLTfSearchElement extends Components.TfSearch, HTMLStencilElement {
+    }
+    var HTMLTfSearchElement: {
+        prototype: HTMLTfSearchElement;
+        new (): HTMLTfSearchElement;
+    };
     interface HTMLTfSelectElement extends Components.TfSelect, HTMLStencilElement {
     }
     var HTMLTfSelectElement: {
@@ -1454,6 +1469,7 @@ declare global {
         "tf-quick-links": HTMLTfQuickLinksElement;
         "tf-radio": HTMLTfRadioElement;
         "tf-radio-group": HTMLTfRadioGroupElement;
+        "tf-search": HTMLTfSearchElement;
         "tf-select": HTMLTfSelectElement;
         "tf-select-option": HTMLTfSelectOptionElement;
         "tf-side-drawer": HTMLTfSideDrawerElement;
@@ -1935,6 +1951,15 @@ declare namespace LocalJSX {
         "required"?: boolean;
         "value"?: string;
     }
+    interface TfSearch {
+        "autoComplete"?: string;
+        "inputType"?: string;
+        "name"?: string;
+        "onTfOnInput"?: (event: CustomEvent<any>) => void;
+        "onTfOnSearch"?: (event: CustomEvent<any>) => void;
+        "placeholder"?: string;
+        "value"?: string;
+    }
     interface TfSelect {
         "error"?: boolean;
         "errorMessage"?: string;
@@ -2151,6 +2176,7 @@ declare namespace LocalJSX {
         "tf-quick-links": TfQuickLinks;
         "tf-radio": TfRadio;
         "tf-radio-group": TfRadioGroup;
+        "tf-search": TfSearch;
         "tf-select": TfSelect;
         "tf-select-option": TfSelectOption;
         "tf-side-drawer": TfSideDrawer;
@@ -2289,6 +2315,7 @@ declare module "@stencil/core" {
             "tf-quick-links": LocalJSX.TfQuickLinks & JSXBase.HTMLAttributes<HTMLTfQuickLinksElement>;
             "tf-radio": LocalJSX.TfRadio & JSXBase.HTMLAttributes<HTMLTfRadioElement>;
             "tf-radio-group": LocalJSX.TfRadioGroup & JSXBase.HTMLAttributes<HTMLTfRadioGroupElement>;
+            "tf-search": LocalJSX.TfSearch & JSXBase.HTMLAttributes<HTMLTfSearchElement>;
             "tf-select": LocalJSX.TfSelect & JSXBase.HTMLAttributes<HTMLTfSelectElement>;
             "tf-select-option": LocalJSX.TfSelectOption & JSXBase.HTMLAttributes<HTMLTfSelectOptionElement>;
             "tf-side-drawer": LocalJSX.TfSideDrawer & JSXBase.HTMLAttributes<HTMLTfSideDrawerElement>;

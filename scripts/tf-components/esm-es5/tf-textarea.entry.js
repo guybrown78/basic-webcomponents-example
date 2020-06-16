@@ -137,7 +137,7 @@ var List = /** @class */ (function () {
             bottomText = h("p", { class: "error" }, this.errorMessage);
         }
         //
-        return (h("div", { class: "label-input-container" }, h("label", { class: "" + (this.showLabel ? 'form-label' : 'form-label-sr-only'), htmlFor: this.name }, this.label), h("div", { class: "input-container" }, h("textarea", { id: this.name, ref: function (el) { return _this.itemRef = el; }, rows: this.rowCount, class: "\n\t\t\t\t\t\t\tform-textarea \n\t\t\t\t\t\t\tform-textarea-styled \n\t\t\t\t\t\t\t" + (this.showError ? 'form-textarea-error' : '') + " \n\t\t\t\t\t\t", placeholder: this.placeholder, required: this.required, value: this.value, onInput: this.onUserInput.bind(this) })), bottomText));
+        return (h("div", { class: "label-input-container" }, h("label", { class: "" + (this.showLabel ? 'form-label' : 'form-label-sr-only'), htmlFor: this.name }, this.label), h("div", { class: "input-container" }, h("textarea", { id: this.name, name: this.name, ref: function (el) { return _this.itemRef = el; }, rows: this.rowCount, class: "\n\t\t\t\t\t\t\tform-textarea \n\t\t\t\t\t\t\tform-textarea-styled \n\t\t\t\t\t\t\t" + (this.showError ? 'form-textarea-error' : '') + " \n\t\t\t\t\t\t", placeholder: this.placeholder, required: this.required, value: this.value, onInput: this.onUserInput.bind(this) })), bottomText));
     };
     Object.defineProperty(class_1.prototype, "el", {
         get: function () { return getElement(this); },

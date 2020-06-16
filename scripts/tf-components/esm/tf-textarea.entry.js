@@ -80,7 +80,7 @@ const List = class {
             bottomText = h("p", { class: "error" }, this.errorMessage);
         }
         //
-        return (h("div", { class: "label-input-container" }, h("label", { class: `${this.showLabel ? 'form-label' : 'form-label-sr-only'}`, htmlFor: this.name }, this.label), h("div", { class: "input-container" }, h("textarea", { id: this.name, ref: el => this.itemRef = el, rows: this.rowCount, class: `
+        return (h("div", { class: "label-input-container" }, h("label", { class: `${this.showLabel ? 'form-label' : 'form-label-sr-only'}`, htmlFor: this.name }, this.label), h("div", { class: "input-container" }, h("textarea", { id: this.name, name: this.name, ref: el => this.itemRef = el, rows: this.rowCount, class: `
 							form-textarea 
 							form-textarea-styled 
 							${this.showError ? 'form-textarea-error' : ''} 

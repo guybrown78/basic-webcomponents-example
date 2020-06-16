@@ -116,7 +116,7 @@ const List = class {
         return (index.h("div", { class: "label-select-container" }, index.h("label", {
             // for="country" 
             htmlFor: this.name, class: `${this.showLabel ? 'form-label' : 'form-label-sr-only'}`
-        }, this.label), index.h("div", { class: "input-container" }, index.h("select", { id: this.name, ref: el => this.itemRef = el, class: `
+        }, this.label), index.h("div", { class: "input-container" }, index.h("select", { id: this.name, name: this.name, ref: el => this.itemRef = el, class: `
 							form-select 
 							form-select-styled 
 							${this.showError ? 'form-select-error' : ''} 

@@ -84,7 +84,7 @@ const List = class {
             bottomText = index.h("p", { class: "error" }, this.errorMessage);
         }
         //
-        return (index.h("div", { class: "label-input-container" }, index.h("label", { class: `${this.showLabel ? 'form-label' : 'form-label-sr-only'}`, htmlFor: this.name }, this.label), index.h("div", { class: "input-container" }, index.h("textarea", { id: this.name, ref: el => this.itemRef = el, rows: this.rowCount, class: `
+        return (index.h("div", { class: "label-input-container" }, index.h("label", { class: `${this.showLabel ? 'form-label' : 'form-label-sr-only'}`, htmlFor: this.name }, this.label), index.h("div", { class: "input-container" }, index.h("textarea", { id: this.name, name: this.name, ref: el => this.itemRef = el, rows: this.rowCount, class: `
 							form-textarea 
 							form-textarea-styled 
 							${this.showError ? 'form-textarea-error' : ''} 

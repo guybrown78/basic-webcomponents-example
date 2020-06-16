@@ -112,7 +112,7 @@ const List = class {
         return (h("div", { class: "label-select-container" }, h("label", {
             // for="country" 
             htmlFor: this.name, class: `${this.showLabel ? 'form-label' : 'form-label-sr-only'}`
-        }, this.label), h("div", { class: "input-container" }, h("select", { id: this.name, ref: el => this.itemRef = el, class: `
+        }, this.label), h("div", { class: "input-container" }, h("select", { id: this.name, name: this.name, ref: el => this.itemRef = el, class: `
 							form-select 
 							form-select-styled 
 							${this.showError ? 'form-select-error' : ''} 

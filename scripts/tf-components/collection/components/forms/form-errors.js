@@ -17,7 +17,7 @@ export class FormErrors {
                     h("span", { class: "error-message-title" }, this.message)),
                 h("div", { class: "form-errors-container" },
                     h("div", { class: "form-errors-icon" },
-                        h("div", { class: "form-errors-icon-spacer" })),
+                        h("div", { class: "form-errors-icon-spacer" }, "\u00A0")),
                     h("ul", { class: "form-errors-items" },
                         h("slot", null))),
                 h("slot", null)));

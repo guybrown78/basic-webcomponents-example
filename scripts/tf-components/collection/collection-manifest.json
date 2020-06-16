@@ -53,6 +53,7 @@
     "./components/forms/login-form.js",
     "./components/forms/radio-group.js",
     "./components/forms/radio.js",
+    "./components/forms/search.js",
     "./components/forms/select-option.js",
     "./components/forms/select.js",
     "./components/forms/textarea.js",

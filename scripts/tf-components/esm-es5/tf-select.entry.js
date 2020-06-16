@@ -170,7 +170,7 @@ var List = /** @class */ (function () {
         return (h("div", { class: "label-select-container" }, h("label", {
             // for="country" 
             htmlFor: this.name, class: "" + (this.showLabel ? 'form-label' : 'form-label-sr-only')
-        }, this.label), h("div", { class: "input-container" }, h("select", { id: this.name, ref: function (el) { return _this.itemRef = el; }, class: "\n\t\t\t\t\t\t\tform-select \n\t\t\t\t\t\t\tform-select-styled \n\t\t\t\t\t\t\t" + (this.showError ? 'form-select-error' : '') + " \n\t\t\t\t\t\t", required: this.required, onInput: this.onUserInteraction.bind(this) }, options)), bottomText));
+        }, this.label), h("div", { class: "input-container" }, h("select", { id: this.name, name: this.name, ref: function (el) { return _this.itemRef = el; }, class: "\n\t\t\t\t\t\t\tform-select \n\t\t\t\t\t\t\tform-select-styled \n\t\t\t\t\t\t\t" + (this.showError ? 'form-select-error' : '') + " \n\t\t\t\t\t\t", required: this.required, onInput: this.onUserInteraction.bind(this) }, options)), bottomText));
     };
     Object.defineProperty(class_1.prototype, "slotElement", {
         get: function () { return getElement(this); },

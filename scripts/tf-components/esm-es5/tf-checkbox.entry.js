@@ -145,7 +145,7 @@ var List = /** @class */ (function () {
         if (this.showError) {
             bottomText = h("p", { class: "bottom-text error" }, this.errorMessage);
         }
-        return (h("div", { class: "checkbox-wrapper" }, h("div", { class: "input-label-container" }, h("div", { class: "checkbox-container" }, h("input", { id: this.name, ref: function (el) { return _this.itemRef = el; }, type: "checkbox", class: "\n\t\t\t\t\t\t\t\tform-checkbox \n\t\t\t\t\t\t\t\tform-checkbox-styled \n\t\t\t\t\t\t\t\t" + (this.showError ? 'form-checkbox-error' : '') + " \n\t\t\t\t\t\t\t", checked: this.checked, required: this.required, onInput: this.onUserInteraction.bind(this) })), h("label", { class: "" + (this.showLabel ? 'form-label' : 'form-label-sr-only'), htmlFor: this.name }, this.label)), bottomText));
+        return (h("div", { class: "checkbox-wrapper" }, h("div", { class: "input-label-container" }, h("div", { class: "checkbox-container" }, h("input", { id: this.name, name: this.name, ref: function (el) { return _this.itemRef = el; }, type: "checkbox", class: "\n\t\t\t\t\t\t\t\tform-checkbox \n\t\t\t\t\t\t\t\tform-checkbox-styled \n\t\t\t\t\t\t\t\t" + (this.showError ? 'form-checkbox-error' : '') + " \n\t\t\t\t\t\t\t", checked: this.checked, required: this.required, onInput: this.onUserInteraction.bind(this) })), h("label", { class: "" + (this.showLabel ? 'form-label' : 'form-label-sr-only'), htmlFor: this.name }, this.label)), bottomText));
     };
     Object.defineProperty(class_1, "watchers", {
         get: function () {

@@ -99,7 +99,7 @@
 	
 	
 						<tf-node-flex-fxr>
-							<tf-a asp-action="RequestPasswordReset" slot="flex" colour="blue" title="Having trouble signing in?" >
+							<tf-a url="javascript:forgottenPassword();" slot="flex" colour="blue" title="Having trouble signing in?" >
 								Having trouble signing in?
 							</tf-a>
 							<tf-button slot="fxr" colour="aqua" button-type="submit">
@@ -133,6 +133,11 @@
 <script>
 	function submitForm() {
 		//
+	}
+	function forgottenPassword(){
+		// alert("forgotten password")
+		//window.open("./login.html"); new tab
+		window.location.href = "./login.html"; 
 	}
 </script>
 		

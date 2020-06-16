@@ -109,7 +109,7 @@ export class List {
             h("label", { class: `${this.showLabel ? 'form-label' : 'form-label-sr-only'}`, htmlFor: this.name }, this.label),
             h("div", { class: "input-container" },
                 leadingSVG,
-                h("input", { id: this.name, ref: el => this.itemRef = el, class: `
+                h("input", { id: this.name, name: this.name, ref: el => this.itemRef = el, class: `
 							form-input 
 							form-input-styled 
 							${this.showError ? 'form-input-error' : ''} 
