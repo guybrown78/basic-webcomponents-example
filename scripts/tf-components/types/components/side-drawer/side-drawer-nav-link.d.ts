@@ -6,6 +6,7 @@ export declare class SideDrawerNavLink {
     hrefLink: string;
     hrefTitle: string;
     routerLink: string;
+    showBottomBorder: boolean;
     slotElement: HTMLSlotElement;
     hasSubMenu: boolean;
     onLinkClicked(): void;

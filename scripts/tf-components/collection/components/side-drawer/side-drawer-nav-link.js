@@ -2,6 +2,7 @@ import { Component, h, Prop, State, Element, Event } from '@stencil/core';
 export class SideDrawerNavLink {
     constructor() {
         this.isSubOpen = false;
+        this.showBottomBorder = true;
         this.hasSubMenu = false;
     }
     //
@@ -21,13 +22,19 @@ export class SideDrawerNavLink {
     }
     render() {
         let sub = null;
-        let linkButton = (h("a", { href: this.hrefLink, title: !this.hrefTitle ? `Link to ${this.hrefLink}` : this.hrefTitle, class: "tailwind-side-nav" },
+        let linkButton = (h("a", { href: this.hrefLink, title: !this.hrefTitle ? `Link to ${this.hrefLink}` : this.hrefTitle, class: `
+					tailwind-side-nav
+					${this.showBottomBorder ? "tailwind-side-nav-bottom-border" : ""}
+				` },
             h("span", { class: "tailwind-side-nav-title" },
                 h("slot", null))));
         if (this.routerLink) {
             linkButton = (h("a", { 
                 //routerLink={ this.routerLink } 
-                onClick: this.onRouterLinkClicked.bind(this), title: !this.hrefTitle ? `Link to ${this.hrefLink}` : this.hrefTitle, class: "tailwind-side-nav" },
+                onClick: this.onRouterLinkClicked.bind(this), title: !this.hrefTitle ? `Link to ${this.hrefLink}` : this.hrefTitle, class: `
+						tailwind-side-nav
+						${this.showBottomBorder ? "tailwind-side-nav-bottom-border" : ""}
+					` },
                 h("span", { class: "tailwind-side-nav-title" },
                     h("slot", null))));
         }
@@ -35,7 +42,11 @@ export class SideDrawerNavLink {
             sub = (h("div", { class: `sub-nav-content ${this.isSubOpen ? 'show' : 'hide'}` },
                 h("slot", { name: "sub" })));
             const icon = this.isSubOpen ? h("tf-icon-chevron-up", null) : h("tf-icon-chevron-down", null);
-            linkButton = (h("div", { class: `tailwind-side-nav ${this.isSubOpen ? 'opened' : ''}`, onClick: this.onLinkClicked.bind(this) },
+            linkButton = (h("div", { class: `
+						tailwind-side-nav 
+						${this.isSubOpen ? 'opened' : ''}
+						${this.showBottomBorder ? "tailwind-side-nav-bottom-border" : ""}
+					`, onClick: this.onLinkClicked.bind(this) },
                 h("span", { class: "tailwind-side-nav-title" },
                     h("slot", null)),
                 h("span", { class: `tailwind-toggle-icon ${this.isSubOpen ? 'opened' : ''}` }, icon)));
@@ -101,6 +112,24 @@ export class SideDrawerNavLink {
             },
             "attribute": "router-link",
             "reflect": true
+        },
+        "showBottomBorder": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "show-bottom-border",
+            "reflect": true,
+            "defaultValue": "true"
         }
     }; }
     static get states() { return {

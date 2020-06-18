@@ -1,14 +1,20 @@
-import { Component, Prop, h, State, Event, Listen, Element } from '@stencil/core';
+import { Component, Prop, h, State, Event, Listen, Watch, Element } from '@stencil/core';
 export class AppHeader {
     constructor() {
         this.clientLogoSource = null;
         this.showUserAccount = false;
         // @Prop() userAccountMenuItems:any;
         this.isOpen = false;
+        this.logoImageClass = "evaluate";
         this.dropdownItems = [];
         this.parsedOptions = [];
         this.dropdownIdentifier = "user-account-dd-nav";
         this.observer = null;
+    }
+    clientLogoSourcePropChanged(newValue, oldValue) {
+        if (newValue !== oldValue) {
+            this.logoImageClass = "evaluate";
+        }
     }
     handleClick(event) {
         if (this.isOpen) {
@@ -80,6 +86,14 @@ export class AppHeader {
             this.dropdownItems = [...items];
         }
     }
+    onClientLogoLoaded() {
+        if (this.imgRef.width > this.imgRef.height) {
+            this.logoImageClass = "width-dom";
+        }
+        else {
+            this.logoImageClass = "height-dom";
+        }
+    }
     render() {
         let userAccount = null;
         let userAccountDropdown = null;
@@ -94,13 +108,21 @@ export class AppHeader {
                 h("div", { class: `dd-panel-container dd-panel-grey` },
                     h("div", { class: "dd-panel-bg" }, this.dropdownItems.map((item, index) => {
                         return (h("tf-dropdown-rendered-option", { class: index + 1 < this.dropdownItems.length ? "show-dividing-border" : "", value: item.value, "element-title": item.label, colour: "grey", parent: this.dropdownIdentifier }, item.label));
-                    })))));
+                    })),
+                    h("div", { class: "hide-slot" },
+                        h("slot", null)))));
         }
         //
         return (h("div", { class: "outer-container" },
             h("div", { class: "client-logo-container" },
                 h("div", { class: "client-logo" },
-                    h("img", { class: "client-logo-image", src: this.clientLogoSource })),
+                    h("img", { ref: el => this.imgRef = el, class: `
+								client-logo-image
+								${this.logoImageClass === "evaluate" ? "image-eval"
+                            : this.logoImageClass === "width-dom" ? "image-width-dominant"
+                                : this.logoImageClass === "height-dom" ? "image-height-dominant"
+                                    : "image-default"}
+							`, src: this.clientLogoSource, onLoad: this.onClientLogoLoaded.bind(this) })),
                 userAccount),
             userAccountDropdown));
     }
@@ -152,6 +174,7 @@ export class AppHeader {
     }; }
     static get states() { return {
         "isOpen": {},
+        "logoImageClass": {},
         "dropdownItems": {}
     }; }
     static get events() { return [{
@@ -171,6 +194,10 @@ export class AppHeader {
             }
         }]; }
     static get elementRef() { return "slotElement"; }
+    static get watchers() { return [{
+            "propName": "clientLogoSource",
+            "methodName": "clientLogoSourcePropChanged"
+        }]; }
     static get listeners() { return [{
             "name": "click",
             "method": "handleClick",

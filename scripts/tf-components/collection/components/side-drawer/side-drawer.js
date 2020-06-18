@@ -20,19 +20,25 @@ export class SideDrawer {
     onCloseDraw() {
         this.opened = false;
     }
-    onContentChange(content) {
-        this.showContactInfo = content === 'contact';
-    }
+    // onContentChange(content: string){
+    // 	this.showContactInfo = content === 'contact';
+    // }
     render() {
-        let mainContent = h("slot", null);
         return [
-            h("div", { onClick: this.onCloseDraw.bind(this), class: "backdrop" }),
-            h("aside", null,
+            h("div", { onClick: this.onCloseDraw.bind(this), class: `
+					backdrop
+					${this.opened ? "opened" : "closed"}
+				` }),
+            h("aside", { class: `
+					side-drawer
+					${this.opened ? "opened" : "closed"}
+				` },
                 h("header", null,
                     h("div", { class: "header-icon-container" },
                         h("div", { class: "close-icon" },
                             h("tf-icon-button", { size: "large", icon: "close", colour: "white", onClick: this.onCloseDraw.bind(this) })))),
-                h("main", { class: "side-drawer-main" }, mainContent))
+                h("main", { class: "side-drawer-main" },
+                    h("slot", null)))
         ];
     }
     static get is() { return "tf-side-drawer"; }

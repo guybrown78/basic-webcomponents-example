@@ -54,6 +54,7 @@ export class Flex {
             h("slot", null)));
     }
     static get is() { return "tf-flex"; }
+    static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
         "$": ["flex.scss"]
     }; }

@@ -36,7 +36,10 @@ export class AppHeader {
         if (this.showAppLogo) {
             appLogo = (h("div", { class: "app-logo-container" },
                 h("div", { class: "app-logo" },
-                    h("tf-product-logo", { class: `app-logo-icon ${this.isLogoClickable ? "clickable" : ""}`, code: this.appInitials, colour: this.isLogoClickable ? "gradient" : "white", "initials-colour": this.isLogoClickable ? "white" : "blue", size: "large", "as-outline": "false", onClick: this.onButtonClickHandler.bind(this) }),
+                    h("tf-product-logo", { class: `app-logo-icon ${this.isLogoClickable ? "clickable" : ""}`, code: this.appInitials, colour: this.isLogoClickable ? "gradient" : "white", "initials-colour": this.isLogoClickable ? "white" : "blue", size: "large", "as-outline": "false", onClick: (event) => {
+                            this.onButtonClickHandler(event);
+                            // this.onButtonClickHandler.bind(this);
+                        } }),
                     h("h1", { class: "app-logo-title" }, this.appTitle))));
         }
         return (h("header", null,

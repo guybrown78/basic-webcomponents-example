@@ -9,6 +9,7 @@ export class AnchorTag {
             h("slot", null)));
     }
     static get is() { return "tf-a-tag"; }
+    static get encapsulation() { return "shadow"; }
     static get styles() { return "a{\n\t\t\t@apply font-medium text-blue-600 transition ease-in-out duration-150;\n\t\t}\n\t\ta:hover{\n\t\t\t@apply text-blue-500;\n\t\t}\n\t\ta:focus{\n\t\t\t@apply outline-none underline;\n\t\t}"; }
     static get properties() { return {
         "url": {

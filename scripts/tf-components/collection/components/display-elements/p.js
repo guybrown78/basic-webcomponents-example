@@ -1,15 +1,25 @@
 import { Component, h, Prop } from '@stencil/core';
-import { getColourClassname, getTextAlignClassname } from '../../utils/utils';
 export class PTag {
     constructor() {
         this.textAlign = "left";
         this.colour = "default";
     }
     render() {
+        const textAlign = this.textAlign;
+        const colour = this.colour;
         return (h("p", { class: `
 				tag-p 
-				${getColourClassname(this.colour)}
-				${getTextAlignClassname(this.textAlign)}
+				${colour === "white" ? "colour-white"
+                : colour === "blue" ? "colour-blue"
+                    : colour === "aqua" ? "colour-aqua"
+                        : colour === "grey" ? "colour-grey"
+                            : colour === "navy" ? "colour-navy"
+                                : "colour-default"}
+				${textAlign === "right" ? "text-align-right"
+                : textAlign === "center" ? "text-align-center"
+                    : textAlign === "justify" ? "text-align-justify"
+                        : textAlign === "left" ? "text-align-left"
+                            : "text-align-left"}
 			` },
             h("slot", null)));
     }

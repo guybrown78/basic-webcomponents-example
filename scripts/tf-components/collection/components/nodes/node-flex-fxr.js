@@ -8,19 +8,19 @@ export class Node {
         if (this.rWidth) {
             stylesR['width'] = this.rWidth;
         }
-        return (h("div", { id: "base-node" },
-            h("div", { id: "flex" },
+        return (h("div", { id: "base-node", class: "base-node" },
+            h("div", { id: "flex", class: "flex" },
                 h("slot", { name: "flex" })),
-            h("div", { id: "fxr", style: stylesR },
+            h("div", { id: "fxr", class: "fxr", style: stylesR },
                 h("slot", { name: "fxr" }))));
     }
     static get is() { return "tf-node-flex-fxr"; }
     static get encapsulation() { return "shadow"; }
     static get originalStyleUrls() { return {
-        "$": ["node.scss"]
+        "$": ["node-flex.scss"]
     }; }
     static get styleUrls() { return {
-        "$": ["node.css"]
+        "$": ["node-flex.css"]
     }; }
     static get properties() { return {
         "rWidth": {

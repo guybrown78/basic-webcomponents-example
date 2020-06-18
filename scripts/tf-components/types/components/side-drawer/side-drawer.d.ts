@@ -7,6 +7,5 @@ export declare class SideDrawer {
     onHandleCloseSideDrawer(): void;
     stockSymbolChanged(newValue: boolean, oldValue: boolean): void;
     onCloseDraw(): void;
-    onContentChange(content: string): void;
     render(): any[];
 }

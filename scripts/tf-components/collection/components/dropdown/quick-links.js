@@ -65,7 +65,10 @@ export class QuickLinks {
 					${this.isOpen ? 'show' : 'hide'}
 				` },
                 h("div", { class: "dd-panel-container dd-panel-grey" },
-                    h("div", { class: "dd-panel-bg" }, options)))));
+                    h("div", { class: "dd-panel-bg" },
+                        h("div", { class: "hide-slot" },
+                            h("slot", null)),
+                        options)))));
     }
     static get is() { return "tf-quick-links"; }
     static get encapsulation() { return "shadow"; }

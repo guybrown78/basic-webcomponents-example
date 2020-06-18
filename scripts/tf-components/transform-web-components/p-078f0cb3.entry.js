@@ -1,1 +1,0 @@
-import{r as s,h as e}from"./p-a431e206.js";const r=class{constructor(e){s(this,e)}render(){return e("nav",{class:"side-nav"},e("slot",null))}};r.style=".side-nav{-ms-flex:1 1 0%;flex:1 1 0%;padding:.75rem;width:100%;max-height:100%;overflow-y:auto}";export{r as tf_side_drawer_nav}

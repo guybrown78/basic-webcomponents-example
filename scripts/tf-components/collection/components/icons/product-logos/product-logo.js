@@ -59,7 +59,7 @@ export class ProductOutline {
                     h("stop", { offset: "89%", "stop-color": "#00297a" }),
                     h("stop", { offset: "89%", "stop-color": "#00287a" }),
                     h("stop", { offset: "100%", "stop-color": "#161b4b" })),
-                h("path", { fill: this.colour === "gradient" ? "url(#grad)" : "currentColor", stroke: "currentColor", transform: this.asOutline ? '' : "translate(12 5)", d: this.asOutline ? outlineData : fillData }),
+                h("path", { fill: this.colour === "gradient" ? "url(#grad)" : "currentColor", stroke: this.colour === "gradient" ? "url(#grad)" : "currentColor", transform: this.asOutline ? '' : "translate(12 5)", d: this.asOutline ? outlineData : fillData }),
                 h("g", { class: initialsColourClass }, content)),
             initialsFallback));
     }

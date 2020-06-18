@@ -4,7 +4,7 @@ export class CardTitle {
         this.colour = "blue";
     }
     render() {
-        return (h("h2", { class: this.colour },
+        return (h("tf-h2", { colour: this.colour },
             h("slot", null)));
     }
     static get is() { return "tf-card-title"; }

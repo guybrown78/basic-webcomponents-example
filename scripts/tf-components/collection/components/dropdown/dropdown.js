@@ -53,6 +53,8 @@ export class Dropdown {
                 value: opt.getAttribute('value'),
                 title,
             });
+            // opt.innerHTML = "";
+            // opt = null;
         });
     }
     render() {

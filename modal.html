@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Transform</title>
+
+	<script type="module" src="scripts/tf-components/transform-web-components/transform-web-components.esm.js"></script>
+	<script nomodule="" src="scripts/tf-components/transform-web-components/transform-web-components.js"></script> 
+
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+
+	
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+	<style>
+		html {
+			box-sizing: border-box;
+		}
+		*, *:before, *:after {
+			box-sizing: inherit;
+		}
+		body {
+			padding: 0;
+			margin: 0;
+			font-family: 'Roboto Condensed', sans-serif;
+			background-color: #224595;
+			width: 100%;
+			height: 100vh;
+		}
+
+		.page-wrapper{
+			display:flex;
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+			justify-content: space-between;
+		}
+		
+	</style>
+
+</head>
+<body>
+
+	
+
+	<div class="page-wrapper">
+		<tf-app-base-header 	
+			is-logo-clickable="false";
+			app-title="Transform" 
+			app-initials="T"
+			show-app-logo="true"
+		></tf-app-base-header>
+
+
+		<tf-main-content>
+	
+			<tf-form-card>
+	
+				<tf-form-title>
+					<tf-h2>
+					 Welcome to Transform, <tf-span-normal>please&nbsp;sign&nbsp;in&nbsp;below.</tf-span-normal>
+					</tf-h2>
+				</tf-form-title>
+	
+				<tf-form-wrapper>
+			
+					<form 
+						asp-controller="Account" 
+						asp-action="Login" 
+						method="post" id="form"
+					>
+						<input type="hidden" asp-for="ReturnUrl" />
+						<tf-input 
+							id="username"
+							name="username" 
+							input-type="email" 
+							label="Email" 
+						></tf-input>
+	
+						<tf-input 
+							id="password"
+							name="password" 
+							input-type="password" 
+							label="Password" 
+						></tf-input>
+	
+	
+						<tf-node-flex-fxr>
+							<tf-a url="./login-error.html" slot="flex" colour="blue" title="Having trouble signing in?" >
+								Having trouble signing in?
+							</tf-a>
+							<tf-button slot="fxr" colour="aqua" button-type="submit" onclick="submitForm()">
+								Login
+							</tf-button>
+						</tf-node-flex-fxr> 
+						
+					</form>
+	
+				</tf-form-wrapper>
+
+				<tf-form-errors 
+					id="errorMessage"
+					hide
+					slot="formerrors" 
+					message="Sorry, there was an error when we tried to sign you in"
+				>
+				<!--
+					@foreach (var error in ViewContext.ViewData.ModelState)
+					{
+						foreach (var nested in error.Value.Errors)
+						{
+							<tf-form-error-item>* @nested.ErrorMessage</tf-form-error-item>
+						}
+					}
+				-->
+				</tf-form-errors>
+			</tf-form-card>
+
+		</tf-main-content>
+
+
+		<tf-app-base-footer>
+			<tf-transform-tagline slot="tagline"></tf-transform-tagline>
+		</tf-app-base-footer>
+		
+
+	</div>
+	
+	<tf-modal-test id="modal-test" display-title="Modal popup example" cancel-text="Not Today">
+		<tf-p-tag>Modal content lorum ipsum solar dolar</tf-p-tag>
+	</tf-modal-test>
+
+<script>
+	var usernameInputEl = document.getElementById("username");
+	var passwordInputEl = document.getElementById("password");
+	var errorMessageEl = document.getElementById("errorMessage");
+
+	function validateEmail(email) {
+		const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+	}
+
+	function submitForm() {
+		var errors = 0;
+		if(errorMessageEl){
+			var displayErrorMsg = false;//ViewContext.ViewData.ModelState.ErrorCount == 0 ? false : true;
+			errorMessageEl.setAttribute('hide', errorMessageEl);
+		}
+		// email/username
+		if(!usernameInputEl.value || usernameInputEl.value == ''){
+			usernameInputEl.setAttribute('error', true);
+			usernameInputEl.setAttribute('error-message', "Please enter your email address")
+			errors++;
+		}else if(!validateEmail(usernameInputEl.value)){
+			// user has inputed a value but it isn't a valid email address
+			usernameInputEl.setAttribute('error', true);
+			usernameInputEl.setAttribute('error-message', "You have entered a non-valid email address")
+			errors++;	
+		}else{
+			usernameInputEl.removeAttribute('error');
+			usernameInputEl.removeAttribute('error-message');
+		}
+		// password
+		if(!passwordInputEl.value || passwordInputEl.value == ''){
+			passwordInputEl.setAttribute('error', true);
+			passwordInputEl.setAttribute('error-message', "Please enter your password")
+			errors++;
+		}else{
+			passwordInputEl.removeAttribute('error');
+			passwordInputEl.removeAttribute('error-message');
+		}
+		//
+		if (errors == 0) {
+			// $('#form').submit();
+		}
+	}
+</script>
+		
+
+</body>
+</html>

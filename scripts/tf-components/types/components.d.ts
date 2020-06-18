@@ -199,11 +199,13 @@ export namespace Components {
     interface TfIconArrowUp {
     }
     interface TfIconButton {
+        "asButton": boolean;
         "buttonId": string;
         "buttonType": string;
         "colour": string;
         "disabled": boolean;
         "icon": any;
+        "iconColour": string;
         "outlineColour": any;
         "size": string;
     }
@@ -334,6 +336,17 @@ export namespace Components {
     interface TfModal2 {
         "displayTitle": string;
     }
+    interface TfModalTest {
+        "cancelColour": string;
+        "cancelText": string;
+        "confirmColour": string;
+        "confirmText": string;
+        "displayTitle": string;
+        "headerStyle": string;
+        "showCancel": boolean;
+        "showClose": boolean;
+        "showConfirm": boolean;
+    }
     interface TfNode {
     }
     interface TfNodeFlex {
@@ -375,6 +388,15 @@ export namespace Components {
     }
     interface TfNodeText {
         "justify": string;
+    }
+    interface TfOldIconButton {
+        "buttonId": string;
+        "buttonType": string;
+        "colour": string;
+        "disabled": boolean;
+        "icon": any;
+        "outlineColour": any;
+        "size": string;
     }
     interface TfP {
         "colour": string;
@@ -482,6 +504,7 @@ export namespace Components {
         "hrefLink": string;
         "hrefTitle": string;
         "routerLink": string;
+        "showBottomBorder": boolean;
     }
     interface TfSideDrawerSubNav {
     }
@@ -489,6 +512,7 @@ export namespace Components {
         "hrefLink": string;
         "hrefTitle": string;
         "routerLink": string;
+        "showBottomBorder": boolean;
     }
     interface TfSpanBold {
         "colour": string;
@@ -1035,6 +1059,12 @@ declare global {
         prototype: HTMLTfModal2Element;
         new (): HTMLTfModal2Element;
     };
+    interface HTMLTfModalTestElement extends Components.TfModalTest, HTMLStencilElement {
+    }
+    var HTMLTfModalTestElement: {
+        prototype: HTMLTfModalTestElement;
+        new (): HTMLTfModalTestElement;
+    };
     interface HTMLTfNodeElement extends Components.TfNode, HTMLStencilElement {
     }
     var HTMLTfNodeElement: {
@@ -1124,6 +1154,12 @@ declare global {
     var HTMLTfNodeTextElement: {
         prototype: HTMLTfNodeTextElement;
         new (): HTMLTfNodeTextElement;
+    };
+    interface HTMLTfOldIconButtonElement extends Components.TfOldIconButton, HTMLStencilElement {
+    }
+    var HTMLTfOldIconButtonElement: {
+        prototype: HTMLTfOldIconButtonElement;
+        new (): HTMLTfOldIconButtonElement;
     };
     interface HTMLTfPElement extends Components.TfP, HTMLStencilElement {
     }
@@ -1444,6 +1480,7 @@ declare global {
         "tf-menu-bar": HTMLTfMenuBarElement;
         "tf-modal": HTMLTfModalElement;
         "tf-modal-2": HTMLTfModal2Element;
+        "tf-modal-test": HTMLTfModalTestElement;
         "tf-node": HTMLTfNodeElement;
         "tf-node-flex": HTMLTfNodeFlexElement;
         "tf-node-flex-fxr": HTMLTfNodeFlexFxrElement;
@@ -1459,6 +1496,7 @@ declare global {
         "tf-node-select-menu": HTMLTfNodeSelectMenuElement;
         "tf-node-status-bookend": HTMLTfNodeStatusBookendElement;
         "tf-node-text": HTMLTfNodeTextElement;
+        "tf-old-icon-button": HTMLTfOldIconButtonElement;
         "tf-p": HTMLTfPElement;
         "tf-p-tag": HTMLTfPTagElement;
         "tf-page-message": HTMLTfPageMessageElement;
@@ -1702,11 +1740,13 @@ declare namespace LocalJSX {
     interface TfIconArrowUp {
     }
     interface TfIconButton {
+        "asButton"?: boolean;
         "buttonId"?: string;
         "buttonType"?: string;
         "colour"?: string;
         "disabled"?: boolean;
         "icon"?: any;
+        "iconColour"?: string;
         "outlineColour"?: any;
         "size"?: string;
     }
@@ -1838,6 +1878,19 @@ declare namespace LocalJSX {
     interface TfModal2 {
         "displayTitle"?: string;
     }
+    interface TfModalTest {
+        "cancelColour"?: string;
+        "cancelText"?: string;
+        "confirmColour"?: string;
+        "confirmText"?: string;
+        "displayTitle"?: string;
+        "headerStyle"?: string;
+        "onTfModalClosed"?: (event: CustomEvent<any>) => void;
+        "onTfModalConfirmed"?: (event: CustomEvent<any>) => void;
+        "showCancel"?: boolean;
+        "showClose"?: boolean;
+        "showConfirm"?: boolean;
+    }
     interface TfNode {
     }
     interface TfNodeFlex {
@@ -1879,6 +1932,15 @@ declare namespace LocalJSX {
     }
     interface TfNodeText {
         "justify"?: string;
+    }
+    interface TfOldIconButton {
+        "buttonId"?: string;
+        "buttonType"?: string;
+        "colour"?: string;
+        "disabled"?: boolean;
+        "icon"?: any;
+        "outlineColour"?: any;
+        "size"?: string;
     }
     interface TfP {
         "colour"?: string;
@@ -1988,6 +2050,7 @@ declare namespace LocalJSX {
         "onTfCloseSideDrawer"?: (event: CustomEvent<string>) => void;
         "onTfRouterLinkClicked"?: (event: CustomEvent<any>) => void;
         "routerLink"?: string;
+        "showBottomBorder"?: boolean;
     }
     interface TfSideDrawerSubNav {
     }
@@ -1997,6 +2060,7 @@ declare namespace LocalJSX {
         "onTfCloseSideDrawer"?: (event: CustomEvent<string>) => void;
         "onTfRouterLinkClicked"?: (event: CustomEvent<any>) => void;
         "routerLink"?: string;
+        "showBottomBorder"?: boolean;
     }
     interface TfSpanBold {
         "colour"?: string;
@@ -2151,6 +2215,7 @@ declare namespace LocalJSX {
         "tf-menu-bar": TfMenuBar;
         "tf-modal": TfModal;
         "tf-modal-2": TfModal2;
+        "tf-modal-test": TfModalTest;
         "tf-node": TfNode;
         "tf-node-flex": TfNodeFlex;
         "tf-node-flex-fxr": TfNodeFlexFxr;
@@ -2166,6 +2231,7 @@ declare namespace LocalJSX {
         "tf-node-select-menu": TfNodeSelectMenu;
         "tf-node-status-bookend": TfNodeStatusBookend;
         "tf-node-text": TfNodeText;
+        "tf-old-icon-button": TfOldIconButton;
         "tf-p": TfP;
         "tf-p-tag": TfPTag;
         "tf-page-message": TfPageMessage;
@@ -2290,6 +2356,7 @@ declare module "@stencil/core" {
             "tf-menu-bar": LocalJSX.TfMenuBar & JSXBase.HTMLAttributes<HTMLTfMenuBarElement>;
             "tf-modal": LocalJSX.TfModal & JSXBase.HTMLAttributes<HTMLTfModalElement>;
             "tf-modal-2": LocalJSX.TfModal2 & JSXBase.HTMLAttributes<HTMLTfModal2Element>;
+            "tf-modal-test": LocalJSX.TfModalTest & JSXBase.HTMLAttributes<HTMLTfModalTestElement>;
             "tf-node": LocalJSX.TfNode & JSXBase.HTMLAttributes<HTMLTfNodeElement>;
             "tf-node-flex": LocalJSX.TfNodeFlex & JSXBase.HTMLAttributes<HTMLTfNodeFlexElement>;
             "tf-node-flex-fxr": LocalJSX.TfNodeFlexFxr & JSXBase.HTMLAttributes<HTMLTfNodeFlexFxrElement>;
@@ -2305,6 +2372,7 @@ declare module "@stencil/core" {
             "tf-node-select-menu": LocalJSX.TfNodeSelectMenu & JSXBase.HTMLAttributes<HTMLTfNodeSelectMenuElement>;
             "tf-node-status-bookend": LocalJSX.TfNodeStatusBookend & JSXBase.HTMLAttributes<HTMLTfNodeStatusBookendElement>;
             "tf-node-text": LocalJSX.TfNodeText & JSXBase.HTMLAttributes<HTMLTfNodeTextElement>;
+            "tf-old-icon-button": LocalJSX.TfOldIconButton & JSXBase.HTMLAttributes<HTMLTfOldIconButtonElement>;
             "tf-p": LocalJSX.TfP & JSXBase.HTMLAttributes<HTMLTfPElement>;
             "tf-p-tag": LocalJSX.TfPTag & JSXBase.HTMLAttributes<HTMLTfPTagElement>;
             "tf-page-message": LocalJSX.TfPageMessage & JSXBase.HTMLAttributes<HTMLTfPageMessageElement>;

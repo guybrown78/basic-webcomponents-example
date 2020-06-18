@@ -1,5 +1,8 @@
 import { Component, h, Prop, Event } from '@stencil/core';
 export class SideDrawerSubNavLink {
+    constructor() {
+        this.showBottomBorder = true;
+    }
     onRouterLinkClicked() {
         this.tfRouterLinkClicked.emit({
             routerLink: this.routerLink
@@ -7,13 +10,19 @@ export class SideDrawerSubNavLink {
         this.tfCloseSideDrawer.emit();
     }
     render() {
-        let linkButton = (h("a", { href: this.hrefLink, title: !this.hrefTitle ? `Link to ${this.hrefLink}` : this.hrefTitle, class: "tailwind-sub-nav" },
+        let linkButton = (h("a", { href: this.hrefLink, title: !this.hrefTitle ? `Link to ${this.hrefLink}` : this.hrefTitle, class: `
+					tailwind-sub-nav
+					${this.showBottomBorder ? "tailwind-sub-nav-bottom-border" : ""}
+				` },
             h("span", { class: "tailwind-sub-nav-title" },
                 h("slot", null))));
         if (this.routerLink) {
             linkButton = (h("a", { 
                 //routerLink={ this.routerLink } 
-                onClick: this.onRouterLinkClicked.bind(this), title: !this.hrefTitle ? `Link to ${this.hrefLink}` : this.hrefTitle, class: "tailwind-sub-nav" },
+                onClick: this.onRouterLinkClicked.bind(this), title: !this.hrefTitle ? `Link to ${this.hrefLink}` : this.hrefTitle, class: `
+						tailwind-sub-nav
+						${this.showBottomBorder ? "tailwind-sub-nav-bottom-border" : ""}
+					` },
                 h("span", { class: "tailwind-sub-nav-title" },
                     h("slot", null))));
         }
@@ -78,6 +87,24 @@ export class SideDrawerSubNavLink {
             },
             "attribute": "router-link",
             "reflect": true
+        },
+        "showBottomBorder": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "show-bottom-border",
+            "reflect": true,
+            "defaultValue": "true"
         }
     }; }
     static get events() { return [{
