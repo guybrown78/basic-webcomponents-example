@@ -73,19 +73,19 @@
 						method="post" id="form"
 					>
 						<input type="hidden" asp-for="ReturnUrl" />
-						<tf-input 
+						<tf-input-light-dom
 							id="username"
 							name="username" 
 							input-type="email" 
 							label="Email" 
-						></tf-input>
+						></tf-input-light-dom>
 	
-						<tf-input 
+						<tf-input-light-dom 
 							id="password"
 							name="password" 
 							input-type="password" 
 							label="Password" 
-						></tf-input>
+						></tf-input-light-dom>
 	
 	
 						<tf-node-flex-fxr>
@@ -134,7 +134,7 @@
 	var usernameInputEl = document.getElementById("username");
 	var passwordInputEl = document.getElementById("password");
 	var errorMessageEl = document.getElementById("errorMessage");
-
+	var form = document.getElementById("form");
 	function validateEmail(email) {
 		const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return re.test(email);
@@ -172,6 +172,10 @@
 		//
 		if (errors == 0) {
 			// $('#form').submit();
+			var elements = form.elements
+			for (var i = 0, element; element = elements[i++];) {
+				console.log(element.name + " : " + element.value)
+			}
 		}
 	}
 </script>

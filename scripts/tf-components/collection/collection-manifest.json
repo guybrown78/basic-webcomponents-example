@@ -50,6 +50,7 @@
     "./components/forms/form-errors.js",
     "./components/forms/form-title.js",
     "./components/forms/form-wrapper.js",
+    "./components/forms/input-light-dom.js",
     "./components/forms/input.js",
     "./components/forms/login-form.js",
     "./components/forms/radio-group.js",

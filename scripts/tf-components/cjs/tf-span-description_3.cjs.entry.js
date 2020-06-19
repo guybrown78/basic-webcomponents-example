@@ -32,16 +32,27 @@ const ParaTag$1 = class {
         this.colour = "default";
     }
     render() {
+        const textAlign = this.textAlign;
+        const colour = this.colour;
         return (index.h("span", { class: `
 				span-title 
-				${utils.getColourClassname(this.colour)}
-				${utils.getTextAlignClassname(this.textAlign)}
+				${colour === "white" ? "colour-white"
+                : colour === "blue" ? "colour-blue"
+                    : colour === "aqua" ? "colour-aqua"
+                        : colour === "grey" ? "colour-grey"
+                            : colour === "navy" ? "colour-navy"
+                                : "colour-default"}
+				${textAlign === "right" ? "text-align-right"
+                : textAlign === "center" ? "text-align-center"
+                    : textAlign === "justify" ? "text-align-justify"
+                        : textAlign === "left" ? "text-align-left"
+                            : "text-align-left"}
 			` }, index.h("slot", null)));
     }
 };
 ParaTag$1.style = elementsCss$1;
 
-const statusCss = "span{padding-left:.75rem;padding-right:.75rem;display:-ms-inline-flexbox;display:inline-flex;font-size:.75rem;line-height:1.25rem;font-weight:600;border-radius:9999px}.beacon{display:block;height:8px;width:8px;border-radius:4px;margin:0 3px}.beacon.colour-default{background-color:#ecf2f3}";
+const statusCss = "span{padding-left:.75rem;padding-right:.75rem;display:-ms-inline-flexbox;display:inline-flex;font-size:.75rem;line-height:1.25rem;font-weight:600;border-radius:9999px}span.colour-none{background-color:#ecf2f3;color:#9ba7aa}span.colour-red{background-color:#b92950;color:#ecf2f3}span.colour-amber{background-color:#b97129;color:#ecf2f3}span.colour-green{background-color:#40c7a3;color:#ecf2f3}.beacon{display:block;height:8px;width:8px;border-radius:4px;margin:0 3px}.beacon.colour-default,.beacon.colour-none{background-color:#ecf2f3}.beacon.colour-red{background-color:#b92950}.beacon.colour-amber{background-color:#b97129}.beacon.colour-green{background-color:#40c7a3}";
 
 const Status = class {
     constructor(hostRef) {
@@ -49,9 +60,14 @@ const Status = class {
         this.trafficLightColour = 'none';
     }
     render() {
+        const colour = this.trafficLightColour;
         return (index.h("div", { class: `
 				beacon 
-				${utils.getTrafficLightColourClassname(this.trafficLightColour)}
+				${colour === "red" ? "colour-red"
+                : colour === "orange" || colour === "amber" ? "colour-amber"
+                    : colour === "green" ? "colour-green"
+                        : colour === "grey" || colour === "none" ? "colour-none"
+                            : "colour-default"}
 			` }));
     }
 };

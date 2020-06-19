@@ -285,6 +285,23 @@ export namespace Components {
         "required": boolean;
         "value": string;
     }
+    interface TfInputLightDom {
+        "autoComplete": string;
+        "error": boolean;
+        "errorMessage": string;
+        "getItemRef": () => Promise<HTMLInputElement>;
+        "getValue": () => Promise<string>;
+        "hideLabel": boolean;
+        "hint": string;
+        "icon": string;
+        "iconPosition": string;
+        "inputType": string;
+        "label": string;
+        "name": string;
+        "placeholder": string;
+        "required": boolean;
+        "value": string;
+    }
     interface TfLeadingIconLabel {
         "contentAlign": string;
         "order": number;
@@ -337,15 +354,8 @@ export namespace Components {
         "displayTitle": string;
     }
     interface TfModalTest {
-        "cancelColour": string;
         "cancelText": string;
-        "confirmColour": string;
-        "confirmText": string;
         "displayTitle": string;
-        "headerStyle": string;
-        "showCancel": boolean;
-        "showClose": boolean;
-        "showConfirm": boolean;
     }
     interface TfNode {
     }
@@ -993,6 +1003,12 @@ declare global {
         prototype: HTMLTfInputElement;
         new (): HTMLTfInputElement;
     };
+    interface HTMLTfInputLightDomElement extends Components.TfInputLightDom, HTMLStencilElement {
+    }
+    var HTMLTfInputLightDomElement: {
+        prototype: HTMLTfInputLightDomElement;
+        new (): HTMLTfInputLightDomElement;
+    };
     interface HTMLTfLeadingIconLabelElement extends Components.TfLeadingIconLabel, HTMLStencilElement {
     }
     var HTMLTfLeadingIconLabelElement: {
@@ -1469,6 +1485,7 @@ declare global {
         "tf-info-card": HTMLTfInfoCardElement;
         "tf-info-panel": HTMLTfInfoPanelElement;
         "tf-input": HTMLTfInputElement;
+        "tf-input-light-dom": HTMLTfInputLightDomElement;
         "tf-leading-icon-label": HTMLTfLeadingIconLabelElement;
         "tf-list": HTMLTfListElement;
         "tf-list-item": HTMLTfListItemElement;
@@ -1825,6 +1842,22 @@ declare namespace LocalJSX {
         "required"?: boolean;
         "value"?: string;
     }
+    interface TfInputLightDom {
+        "autoComplete"?: string;
+        "error"?: boolean;
+        "errorMessage"?: string;
+        "hideLabel"?: boolean;
+        "hint"?: string;
+        "icon"?: string;
+        "iconPosition"?: string;
+        "inputType"?: string;
+        "label"?: string;
+        "name"?: string;
+        "onTfOnInput"?: (event: CustomEvent<any>) => void;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "value"?: string;
+    }
     interface TfLeadingIconLabel {
         "contentAlign"?: string;
         "order"?: number;
@@ -1879,17 +1912,8 @@ declare namespace LocalJSX {
         "displayTitle"?: string;
     }
     interface TfModalTest {
-        "cancelColour"?: string;
         "cancelText"?: string;
-        "confirmColour"?: string;
-        "confirmText"?: string;
         "displayTitle"?: string;
-        "headerStyle"?: string;
-        "onTfModalClosed"?: (event: CustomEvent<any>) => void;
-        "onTfModalConfirmed"?: (event: CustomEvent<any>) => void;
-        "showCancel"?: boolean;
-        "showClose"?: boolean;
-        "showConfirm"?: boolean;
     }
     interface TfNode {
     }
@@ -2204,6 +2228,7 @@ declare namespace LocalJSX {
         "tf-info-card": TfInfoCard;
         "tf-info-panel": TfInfoPanel;
         "tf-input": TfInput;
+        "tf-input-light-dom": TfInputLightDom;
         "tf-leading-icon-label": TfLeadingIconLabel;
         "tf-list": TfList;
         "tf-list-item": TfListItem;
@@ -2345,6 +2370,7 @@ declare module "@stencil/core" {
             "tf-info-card": LocalJSX.TfInfoCard & JSXBase.HTMLAttributes<HTMLTfInfoCardElement>;
             "tf-info-panel": LocalJSX.TfInfoPanel & JSXBase.HTMLAttributes<HTMLTfInfoPanelElement>;
             "tf-input": LocalJSX.TfInput & JSXBase.HTMLAttributes<HTMLTfInputElement>;
+            "tf-input-light-dom": LocalJSX.TfInputLightDom & JSXBase.HTMLAttributes<HTMLTfInputLightDomElement>;
             "tf-leading-icon-label": LocalJSX.TfLeadingIconLabel & JSXBase.HTMLAttributes<HTMLTfLeadingIconLabelElement>;
             "tf-list": LocalJSX.TfList & JSXBase.HTMLAttributes<HTMLTfListElement>;
             "tf-list-item": LocalJSX.TfListItem & JSXBase.HTMLAttributes<HTMLTfListItemElement>;

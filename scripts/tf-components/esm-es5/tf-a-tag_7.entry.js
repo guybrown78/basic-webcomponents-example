@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { r as registerInstance, h, c as createEvent, g as getElement } from './index-67a2bf30.js';
-import { a as getColourClassname, c as getTextAlignClassname } from './utils-f127cc8f.js';
+import { a as getColourClassname, b as getTextAlignClassname } from './utils-b80ebc56.js';
 var AnchorTag = /** @class */ (function () {
     function AnchorTag(hostRef) {
         registerInstance(this, hostRef);

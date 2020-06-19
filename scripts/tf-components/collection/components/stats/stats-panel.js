@@ -5,11 +5,23 @@ export class StatsPanel {
         this.maxCardCount = 6;
     }
     componentWillLoad() {
+        console.log(this.slotElement.children);
+        //
+        // const cardEls:HTMLCollectionOf<HTMLTfStatDataCardElement> = this.slotElement.getElementsByTagName('tf-stat-data-card');
+        //
         this.cardCount = this.slotElement.children.length > this.maxCardCount ? this.maxCardCount : this.slotElement.children.length;
+        //
+        // Array.from(this.slotElement.children).forEach(n => {
+        // 	// this.cardItems.push({
+        // 	// 	html:n.innerHTML
+        // 	// })
+        // })
     }
     render() {
         return (h("tf-card", { colour: "navy" },
-            h("div", { class: `stats-grid grid-${this.cardCount}` },
+            h("div", { class: `
+					stats-flex-box 
+				` },
                 h("slot", null))));
     }
     static get is() { return "tf-stats-panel"; }
