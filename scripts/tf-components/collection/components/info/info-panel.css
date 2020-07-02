@@ -1,1 +1,0 @@
-.cards{display:flex;flex-direction:column}@media (min-width:640px){.cards{flex-direction:row;flex-wrap:wrap}}

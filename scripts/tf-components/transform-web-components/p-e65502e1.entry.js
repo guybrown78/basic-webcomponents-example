@@ -1,1 +1,0 @@
-import{r as t,h as o}from"./p-a431e206.js";const r=class{constructor(o){t(this,o)}render(){return o("slot",null)}};r.style="::slotted(*){\n\t\t\tcolor: red;\n\t\t}";export{r as tf_select_option}
