@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Transform Web Components Basic Example</title>
 
-	<script src="https://unpkg.com/tf-core-components@0.0.125/dist/transform-web-components/transform-web-components.js"></script>
+	<script src="https://unpkg.com/tf-core-components@0.0.128/dist/transform-web-components/transform-web-components.js"></script>
 	
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 	<style>
@@ -175,53 +175,8 @@
 					</tf-node-row-cell>
 				</tf-node-row-header>
 		
-				<!-- <tf-node-row mobile-wrap="false">
 
-					<tf-node-row-cell c-width="20%">
-						<tf-node-row-cell-h5 slot="mobilecellheader">
-							Course Title
-						</tf-node-row-cell-h5>
-						<span>One</span>
-					</tf-node-row-cell>
-
-					<tf-node-row-cell c-width="45px" layout-align="center">
-						<tf-node-row-cell-h5 slot="mobilecellheader">
-							Course Code
-						</tf-node-row-cell-h5>
-						<span>01</span>
-					</tf-node-row-cell>
-
-					<tf-node-row-cell c-width="10%" layout-align="center">
-						<tf-node-row-cell-h5 slot="mobilecellheader">
-							Data
-						</tf-node-row-cell-h5>
-						<span title="data">data</span>
-					</tf-node-row-cell>
-
-					<tf-node-row-cell c-width="15%">	
-						<span>More Data</span>
-					</tf-node-row-cell>
-
-					<tf-node-row-cell>
-						<span title="Lorum ipsum solar dolar">Lorum ipsum solar dolar</span>
-					</tf-node-row-cell>
-
-					<tf-node-row-cell c-width="115px" layout-align="flex-end">
-						<tf-dropdown 
-								display-title="Actions" 
-								colour="blue" 
-								attr.dropdown-id="{{course.id}}"
-								(tfDropdownSelected)="onCourseActionSelected($event)">
-									<tf-dropdown-option value="1" >Edit Course</tf-dropdown-option>
-									<tf-dropdown-option value="2" >Remove Course</tf-dropdown-option>
-							</tf-dropdown>
-					</tf-node-row-cell>
-
-				</tf-node-row> -->
-
-				
-
-				<tf-node-row mobile-wrap="true">
+				<tf-node-row id="node-row-el" mobile-wrap="true">
 
 					<tf-node-row-cell 
 						c-width="20%" 
@@ -264,14 +219,29 @@
 						c-width="115px" 
 						layout-align="flex-end"
 					>
+
 						<tf-dropdown 
+							id="options-dd"
+							display-title="Actions" 
+							colour="blue" 
+							dropdown-id="options-dd">
+							<!-- <tf-dropdown-options slot="options"> -->
+								<tf-dropdown-option value="1" >Add User</tf-dropdown-option>
+								<tf-dropdown-option value="1.2" >Edit User</tf-dropdown-option>
+								<tf-dropdown-option value="2" >Add Course</tf-dropdown-option>
+								<tf-dropdown-option value="3" >Edit Course</tf-dropdown-option>
+								<tf-dropdown-option value="4" >Remove</tf-dropdown-option>
+							<!-- </tf-dropdown-options> -->
+						</tf-dropdown>
+					
+						<!-- <tf-dropdown 
 							display-title="Actions" 
 							colour="blue" 
 							dropdown-id="courseActionsDD"
 						>
 							<tf-dropdown-option value="1" >Edit Course</tf-dropdown-option>
 							<tf-dropdown-option value="2" >Remove Course</tf-dropdown-option>
-						</tf-dropdown>
+						</tf-dropdown> -->
 
 					</tf-node-row-cell>
 
@@ -281,8 +251,7 @@
 		
 		</tf-card>
 
-		
-		
+
 
 </tf-main-content>
 
@@ -290,26 +259,22 @@
 
 	var qlEL = document.getElementById('quicklinks');
 	function onQL(event){
-		console.log("QuickLink option CLICKED", event.detail.value)
+		console.log("QuickLink option CLICKED", event.detail.value);
 	}
 	qlEL.addEventListener('tfDropdownSelected',  onQL);
 
 	var clEL = document.getElementById('clientlogo');
 	function onCL(event){
-		console.log("ClientLogo option CLICKED", event.detail.value)
+		console.log("ClientLogo option CLICKED", event.detail.value);
 	}
 	clEL.addEventListener('tfUserAccountDropdownSelected',  onCL);
 
-	function onDD(event){
-		console.log("DropDown option CLICKED", event.detail.value)
+	var nodeRowEl = document.getElementById('node-row-el');
+	function onOptionsDropdown(event){
+		console.log("ClientLogo option CLICKED", event.detail.value);
 	}
-	document.querySelector('tf-dropdown').addEventListener('tfDropdownSelected',  onDD);
+	nodeRowEl.addEventListener('tfDropdownSelected',  onOptionsDropdown);
 
-	// const loginFormEl = document.querySelector('tf-login-form');
-	// loginFormEl.addEventListener('tfLoginSuccess', event => {
-	// 	console.log(event.detail);
-	// 	alert(`Login successful, responce: ${JSON.stringify(event.detail)}`)
-	// })
 </script>
 		
 
