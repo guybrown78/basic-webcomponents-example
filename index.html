@@ -35,6 +35,7 @@
 		show-app-logo="true"
 	>
 		<tf-quick-links
+			id="quicklinks"
 			slot="quicklinks" 
 			dropdown-id="quicklinks-dd">
 				<tf-dropdown-option value="1" >Add User</tf-dropdown-option>
@@ -43,6 +44,7 @@
 		</tf-quick-links>
 
 		<tf-app-client-logo 
+			id="clientlogo"
 			slot="clientlogo" 
 			client-logo-source="https://dwglogo.com/wp-content/uploads/2016/01/Petrofac-Logo.png"
 			show-user-account="true"
@@ -263,13 +265,14 @@
 						layout-align="flex-end"
 					>
 						<tf-dropdown 
-								display-title="Actions" 
-								colour="blue" 
-								attr.dropdown-id="{{course.id}}"
-								(tfDropdownSelected)="onCourseActionSelected($event)">
-									<tf-dropdown-option value="1" >Edit Course</tf-dropdown-option>
-									<tf-dropdown-option value="2" >Remove Course</tf-dropdown-option>
-							</tf-dropdown>
+							display-title="Actions" 
+							colour="blue" 
+							dropdown-id="courseActionsDD"
+						>
+							<tf-dropdown-option value="1" >Edit Course</tf-dropdown-option>
+							<tf-dropdown-option value="2" >Remove Course</tf-dropdown-option>
+						</tf-dropdown>
+
 					</tf-node-row-cell>
 
 				</tf-node-row>
@@ -284,11 +287,29 @@
 </tf-main-content>
 
 <script>
-	const loginFormEl = document.querySelector('tf-login-form');
-	loginFormEl.addEventListener('tfLoginSuccess', event => {
-		console.log(event.detail);
-		alert(`Login successful, responce: ${JSON.stringify(event.detail)}`)
-	})
+
+	var qlEL = document.getElementById('quicklinks');
+	function onQL(event){
+		console.log("QuickLink option CLICKED", event.detail.value)
+	}
+	qlEL.addEventListener('tfDropdownSelected',  onQL);
+
+	var clEL = document.getElementById('clientlogo');
+	function onCL(event){
+		console.log("ClientLogo option CLICKED", event.detail.value)
+	}
+	clEL.addEventListener('tfUserAccountDropdownSelected',  onCL);
+
+	function onDD(event){
+		console.log("DropDown option CLICKED", event.detail.value)
+	}
+	document.querySelector('tf-dropdown').addEventListener('tfDropdownSelected',  onDD);
+
+	// const loginFormEl = document.querySelector('tf-login-form');
+	// loginFormEl.addEventListener('tfLoginSuccess', event => {
+	// 	console.log(event.detail);
+	// 	alert(`Login successful, responce: ${JSON.stringify(event.detail)}`)
+	// })
 </script>
 		
 
