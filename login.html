@@ -5,36 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Transform</title>
 
-	<script src="https://unpkg.com/tf-core-components@0.0.125/dist/transform-web-components/transform-web-components.js"></script>
-
 
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
-	<style>
-		html {
-			box-sizing: border-box;
-		}
-		*, *:before, *:after {
-			box-sizing: inherit;
-		}
-		body {
-			padding: 0;
-			margin: 0;
-			font-family: 'Roboto Condensed', sans-serif;
-			background-color: #224595;
-			width: 100%;
-			height: 100vh;
-		}
-
-		.page-wrapper{
-			display:flex;
-			flex-direction: column;
-			width: 100%;
-			height: 100%;
-			justify-content: space-between;
-		}
-		
-	</style>
+	<link rel="stylesheet" href="./login-styles.css">
 
 </head>
 <body>
@@ -42,127 +16,161 @@
 	
 
 	<div class="page-wrapper">
-		<tf-app-base-header 	
-			is-logo-clickable="false";
-			app-title="Transform" 
-			app-initials="T"
-			show-app-logo="true"
-		></tf-app-base-header>
+		<header>
+			<div class="app-logo-container">
+				<div class="app-logo">
+					<div class="transform-logo">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#005fab"></stop><stop offset="30%" stop-color="#004997"></stop><stop offset="67%" stop-color="#00297a"></stop><stop offset="89%" stop-color="#00297a"></stop><stop offset="89%" stop-color="#00287a"></stop><stop offset="100%" stop-color="#161b4b"></stop></linearGradient><path fill="currentColor" stroke="currentColor" transform="translate(12 5)" d="M84.7,188.6 C80.8,188.6 76.8,187.5 73.3,185.3 L11.3,149.6 C4.2,145.8 -0.1,138.1 0.4,130 L0.4,58.7 C-0.1,50.6 4.2,42.9 11.4,39 L73.3,3.4 C80.2,-0.9 89.2,-0.9 96.1,3.4 L158.1,39.1 C164.9,43.3 169,50.7 169,58.6 L169,130.1 C169,138 164.9,145.5 158.2,149.6 L96.1,185.4 C92.6,187.5 88.7,188.6 84.7,188.6 Z"></path><g class="colour-blue"><g fill="currentColor" stroke="currentColor" transform="translate(55, 67)"><path d="M38.3497327,64.8842632 C38.2733272,65.9947036 38.6512172,67.0883792 39.3959848,67.9122876 C40.1407525,68.7361961 41.1878744,69.2189579 42.2951179,69.2488947 C43.4014548,69.232514 44.4546498,68.7692546 45.2171993,67.9635852 C45.9797488,67.1579158 46.3874421,66.0776779 46.3483412,64.9664737 L46.3483412,19.5825263 C46.3854153,18.4732976 45.9765863,17.3957694 45.2140427,16.5929183 C44.4514991,15.7900672 43.3994468,15.329493 42.2951179,15.3150526 C41.1909407,15.342137 40.145584,15.8208726 39.4008328,16.6405307 C38.6560815,17.4601888 38.2764456,18.5497709 38.3497327,19.6572632 L38.3497327,64.8842632 Z"></path><path d="M4.41793239,0.367684211 C3.31292656,0.290902886 2.22460366,0.670651488 1.40472752,1.41908204 C0.584851387,2.16751258 0.104452313,3.2197845 0.0746619497,4.33247368 C0.0919266492,5.44526108 0.554254431,6.50421099 1.35738336,7.27051411 C2.16051228,8.03681724 3.23681227,8.44594453 4.34356132,8.40563158 L80.3768239,8.40563158 C81.4806238,8.44288806 82.5528785,8.03204828 83.3518003,7.26575433 C84.1507221,6.49946037 84.6090422,5.44223392 84.6234119,4.33247368 C84.5955131,3.22183908 84.1177848,2.17075034 83.3007286,1.42233091 C82.4836724,0.673911478 81.3980655,0.29299296 80.2950157,0.367684211 L4.41793239,0.367684211 Z"></path></g></g></svg></div>
+					<h1 class="app-logo-title">Transform</h1>
+				</div>
+			</div>
+		</header>
 
 
-		<tf-main-content>
+		<main>
 	
-			<tf-form-card>
-	
-				<tf-form-title>
-					<tf-h2>
-					 Welcome to Transform, <tf-span-normal>please&nbsp;sign&nbsp;in&nbsp;below.</tf-span-normal>
-					</tf-h2>
-				</tf-form-title>
-	
-				<tf-form-wrapper>
-			
+			<div class="form-hero-card-wrapper">
+				<div class="form-hero-card top">
+					<!-- <ng-content></ng-content> -->
+					<div class="form-title-default">
+						<h2>
+							<strong>Welcome to Transform,</strong> please&nbsp;sign&nbsp;in&nbsp;below.
+						</h2>
+					</div>
+
 					<form 
-						asp-controller="Account" 
-						asp-action="Login" 
-						method="post" id="form"
+						class="login-form"
+						id="form"
+						onsubmit="submitForm(event)"
 					>
-						<input type="hidden" asp-for="ReturnUrl" />
-						<tf-input-light-dom
-							id="username"
-							name="username" 
-							input-type="email" 
-							label="Email" 
-						></tf-input-light-dom>
-	
-						<tf-input-light-dom 
-							id="password"
-							name="password" 
-							input-type="password" 
-							label="Password" 
-						></tf-input-light-dom>
-	
-	
-						<tf-node-flex-fxr>
-							<tf-a url="./login-error.html" slot="flex" colour="blue" title="Having trouble signing in?" >
-								Having trouble signing in?
-							</tf-a>
-							<tf-button slot="fxr" colour="aqua" button-type="submit" onclick="submitForm()">
-								Login
-							</tf-button>
-						</tf-node-flex-fxr> 
+
+						<div class="label-input-container">
+							<label class="form-label" for="username">
+								Email
+							</label>
+							<div class="input-container">
+								<input 
+									id="username" 
+									name="username"
+									class="form-input"
+									required
+									type="email"
+									autoComplete="email"
+								/>
+							</div>
+							<!-- <p class="error">{ this.errorMessage}</p> -->
+						</div>
+
 						
+						<div class="label-input-container">
+							<label class="form-label" for="password">
+								Password
+							</label>
+							<div class="input-container">
+								<input 
+									id="password" 
+									name="password"
+									class="form-input"
+									required
+									type="password"
+									autoComplete="current-password"
+								/>
+							</div>
+							<!-- <p class="error">{ this.errorMessage}</p> -->
+						</div>
+
+
+						<div class="flex-container">
+							<a href="#">Having trouble signing in?</a>
+							<input type="submit" value="Login" />
+						</div>
 					</form>
-	
-				</tf-form-wrapper>
+				</div>
+				<div id="errorMessage" class="form-hero-card errors hide">
+					<div class="flex-container align-top">
+						<div class="error-icon">
+							<svg width="31px" height="35px" viewBox="0 0 31 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<g transform="translate(0.500000, 0.500000)">
+													<path d="M15.0035,34 C14.3097118,34 13.5981341,33.8015126 12.9755036,33.4045376 L1.94604933,26.9627173 C0.682998914,26.2770333 -0.0819471068,24.887621 0.00700010495,23.4260316 L0.00700010495,10.5604352 C-0.0819471068,9.09884567 0.682998914,7.70943343 1.96383877,7.00570517 L12.9755036,0.581929149 C14.2029751,-0.193976383 15.804025,-0.193976383 17.0314965,0.581929149 L28.0609507,7.02374951 C29.2706328,7.78161074 30,9.11689002 30,10.5423909 L30,23.4440759 C30,24.8695768 29.2706328,26.2229004 28.0787402,26.9627173 L17.0314965,33.4225819 C16.408866,33.8015126 15.7150777,34 15.0035,34 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+													<path d="M12.5,25 C12.5,26.3807119 13.6192881,27.5 15,27.5 C16.3807119,27.5 17.5,26.3807119 17.5,25 C17.5,23.6192881 16.3807119,22.5 15,22.5 C13.6192881,22.5 12.5,23.6192881 12.5,25 Z" id="Path" fill="#B92950"></path>
+													<path d="M13.8,20.5 L16.2,20.5 C16.365,20.5 16.5,20.4025 16.5,20.2833333 L16.5,7.71666667 C16.5,7.5975 16.365,7.5 16.2,7.5 L13.8,7.5 C13.635,7.5 13.5,7.5975 13.5,7.71666667 L13.5,20.2833333 C13.5,20.4025 13.635,20.5 13.8,20.5 Z" id="Path" fill="#B92950"></path>
+											</g>
+									</g>
+							</svg>
+						</div>
 
-				<tf-form-errors 
-					id="errorMessage"
-					hide
-					slot="formerrors" 
-					message="Sorry, there was an error when we tried to sign you in"
-				>
-				<!--
-					@foreach (var error in ViewContext.ViewData.ModelState)
-					{
-						foreach (var nested in error.Value.Errors)
-						{
-							<tf-form-error-item>* @nested.ErrorMessage</tf-form-error-item>
-						}
-					}
-				-->
-				</tf-form-errors>
-			</tf-form-card>
+						<div class="right-dominant">
+							<h4>
+								<strong>Sorry, there was an error when we tried to sign you in</strong>
+							</h4>
+							<span>Server error code:1316</span><br />
+							<span>Your credentials could not be found</span><br />
+							<span>The authentification service is down!</span><br />
+						</div>
 
-		</tf-main-content>
+					</div>
+				</div>
+			</div>
 
+		</main>
 
-		<tf-app-base-footer>
-			<tf-transform-tagline slot="tagline"></tf-transform-tagline>
-		</tf-app-base-footer>
+		<footer>
+			<span class="tagline">
+				Transform, part of the 3T Energy Group. Together&nbsp;we&nbsp;are&nbsp;Transforming&nbsp;Training&nbsp;with&nbsp;Technology.
+			</span>
+		</footer>
 		
 
 	</div>
 	
 
 <script>
+	console.log("loaded .....");
 	var usernameInputEl = document.getElementById("username");
 	var passwordInputEl = document.getElementById("password");
 	var errorMessageEl = document.getElementById("errorMessage");
 	var form = document.getElementById("form");
+
 	function validateEmail(email) {
 		const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return re.test(email);
 	}
 
-	function submitForm() {
+	function submitForm(event) {
+		event.preventDefault();
 		var errors = 0;
 		if(errorMessageEl){
-			var displayErrorMsg = false;//ViewContext.ViewData.ModelState.ErrorCount == 0 ? false : true;
-			errorMessageEl.setAttribute('hide', errorMessageEl);
+			errorMessageEl.classList.remove('show');
+			errorMessageEl.classList.add('hide');
 		}
+		// tidy up
+		
+
 		// email/username
 		if(!usernameInputEl.value || usernameInputEl.value == ''){
-			usernameInputEl.setAttribute('error', true);
-			usernameInputEl.setAttribute('error-message', "Please enter your email address")
+			// usernameInputEl.setAttribute('error', true);
+			usernameInputEl.classList.add('error');
+			// usernameInputEl.setAttribute('error-message', "Please enter your email address")
 			errors++;
 		}else if(!validateEmail(usernameInputEl.value)){
 			// user has inputed a value but it isn't a valid email address
-			usernameInputEl.setAttribute('error', true);
-			usernameInputEl.setAttribute('error-message', "You have entered a non-valid email address")
+			usernameInputEl.classList.add('error');
+			// usernameInputEl.setAttribute('error-message', "You have entered a non-valid email address")
 			errors++;	
 		}else{
-			usernameInputEl.removeAttribute('error');
-			usernameInputEl.removeAttribute('error-message');
+			usernameInputEl.classList.remove('error');
+			// usernameInputEl.removeAttribute('error-message');
 		}
 		// password
 		if(!passwordInputEl.value || passwordInputEl.value == ''){
-			passwordInputEl.setAttribute('error', true);
-			passwordInputEl.setAttribute('error-message', "Please enter your password")
+			// passwordInputEl.setAttribute('error', true);
+			// passwordInputEL.classList.add('error');
+			// passwordInputEl.setAttribute('error-message', "Please enter your password")
 			errors++;
 		}else{
-			passwordInputEl.removeAttribute('error');
-			passwordInputEl.removeAttribute('error-message');
+			// passwordInputEL.classList.remove('error');
+			// passwordInputEl.removeAttribute('error-message');
 		}
 		//
 		if (errors == 0) {
@@ -171,6 +179,11 @@
 			for (var i = 0, element; element = elements[i++];) {
 				console.log(element.name + " : " + element.value)
 			}
+			setInterval(function(){
+				console.log("faked")
+				errorMessageEl.classList.remove('hide');
+				errorMessageEl.classList.add('show');
+			}, 2000)
 		}
 	}
 </script>
