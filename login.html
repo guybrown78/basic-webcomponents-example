@@ -173,8 +173,11 @@
 		if (errors == 0) {
 			// $('#form').submit();
 			var elements = form.elements
+
 			for (var i = 0, element; element = elements[i++];) {
 				console.log(element.name + " : " + element.value)
+				// disable form element while loading
+				element.disabled = true;
 			}
 			// loading state of form
 			form.classList.add("loading");
@@ -190,6 +193,10 @@
 				errMsgCnt.innerHTML = msg;
 				errorMessageEl.classList.remove('hide');
 				errorMessageEl.classList.add('show');
+				for (var i = 0, element; element = elements[i++];) {
+				// loading ober, enable them
+				element.disabled = false;
+			}
 			}, 2000)
 		}
 	}

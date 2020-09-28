@@ -232,7 +232,12 @@ input[type=submit]:hover{
 	color: #868398;
 	background-color: #84FAEA;
 }
-
+input[type=submit]:disabled,
+input[type=submit]:hover:disabled{
+	color: #868398;
+	background-color: #D0DFE3;
+	cursor: default;
+}
 
 .form-input {
 	box-sizing: border-box;
