@@ -173,8 +173,14 @@ footer span.tagline {
 	line-height: 1.6;
 	list-style: none;
 	display: block;
+	opacity: 1;
+	transition-property: opacity;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 0.15s;
 }
-
+.login-form.loading{
+	opacity: 0.5;
+}
 .label-input-container{
 	margin-bottom: 1rem;
 }
@@ -254,7 +260,16 @@ input[type=submit]:hover{
 	box-shadow: 0 0 0 3px rgba(34,69,149, 0.15);
 }
 
-
+.form-input.error {
+	border-color: #b92950;
+}
+.error-message{
+	color: #b92950;
+	font-size: 14px;
+	line-height: 14px;
+	display: block;
+	margin: 0.5rem 0;
+}
 .flex-container{
 	display: flex;
 	flex-direction: row;

@@ -53,12 +53,11 @@
 									id="username" 
 									name="username"
 									class="form-input"
-									required
 									type="email"
 									autoComplete="email"
 								/>
 							</div>
-							<!-- <p class="error">{ this.errorMessage}</p> -->
+							<p id="username-error-message"class="error-message"></p>
 						</div>
 
 						
@@ -71,12 +70,11 @@
 									id="password" 
 									name="password"
 									class="form-input"
-									required
 									type="password"
 									autoComplete="current-password"
 								/>
 							</div>
-							<!-- <p class="error">{ this.errorMessage}</p> -->
+							<p id="password-error-message"class="error-message"></p>
 						</div>
 
 
@@ -104,9 +102,7 @@
 							<h4>
 								<strong>Sorry, there was an error when we tried to sign you in</strong>
 							</h4>
-							<span>Server error code:1316</span><br />
-							<span>Your credentials could not be found</span><br />
-							<span>The authentification service is down!</span><br />
+							<div id="errorMessageContainer"></div>
 						</div>
 
 					</div>
@@ -126,9 +122,10 @@
 	
 
 <script>
-	console.log("loaded .....");
 	var usernameInputEl = document.getElementById("username");
+	var usernameErrorMessageEl = document.getElementById("username-error-message");
 	var passwordInputEl = document.getElementById("password");
+	var passwordErrorMessageEl = document.getElementById("password-error-message");
 	var errorMessageEl = document.getElementById("errorMessage");
 	var form = document.getElementById("form");
 
@@ -149,28 +146,28 @@
 
 		// email/username
 		if(!usernameInputEl.value || usernameInputEl.value == ''){
-			// usernameInputEl.setAttribute('error', true);
 			usernameInputEl.classList.add('error');
-			// usernameInputEl.setAttribute('error-message', "Please enter your email address")
+			usernameErrorMessageEl.innerHTML = "Please enter your email address";
 			errors++;
 		}else if(!validateEmail(usernameInputEl.value)){
 			// user has inputed a value but it isn't a valid email address
 			usernameInputEl.classList.add('error');
-			// usernameInputEl.setAttribute('error-message', "You have entered a non-valid email address")
+			usernameErrorMessageEl.innerHTML = "You have entered a non-valid email address";
 			errors++;	
 		}else{
 			usernameInputEl.classList.remove('error');
-			// usernameInputEl.removeAttribute('error-message');
+			usernameErrorMessageEl.innerHTML = "";
 		}
 		// password
+		console.log(passwordInputEl	)
+		passwordInputEl.classList.add('error');
 		if(!passwordInputEl.value || passwordInputEl.value == ''){
-			// passwordInputEl.setAttribute('error', true);
-			// passwordInputEL.classList.add('error');
-			// passwordInputEl.setAttribute('error-message', "Please enter your password")
+			passwordInputEl.classList.add('error');
+			passwordErrorMessageEl.innerHTML = "Please enter your password"
 			errors++;
 		}else{
-			// passwordInputEL.classList.remove('error');
-			// passwordInputEl.removeAttribute('error-message');
+			passwordInputEl.classList.remove('error');
+			passwordErrorMessageEl.innerHTML = "";
 		}
 		//
 		if (errors == 0) {
@@ -179,8 +176,18 @@
 			for (var i = 0, element; element = elements[i++];) {
 				console.log(element.name + " : " + element.value)
 			}
+			// loading state of form
+			form.classList.add("loading");
+			// this is a fake error set to display after 2 seconds of submitting a valid login form
 			setInterval(function(){
-				console.log("faked")
+				form.classList.remove("loading");
+				var errMsgCnt = document.getElementById("errorMessageContainer");
+				// can set multiple errors here from server/loop
+				var msg = "";
+				msg += "<span>Server error code:1316</span><br />";
+				msg += "<span>Your credentials could not be found</span><br />";
+				msg += "<span>The authentification service is down!</span><br />";
+				errMsgCnt.innerHTML = msg;
 				errorMessageEl.classList.remove('hide');
 				errorMessageEl.classList.add('show');
 			}, 2000)
